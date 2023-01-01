@@ -1,4 +1,5 @@
-let luaus = {
+export default
+{
 	"Aloha_Kai": {
 		"package_id": "aloha_kai",
 		"title": "Aloha Kai Luau",
@@ -12,15 +13,15 @@ let luaus = {
 		"packages": {
 			"gold": {
 				"package_id": "gold-package",
-				"title": "gold package",
+				"title": "gold package"
 			},
 			"silver": {
 				"package_id": "silver-package",
-				"title": "silver package",
+				"title": "silver package"
 			},
 			"bronze": {
 				"package_id": "bronze-package",
-				"title": "bronze package",
+				"title": "bronze package"
 			}
 		}
 	},
@@ -46,6 +47,6 @@ let luaus = {
 		"display_price_now": "<span>from</span>$120.00",
 		"has_packages": false,
 		"packages": null,
-    "duration": "2 <span>hours</span>";
+    "duration": "2 <span>hours</span>"
 	}
 }
