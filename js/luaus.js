@@ -1,3 +1,4 @@
-
-const luaus = require './json/luaus.json';
-console.log(luaus);
+var json = [];
+fetch('./json/luaus.json')
+.then(response => json = response.json());
+console.log(json)
