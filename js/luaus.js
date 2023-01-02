@@ -1,4 +1,4 @@
-var json = [];
+var luaus = [];
 fetch('./json/luaus.json')
-.then(response => json = response.json());
-console.log(json)
+.then(response => luaus = luaus.push(response.json()) );
+console.log(luaus);
