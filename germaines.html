@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>hawaii luaus - best luaus in hawaii</title>
+    <meta content="user-scalable = yes, width=320, initial-scale=1" name="viewport">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Oswald:wght@300;500&display=swap"
+        rel="stylesheet">
+    <script type="json/luaus.js">
+	</script>
+</head>
+
+<body>
+    <main>
+        <header id="masthead">
+            <ul>
+                <li id="logo">
+                    <a href="/"><img alt="" src="images/hawaiiluauslogo.png">
+                        <h1>hawaii luaus</h1>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+18664829775" id="phone-desktop"><span>(toll free)</span><span
+                            class="material-symbols-outlined">call</span> 1-866-482-9775</a>
+                    <nav id="main-nav">
+                        <a href="luaus.html">luaus</a> <a href="compare.html">compare</a> <a href="#">contact</a> <a
+                            href="#"><span class="material-symbols-outlined">shopping_cart</span>cart</a>
+                    </nav>
+                    <a href="tel:+18664829775" id="phone-mobile"><span class="material-symbols-outlined">call</span></a>
+                    <button class="menu-btn" id="menu-btn" name="button"
+                        onclick="idToggle('menu-btn','active');idToggle('main-nav','active')" type="button">
+                        <hr class="menu-btn-hr-1">
+                        <hr class="menu-btn-hr-2">
+                        <hr class="menu-btn-hr-3">
+                    </button>
+                </li>
+            </ul>
+        </header>
+        <div id="return-top">
+            <span class="material-symbols-outlined">arrow_circle_up</span>
+            <p>top</p>
+        </div>
+        <script type="text/javascript">
+            const returnTo = document.getElementById("return-top");
+            returnTo.onclick = function () {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+        <div id="luau-body">
+            <div id="luau-hero">
+                <h1></h1>
+                <h3></h3>
+            </div>
+            <div id="luau-details">
+                <div id="playerWrapper">
+                    <div id="player"></div>
+                </div>
+                <div id="luau-article">
+                    <h2 id="luau-sub-desc"></h2>
+                    <p id="luau-reading"></p>
+                </div>
+            </div>
+            <div id="luau-pricing">
+                <section>
+                    <a id="luau-precheckout" href="">reservations</a>
+                </section>
+                <ul>
+                    <li id="luau-before-price"></li>
+                    <li id="luau-after-price"></li>
+                </ul>
+            </div>
+            <div id="luau-gallery"></div>
+            <div id="luau-info">
+                <ul id="luau-highlights">
+                    <li id="highlights-header">luau highlights</li>
+                </ul>
+                <div id="seating-chart"></div>
+            </div>
+            <ul id="luau-ratings"></ul>
+        </div>
+
+        <script>
+            luaus = [{
+				"id" : "aloha_kai",
+				"img" : "images/alohakai2.jpg",
+				"title" : "aloha kai luau",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+				"subtitle" : "sealife park",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+				"rating" : "9.6",
+				"duration" : "2",
+				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",			
+                "luau_url" : "/aloha_kailuau.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"],
+                "luau_ratings" : [],
+                "luau_gallery" : []
+			},
+			{
+				"id" : "mele_luau",
+				"img" : "images/meleluau.jpg",
+				"title" : "mele luau",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+				"subtitle" : "coral crater",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+				"rating" : "8.3",
+				"duration" : "2",
+				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "luau_url" : "/mele_luau.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"],
+                "luau_ratings" : [],
+                "luau_gallery" : [],
+                "menu" : ""
+			},
+			{
+                "id": "germaines_luau",
+                "img": "images/germainesluau.jpg",
+                "title": "germaine's luau",
+                "island": "oahu",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+                "subtitle": " ",
+                "detail_subtitle": "oahu's original backyard barbecue",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+                "rating": "5.8",
+                "duration": "2",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "luau_url": "/germaines.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"],
+                "luau_ratings" : ["<span>prices</span>$138",
+                                  "<span>fire dancers</span>8.8/10",
+                                  "<span>additional arts/crafts</span>N/A",
+                                  "<span>audience participation</span>5/10",
+                                  "<span>imu demonstration</span>9/10",
+                                  "<span>overall food</span>5/10",
+                                  "<span>location & view of luau</span>6/10",
+                                  "<span>friendly staff</span>7/10",
+                                  "<span>easy to get to</span>4/10",
+                                  "<span>value</span>6/10",
+                                  "<span>mc</span>8/10",],
+                "luau_gallery" : [
+                  "images/galleries/germaines_luau/4ieAV64j.jpg",
+                  "images/galleries/germaines_luau/germaines_show.jpg",
+                  "images/galleries/germaines_luau/hula_ladies.jpg",
+                  "images/galleries/germaines_luau/luau_show_performers.jpg",
+                  "images/galleries/germaines_luau/luau_show.jpg",
+                  "images/galleries/germaines_luau/MRwb2LQv.jpg"
+                ]
+			},
+			{
+				"id" : "rockahula",
+				"img" : "images/rockahula.jpg",
+				"title" : "waikiki luau",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+				"subtitle" : "rock 'a' hula cabana",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+				"rating" : "5.2",
+				"duration" : "2",
+				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",			
+                "luau_url" : "/rockahula.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"],
+                 "luau_ratings" : [],
+                "luau_gallery" : []
+			},
+			{
+				"id" : "toaluau",
+				"img" : "images/toaluau.jpg",
+				"title" : "toa luau",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+				"subtitle" : "waimea valley",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+				"rating" : "8.7",
+				"duration" : "2",
+				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",			
+                "luau_url" : "/toaluau.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"],
+                "luau_ratings" : [],
+                "luau_gallery" : []
+			},
+			{
+				"id" : "pcc",
+				"img" : "images/pcc.jpg",
+				"title" : "polynesian cultural<br/>center",
+                "video_url": "oE7ZA6NZZOs",
+                "hero": "images/heros/GermainesLuau.jpg",
+                "seating_chart": "images/seating/germaines-seating.png",
+				"subtitle" : " ",
+				"from_price" : "from<br/><b>100.00</b>",
+				"before_price" : "was<br/><b>100.00</b>",
+				"rating" : "7.2",
+				"duration" : "2",
+				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "detail_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                "luau_url" : "/pcc.html",
+                "luau_highlights" : ["Backyard-style Hawaiian luau on Oahu’s southwest shore",
+                                     "All-you-care-to-eat dinner",
+                                     "Polynesian show with music and dances from Hawaii and Polynesian islands",
+                                     "Exciting Samoan fire-knife dance and slap dance)"
+                                    ],
+                "luau_ratings" : [],
+                "luau_gallery" : []                    
+			}]
+        </script>
+        <script>
+            let currentUrl = window.location.pathname;
+            let luauIndex;
+
+            showLuauHero = () => {
+                const hero = document.getElementById("luau-hero");
+
+                hero.style.backgroundImage = "url('" + luaus[luauIndex].hero + "')";
+                hero.firstElementChild.innerHTML = luaus[luauIndex].title; 
+                hero.firstElementChild.nextElementSibling.innerHTML = luaus[luauIndex].island;
+            };
+
+            showLuauArticle = () => {
+                const subDesc = document.getElementById("luau-sub-desc");
+                const reading = document.getElementById("luau-reading");
+
+                subDesc.innerHTML = luaus[luauIndex].detail_subtitle;
+                reading.innerHTML = luaus[luauIndex].detail_description;
+            };
+
+            showLuauVideo = () => { 
+                const $player = document.getElementById("player");
+
+                $player.innerHTML = '<iframe src="https://www.youtube.com/embed/' + luaus[luauIndex].video_url + '?rel=0"></iframe>';
+            };
+
+            showLuauPricing = () => {
+                const beforePrice = document.getElementById("luau-before-price");
+                const afterPrice = document.getElementById("luau-after-price");
+                beforePrice.innerHTML = luaus[luauIndex].before_price;
+                afterPrice.innerHTML = luaus[luauIndex].from_price;
+            };
+
+            showRatings = () => {
+                luauRating = document.getElementById("luau-ratings");
+
+                luaus[luauIndex].luau_ratings.forEach((element,index,array) => {
+                    let ratingLi = document.createElement("li");
+                    ratingLi.setAttribute("id","rating-" + [index+1] +"");
+                    ratingLi.innerHTML += array[index];
+                    ratingLi.innerHTML += `<div style="background-image:url('images/compare-icons-blue.png')"></div>`;
+                    luauRating.appendChild(ratingLi);
+                });
+            };
+
+            showSeating = () => {
+                const seatingChart = document.getElementById("seating-chart");
+                
+                let chartImg = document.createElement("img");
+                chartImg.src = luaus[luauIndex].seating_chart;
+                seatingChart.appendChild(chartImg);
+            }; 
+
+            showHighlights = () => {
+                const highlights = document.getElementById("luau-highlights");
+                
+                luaus[luauIndex].luau_highlights.forEach((element,index,array) => {
+                    let highlightLi = document.createElement("li");
+                    highlightLi.innerHTML += array[index];
+                    highlights.appendChild(highlightLi);
+                });
+            }
+
+            showGallery = () =>{
+               const luauGallery = document.getElementById("luau-gallery");
+
+               luaus[luauIndex].luau_gallery.forEach((element,index,array) => {
+                let $img = document.createElement("a");
+                $img.setAttribute("class","gallery-image");
+                $img.href = array[index];
+                $img.style.backgroundImage = "url('" + array[index] + "')";
+                luauGallery.appendChild($img);
+               });
+
+            }
+
+            showLuau = () => {
+                showLuauHero();
+                showLuauArticle();
+                showLuauVideo();
+                showGallery();
+                showLuauPricing();
+                showSeating();
+                showHighlights();
+                showRatings();
+            };
+
+            switch (currentUrl){
+                case "/alohakai.html": 
+                    luauIndex = 0;
+                    showLuau();
+                    break;
+                case "/mele.html": 
+                    luauIndex = 1;
+                    showLuau();
+                    break;
+                case "/germaines.html": 
+                    luauIndex = 2;
+                    showLuau();
+                    break;
+                case "/rockahula.html": 
+                    luauIndex = 3;
+                    showLuau();
+                    break;
+                case "/toaluau.html": 
+                    luauIndex = 4;
+                    showLuau();
+                    break;
+                case "/pcc.html": 
+                    luauIndex = 5;
+                    showLuau();
+                    break;
+                default :
+                    alert("no luau defined");
+            };
+        </script>
+        <div id="why-book-with">
+            <h3>why book <br /> with us?</h3>
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="booking-details">
+                            <img src="images/phoneimg.png" alt="">
+                            <header>same day <br /> Reservations</header>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="booking-details">
+                            <img src="images/moneyback.png" alt="">
+                            <header>no penalty <br /> for cancellations</header>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="booking-details">
+                            <img src="images/shaka.png" alt="">
+                            <header>friendly, knowledgeable <br /> support</header>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="/whybookwithus.html" id="book-with-cta">learn more</a>
+        </div>
+        <div id="compare-chart-cta" class="compare-chart-ad">
+            <a href="/compare.html">
+                <section>
+                    <header>
+                        <span>find the best luau for you</span>
+                    </header>
+                    <ul>
+                        <li>
+                            <span class="material-symbols-outlined">done</span>
+                            <p>comparison chart</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">done</span>
+                            <p>luau descriptions</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">done</span>
+                            <p>map & locations</p>
+                        </li>
+                        <li></li>
+                        <li><button type="button" name="button">learn more</button></li>
+                    </ul>
+                </section>
+            </a>
+        </div>
+        <footer>
+            <ul>
+                <li>
+                    <a href="#"><img alt="" src="images/hawaiiluauslogo.png">
+                        <h1>hawaii luaus</h1>
+                    </a>
+                    <div class="social">
+                        <a href="#"> <img src="images/facebook_twitter_youtube_instagram.png" alt="" id="social-fb"
+                                class="delayed-img"> </a>
+                        <a href="#"> <img src="images/facebook_twitter_youtube_instagram.png" alt="" id="social-tw"
+                                class="delayed-img"> </a>
+                        <a href="#"> <img src="images/facebook_twitter_youtube_instagram.png" alt="" id="social-yt"
+                                class="delayed-img"> </a>
+                        <a href="#"> <img src="images/facebook_twitter_youtube_instagram.png" alt="" id="social-ig"
+                                class="delayed-img"> </a>
+                    </div>
+                    <b><a href="tel:+18664829775"><span class="material-symbols-outlined">call</span>
+                            1-866-482-9775</a></b>
+                </li>
+                <li>
+                    <br />
+                    <a href="#">privacy</a>
+                    <br />
+                    <a href="#">faq</a>
+                    <br />
+                    <a href="#">contact</a>
+                </li>
+                <li>
+                    <a href="/luaus.html">luaus</a>
+                    <br />
+                    <a href="/compare.html">compare</a>
+                    <br />
+                    <a href="#">cart</a>
+                </li>
+            </ul>
+            <aside style="font-family: sans-serif">Copyright (c) 2023 Hawaii Luaus All Rights Reserved. <a
+                    href="#">login</a></aside>
+        </footer>
+    </main>
+    <script src="js/toggle.js" type="text/javascript">
+    </script>
+    <script src="js/main.js" type="text/javascript">
+    </script>
+</body>
+
+</html>
