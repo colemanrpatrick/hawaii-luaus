@@ -42,7 +42,7 @@ body {
 	color: white;
 }
 body {
-	background-image: url("../images/tapasblue.jpg");
+	background-image: url("../images/tapasBlue.jpg");
 	background-size: 8em;
 }
 @media(max-width:2280px) {
@@ -1871,7 +1871,7 @@ footer h4 {
   font-size: 2.5em;
   line-height: 1em;
   font-weight: lighter;
-  width: 75%;
+  width: 85%;
   margin-bottom: 1em;
   color: #f6b700;
 }
