@@ -51,183 +51,128 @@
 		<div class="page-header" style="background:url('images/hawaii-luaus-banner-1.jpg')">
 			<h1>oahu luaus</h1>
 		</div>
-		<script type="text/javascript">
-		var luaus = [
-			{
-				"id" : "aloha_kai",
-				"img" : "images/alohakai2.jpg",
-				"title" : "aloha kai luau",
-				"subtitle" : "sealife park",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "9.6",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/aloha_kailuau.html"
-			},
-			{
-				"id" : "mele_luau",
-				"img" : "images/meleluau.jpg",
-				"title" : "mele luau",
-				"subtitle" : "coral crater",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "8.3",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/mele_luau.html"
-			},
-			{
-				"id" : "germaines_luau",
-				"img" : "images/germainesluau.jpg",
-				"title" : "germaine's luau",
-				"subtitle" : " ",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "5.8",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/germaines.html"
-			},
-			{
-				"id" : "rockahula",
-				"img" : "images/rockahula.jpg",
-				"title" : "waikiki luau",
-				"subtitle" : "rock 'a' hula cabana",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "5.2",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/rockahula.html"
-			},
-			{
-				"id" : "toaluau",
-				"img" : "images/toaluau.jpg",
-				"title" : "toa luau",
-				"subtitle" : "waimea valley",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "8.7",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/toaluau.html"
-			},
-			{
-				"id" : "pcc",
-				"img" : "images/pcc.jpg",
-				"title" : "polynesian cultural<br/>center",
-				"subtitle" : " ",
-				"from_price" : "100.00",
-				"before_price" : "100.00",
-				"rating" : "7.2",
-				"duration" : "2",
-				"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-				"luau_url" : "/pcc.html"
-			}
-		]
-		</script>
 		<div id="oahu-luaus">
-			<script type="text/javascript">
-
-				const oahuLuaus = document.getElementById("oahu-luaus");
-
-				addTitle = function(){
-					luauTitle = document.createElement("h2");
-					luauTitle.setAttribute("class","luau-title");
-					luauTitle.innerHTML = luaus[i].title;
-					return luauTitle;
-				};
-
-				addSubtitle = function(){
-					luauSubtitle = document.createElement("span");
-					luauSubtitle.setAttribute("class","luau-subtitle");
-					luauSubtitle.innerHTML = luaus[i].subtitle;
-					return luauSubtitle;
-				}
-
-				addRating = function(){
-					let rating = document.createElement("A");
-					rating.href = "/hawaii-luaus/whybookwithus.html"
-					rating.setAttribute("class","rating");
-
-					if (luaus[i].rating >= 9.6) {
-
-						rating.classList.add("blue");
-						rating.innerHTML = "<p>" + luaus[i].rating + "<span>/10</span></p><p><span>the best</span></p>";
-
-					}else if (luaus[i].rating < 9.6 && luaus[i].rating > 7.2) {
-
-						rating.classList.add("green");
-						rating.innerHTML = "<p>" + luaus[i].rating + "<span>/10</span></p><p><span>excellent</span></p>";
-
-					}else if (luaus[i].rating <= 7.2 && luaus[i].rating > 5.8) {
-
-						rating.classList.add("gold");
-						rating.innerHTML = "<p>" + luaus[i].rating + "<span>/10</span></p><p><span>good</span></p>";
-
-					}else{
-
-						rating.classList.add("orange");
-						rating.innerHTML = "<p>" + luaus[i].rating + "<span>/10</span></p><p><span>decent</span></p>";
-
-					}
-					return rating;
-				};
-
-				addDescription = function(){
-					let description = document.createElement("P");
-					description.innerHTML = luaus[i].description;
-					return description;
-				};
-
-				addDuration = function(){
-					let duration = document.createElement("span");
-					duration.setAttribute("class","luau-duration");
-					duration.innerHTML = '<span class="material-symbols-outlined">hourglass_top</span> <b>' + luaus[i].duration + '</b> hours'
-					return duration;
-				};
-
-				addPrices = function(){
-					let luauPrices = document.createElement("Ul");
-					luauPrices.innerHTML = '<li class="before-price slash">' + luaus[i].before_price + '</li>' +
-																	'<li class="after-price">' + luaus[i].from_price + '</li>' +
-																	'<li class="book-luau"> <a href="' + luaus[i].luau_url + '">book now</a> </li>'
-					return luauPrices;
-				};
-
-				for (var i = 0; i < luaus.length; i++) {
-
-					let luauPreview = document.createElement("div");
-					luauPreview.setAttribute("class","luau-preview");
-
-					let luauGallery = document.createElement("div");
-					luauGallery.setAttribute("class","luau-gallery");
-					luauGallery.innerHTML = "<img src=" + luaus[i].img + ">"
-
-					let luauDetail = document.createElement("div");
-					luauDetail.setAttribute("class","luau-detail");
-
-					luauDetail.appendChild(addRating());
-					luauDetail.appendChild(addTitle());
-
-					let luauArticle = document.createElement("article");
-					luauArticle.appendChild(addSubtitle());
-					luauArticle.appendChild(addDescription());
-					luauArticle.appendChild(addDuration());
-
-					luauDetail.appendChild(luauArticle);
-					luauDetail.appendChild(addPrices());
-
-					luauPreview.appendChild(luauGallery);
-					luauPreview.appendChild(luauDetail);
-
-					oahuLuaus.appendChild(luauPreview);
-
-				};
-
-			</script>
-
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/alohakai2.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">aloha kai luau</h2>
+						<span class="luau-subtitle">sealife park</span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/aloha_kailuau.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/meleluau.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">mele luau</h2>
+						<span class="luau-subtitle">coral crater</span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/mele_luau.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/germainesluau.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">germaine's luau</h2>
+						<span class="luau-subtitle"> </span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/germaines.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/rockahula.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">waikiki luau</h2>
+						<span class="luau-subtitle">rock 'a' hula cabana</span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/rockahula.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/toaluau.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">toa luau</h2>
+						<span class="luau-subtitle">waimea valley</span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/toaluau.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->
+			<!-- ================================================= -->
+			<div class="luau-preview">
+				<div class="luau-gallery">
+					<img src="images/pcc.jpg" alt="">
+				</div>
+				<div class="luau-detail">
+					<article>
+						<h2 class="luau-title">polynesian cultural<br/>center</h2>
+						<span class="luau-subtitle"> </span>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique porro maxime fugiat, ut tenetur ea quaerat neque voluptas minus cupiditate laudantium dicta nisi culpa non obcaecati ad sint? Fugit, illum.</p>
+						<span class="luau-duration"><span class="material-symbols-outlined">hourglass_top</span> <b>2</b> hours</span>
+					</article>
+					<ul>
+						<li class="before-price slash"><span>was</span> 100.00</li>
+						<li class="after-price"><span>from</span> 90.00</li>
+						<li class="book-luau"><a href="/pcc.html">book now</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- ================================================= -->																				
 		</div>
 		<div id="book-with-us-banner">
 			<a href="/whybookwithus.html">

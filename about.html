@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>hawaii luaus - best luaus in hawaii</title>
+	<title>hawaii luaus - why book with us?</title>
 	<meta content="user-scalable = yes, width=320, initial-scale=1" name="viewport">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 	</script>
@@ -14,6 +14,7 @@
 		rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Oswald:wght@300;500&display=swap"
 		rel="stylesheet">
+	<script type="json/luaus.json">
 	</script>
 </head>
 
@@ -22,7 +23,7 @@
 		<header id="masthead">
 			<ul>
 				<li id="logo">
-					<a href="/"><img alt="" src="images/hawaiiluauslogo.png">
+					<a href="#"><img alt="" src="images/hawaiiluauslogo.png">
 						<h1>hawaii luaus</h1>
 					</a>
 				</li>
@@ -30,8 +31,8 @@
 					<a href="tel:+18664829775" id="phone-desktop"><span>(toll free)</span><span
 							class="material-symbols-outlined">call</span> 1-866-482-9775</a>
 					<nav id="main-nav">
-						<a href="luaus.html">luaus</a> <a href="compare.html">compare</a> <a href="#">contact</a> <a
-							href="#"><span class="material-symbols-outlined">shopping_cart</span>cart</a>
+						<a href="#">luaus</a> <a href="#">about</a> <a href="#">contact</a> <a href="#"><span
+								class="material-symbols-outlined">shopping_cart</span>cart</a>
 					</nav>
 					<a href="tel:+18664829775" id="phone-mobile"><span class="material-symbols-outlined">call</span></a>
 					<button class="menu-btn" id="menu-btn" name="button"
@@ -57,54 +58,29 @@
 				});
 			}
 		</script>
-		<div class="page-header" style="background:url('images/hawaii-luaus-banner-1.jpg')">
-			<h1>Contact Us</h1>
-			<h3>Questions? Comments?</h3>
+		<div class="page-header" style="background:url('images/hawaii-luaus-banner-2.jpg')">
+			<h1>about luaus</h1>
+			<h3>learn what makes a luau unforgettable</h3>
 		</div>
-		<div id="contact">
-			<ul id="contact-left">
-				<li>
-					<a href="tell:1-866-482-9775">
-						<span class="material-symbols-outlined">call</span> (Toll Free) <span>1-866-482-9775</span>
-					</a>
-				</li>
-				<li>
-					<a href="tell:808-892-2082">
-						<span class="material-symbols-outlined">phone_in_talk</span> (Local) <span>808-892-2082</span>
-					</a>
-				</li>
-				<li>
-					<a href="mailto:sales@hawaiidiscount.com">
-						<span class="material-symbols-outlined">mail </span><span>808-892-2082</span>
-					</a>
-				</li>
-			</ul>
-			<div id="contact-right">
-				<label for="contact-name">full name</label>
-
-				<input type="text" name="contact-name" id="contact-name" placeholder="name">
-
-				<label for="contact-email">email</label>
-
-				<input type="email" name="contact-email" id="contact-email" placeholder="email">
-
-				<label for="contact-comment">comment</label>
-				<textarea name="contact-comment" id="contact-comment" cols="32" rows="10"></textarea>
-				<button type="submit" id="submit">send</button>
-			</div>
-		</div>
-
-		<div id="book-with-us-banner">
-			<a href="/whybookwithus.html">
-				<article>
-					<h3>why book with us?<br/><hr/><span>save money</span> and get<br/> <span>professional reviews</span><hr/> <button type="button" name="button">learn more</button> </h3>
-				</article>
-			</a>
-		</div>
+		
+		<script type="text/javascript">
+			function tabToggle(targetElement, element) {
+				console.log("clicked");
+				var parentClass = targetElement.parentNode.className;
+				var el = document.getElementsByClassName(element);
+				// Closes all
+				for (var i = 0; i < el.length; i++) {
+					el[i].className = element;
+				}
+				if (parentClass == element) {
+					targetElement.parentNode.className = element + ' active';
+				}
+			}
+		</script>
 		<footer>
 			<ul>
 				<li>
-					<a href="#"><img alt="" src="images/hawaiiluauslogo.png">
+					<a href="/"><img alt="" src="images/hawaiiluauslogo.png">
 						<h1>hawaii luaus</h1>
 					</a>
 					<div class="social">
@@ -129,9 +105,9 @@
 					<a href="#">contact</a>
 				</li>
 				<li>
-					<a href="/luaus.html">luaus</a>
+					<a href="#">reservations</a>
 					<br />
-					<a href="/compare.html">compare</a>
+					<a href="#">about</a>
 					<br />
 					<a href="#">cart</a>
 				</li>
