@@ -350,6 +350,7 @@ p {
 	border-bottom-left-radius: 1em;
 	z-index: 999;
 	cursor: pointer;
+	color: white;
 }
 
 #return-top span,
@@ -2758,7 +2759,11 @@ footer h4 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1em;
+  padding: 1em 0em 1em 2em;
+}
+#checkout-header {
+  color: #031e29;
+  font-size: 2em;
 }
 #checkout header button {
 }
@@ -2888,11 +2893,15 @@ input#dateInput {
 } 
 .numberSpinner {
 	margin: 0.5em;
-	text-align: center;
+	text-align: left;
+}
+#datepicker {
+	padding-top: 4em;
 }
 @media(max-width:1200px){
 	#datepicker {
   margin: 3em 0em;
+		padding-top: 0 !important;
   }
 }
 .numberSpinner section {
@@ -2906,8 +2915,8 @@ input#dateInput {
 }
 
 .numberSpinner input {
-	width: 2em;
-	padding: 0em 0.2em;
+	/*! width: 2em; */
+	/*! padding: 0em 0.2em; */
 	border: 0;
 	color: #333;
 	-webkit-appearance: none;
@@ -2917,6 +2926,8 @@ input#dateInput {
 	background: #ece8e3;
 	height: 2em;
 	pointer-events: none;
+	width: 1em;
+	float: left;
 }
 
 .numberSpinner input {
@@ -3118,9 +3129,9 @@ input[type="checkbox"] {
 		margin: 0;
 	}
 	.numberSpinner section{
-		margin: 0;
-		width: 3.55em;
-		font-size: 0em;
+		/*! margin: 0; */
+		/*! width: 3.55em; */
+		/*! font-size: 0em; */
 	}
 	.numberSpinner button{
 		display: block;
