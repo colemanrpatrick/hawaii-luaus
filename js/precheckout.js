@@ -90,9 +90,26 @@ let createDatePicker = function(landing){
         }
     });
 
-    $("#dateInput").attr("name", "" + cartConfig.Collectors[0].ControlName + "");
+	let collectorName = cartConfig.Collectors[0].ControlName;
+
+    $("#dateInput").attr("name", "" + collectorName + "");
+
+	/*====== set datepicker / date input value ======*/
+
+    if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
+
+        $("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
+        $("#datepicker").datepicker('setDate', $("#dateInput").val());
+
+    } else {
+
+        $('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+        $('#dateInput').val('');
+        $('#datepicker').val('');
+    };
 
     /*====== set datepicker and input events ======*/
+
     $("#dateInput").change(function () {
         $("#datepicker").datepicker('setDate', $(this).val()).trigger('change');
     });
@@ -103,6 +120,7 @@ let createDatePicker = function(landing){
             localStorage.setItem("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
         };
     });
+
 };
 /*========================================================*/
 /*==================|  number spinner |==================*/
@@ -229,10 +247,7 @@ let createAdditionalCollectors = function(landing){
 	let collectors = cartConfig.Collectors;
 	collectors = collectors.slice(1,collectors.length);
 
-	//Name
-
 	Array.prototype.forEach.call(collectors, function(item, index) {
-
 
 		let collector = document.createElement("DIV");
 		collector.setAttribute("class","collector");
@@ -276,7 +291,9 @@ let createAdditionalCollectors = function(landing){
 
 		landing.appendChild(collector);
 	});
+
 };
+
 /*========================================================*/
 /*==================|  Create Header  |==================*/
 /*======================================================*/
@@ -301,7 +318,6 @@ let createPage1 = function(){
 let createPage2 = function(){
 
 	createPrices(page2.firstElementChild);
-	//createGroupTemplate(page2.firstElementChild);
 
 	let numberSpinnerPlus = document.getElementsByClassName("numberPlus");
 	let numberSpinnerMinus = document.getElementsByClassName("numberMinus");
@@ -326,16 +342,6 @@ let createPage2 = function(){
 		};
 	});
 
-	/*===========| sort prices into groups |===========*/
-
-	// let priceGroup = document.getElementsByClassName("group");
-	// let priceOption = document.getElementsByClassName("price-option");
-
-
-	// Array.prototype.forEach.call(priceGroup, function(item,index) {
-
-	// });
-
 };
 
 /*========================================================*/
@@ -343,7 +349,9 @@ let createPage2 = function(){
 /*======================================================*/
 
 let createPage3 = function(){
+
 	createAdditionalCollectors(page3.firstElementChild);
+
 };
 
 /*========================================================*/
@@ -356,44 +364,14 @@ let additionalInfo = document.createElement("DIV");
 additionalInfo.setAttribute("id", "additional-info");
 
 [].forEach.call(document.querySelectorAll(".bulletpointstyles"),function(item,index){
+
 	additionalInfo.append(item.previousElementSibling);
 	additionalInfo.append(item);
+
 });
 
 luauGallery.parentNode.insertBefore(additionalInfo, luauGallery.nextElementSibling);
-/*========================================================*/
-/*================|     validation!     |================*/
-/*======================================================*/
-var errorMsg = document.createElement("error");
-errorMsg.setAttribute("class","inputError");
 
-let page1Valitation = function(){
-	if(true){
-		return true;
-	}else{
-		return false;
-	}
-}
-let page2Valitation = function(error){
-
-	let $price = document.getElementsByClassName("price");
-
-	Array.prototype.forEach.call($price, function(item,index) {
-		if(item.value !== 0){
-			return true;
-		}else{
-			return false;
-		}
-	});
-
-}
-let page3Valitation = function(){
-	if(true){
-		return true;
-	}else{
-		return false;
-	}
-}
 /*========================================================*/
 /*==================|     events!     |==================*/
 /*======================================================*/
@@ -412,17 +390,39 @@ let showPage1 = function(){
 	page3.className = "addToCartPage";
 	pageIndex = 1;
 };
+
 let showPage2 = function(){
-	page1.className = "addToCartPage";
-	page2.className = "addToCartPage active";
-	page3.className = "addToCartPage";
-	pageIndex = 2;
+	
+	let datePicker = document.getElementById("datepicker");
+	_dateError = document.getElementById("date-error");
+
+	if (datePicker.value.trim().length === 0 || datePicker.value === null || datePicker.value === undefined) {
+		
+		_dateError.className = "date-error active";
+	
+	} else {
+		_dateError.className = "date-error";
+		page1.className = "addToCartPage";
+		page2.className = "addToCartPage active";
+		page3.className = "addToCartPage";
+		pageIndex = 2;
+	};	
 };
+
 let showPage3 = function(){
-	page1.className = "addToCartPage";
-	page2.className = "addToCartPage";
-	page3.className = "addToCartPage active";
-	pageIndex = 3;
+
+	let priceOptions = document.getElementsByClassName("price");
+
+	for (let i = 0; i < priceOptions.length; i++) {
+		if(priceOptions[i].value == 0){
+			console.log("no item selected");
+		}else{
+			page1.className = "addToCartPage";
+			page2.className = "addToCartPage";
+			page3.className = "addToCartPage active";
+			pageIndex = 3;
+		};
+	}
 };
 
 let openCheckout = function(){

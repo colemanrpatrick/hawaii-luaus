@@ -3122,6 +3122,24 @@ input[type="checkbox"] {
 .collector label {
   color: #0c6b9e;
 }
+#date-error{
+	color: #970000;
+	text-transform: capitalize;
+	font-family: "Oswald";
+	font-size: 1.25em;
+	display: block;
+	text-align: center;
+	height: 1em;
+	line-height: 1em;
+}
+.date-error{
+	width: 0;
+	overflow: hidden;
+}
+.date-error.active{
+	width: auto;
+	
+}
 @media(max-width:800px){
 	.numberSpinner button{
 		display: block;
