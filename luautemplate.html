@@ -200,7 +200,7 @@
                     <!-- ====================== -->
                     <div class="addToCartPage" id="page-1">
                         <section></section>
-                        <span id="date-error" class="date-error">Please select a date</span>
+                        <span id="date-error" class="date-error">Please select an available date</span>
                         <div class="checkout-footer">
                             <button class="next-btn" onclick="showPage2()">next</button>
                         </div>
@@ -208,6 +208,7 @@
                     <!-- ====================== -->
                     <div class="addToCartPage" id="page-2">
                         <section></section>
+                        <span id="price-error" class="price-error">Please select an option</span>
                         <div class="checkout-footer">
                             <button class="prev-btn" onclick="showPage1()">prev</button>
                             <button class="next-btn" onclick="showPage3()">next</button>
@@ -218,7 +219,7 @@
                         <section></section>
                         <div class="checkout-footer">
                             <button class="prev-btn" onclick="showPage2()">prev</button>
-                            <a href="#" id="addToCartSubmit">add to cart</a>
+                            <button type="submit" id="addToCartSubmit" disabled>add to cart</button>
                         </div>
                     </div>
                     <!-- ====================== -->

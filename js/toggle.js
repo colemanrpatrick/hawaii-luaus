@@ -106,11 +106,11 @@ function tagNameToggle(tagName,activeClass,tagNameIndex){
 
 }
 /*== tabs toggle ==*/
-// function tabToggle(number,element,activeClass){
-//   elIndex = number;
-//   var el = document.getElementsByClassName(element);
-//   for (var i = 0; i < el.length; i++) {
-//     el[i].className = element;
-//   }
-//   el[elIndex-1].className += activeClass;
-// }
+function tabToggle(number,element,activeClass){
+  elIndex = number;
+  var el = document.getElementsByClassName(element);
+  for (var i = 0; i < el.length; i++) {
+    el[i].className = element;
+  }
+  el[elIndex].className += activeClass;
+}

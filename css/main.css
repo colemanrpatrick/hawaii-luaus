@@ -2185,6 +2185,7 @@ footer h4 {
 	border-top-right-radius: 0.75em;
 	border-bottom-right-radius: 0.75em;
 	padding: 0.25em;
+	cursor: pointer;
 }
 
 #book-now-mobile p {
@@ -2303,6 +2304,7 @@ footer h4 {
 	border-radius: 1em;
 	color: #9a031e;
 	text-transform: capitalize;
+	cursor: pointer;
 }
 
 #luau-before-price,
@@ -2785,30 +2787,19 @@ footer h4 {
   font-weight: bolder;
 }
 #checkout header button {
-  border: 0;
   color: #0c6b9e;
   text-transform: capitalize;
-  padding: 0em 0.6em;
-  border-radius: 2em;
   font-weight: bold;
   cursor: pointer;
-  border: 0.2em solid;
+  border: 0;
+  background: none;
 }
-#close-checkout {
-	background: none;
-	border: none;
-	font-size: 1em;
-	font-family: "Oswald";
-	font-weight: lighter;
-	text-transform: uppercase;
+#checkout header button .material-symbols-outlined {
+  font-size: 3em;
+  font-weight: bold;
+  border: 0.05em solid;
+  border-radius: 2em;
 }
-
-#close-checkout .material-symbols-outlined {
-	font-size: 1.25em;
-	float: left;
-	line-height: 1.25em;
-}
-
 .addToCartPage {
 	display: none;
 }
@@ -2894,6 +2885,10 @@ input#dateInput {
 .numberSpinner {
 	margin: 0.5em;
 	text-align: left;
+	border: 0.15em solid #085c8e;
+	display: inline-block;
+	border-radius: 2em;
+	overflow: hidden;
 }
 #datepicker {
 	padding-top: 4em;
@@ -2910,43 +2905,39 @@ input#dateInput {
 	vertical-align: middle;
 	background: #ece8e3;
 	font-size: 1em;
-	min-height: 2em;
-	padding-left: 0.5em;
 }
 
 .numberSpinner input {
-	/*! width: 2em; */
-	/*! padding: 0em 0.2em; */
 	border: 0;
-	color: #333;
-	-webkit-appearance: none;
+	color: #085c8e;
 	margin: 0;
 	vertical-align: middle;
 	display: inline-block;
 	background: #ece8e3;
-	height: 2em;
 	pointer-events: none;
-	width: 1em;
-	float: left;
+	font-size: 1em;
+	padding-left: 0.5em;
+	width: 1.75em;
 }
 
 .numberSpinner input {
 	-moz-appearance: textfield;
 }
-
+.numberSpinner .material-symbols-outlined {
+  font-size: 2.5em;
+}
 .numberSpinner button {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 19px;
 	text-align: center;
 	border: 0;
 	font-weight: bold;
-	background-color: #085c8e;
-	color: white;
+	color: #085c8e;
 	transition: 0.3s;
 	padding: 0;
 	border-radius: 0;
-	width: 1.5em;
+	background: none;
+	cursor: pointer;
 }
 
 .numberSpinner button:hover {
@@ -2998,6 +2989,7 @@ input#dateInput {
 
 .price-option li {
 	display: table-cell;
+	vertical-align: middle;
 }
 
 .price-spinner-cont {
@@ -3122,7 +3114,8 @@ input[type="checkbox"] {
 .collector label {
   color: #0c6b9e;
 }
-#date-error{
+#date-error,
+#price-error{
 	color: #970000;
 	text-transform: capitalize;
 	font-family: "Oswald";
@@ -3132,32 +3125,23 @@ input[type="checkbox"] {
 	height: 1em;
 	line-height: 1em;
 }
-.date-error{
+.date-error,
+#price-error{
 	width: 0;
 	overflow: hidden;
 }
 .date-error.active{
 	width: auto;
-	
 }
-@media(max-width:800px){
-	.numberSpinner button{
-		display: block;
-		width:3em;
-		margin: 0;
-	}
+@media(max-width:600px){
+	.numberSpinner {
+  transform: rotate(-90deg);
+	width: 6.47em;
+  transform-origin: bottom;
+  }
 	.numberSpinner section{
-		/*! margin: 0; */
-		/*! width: 3.55em; */
-		/*! font-size: 0em; */
-	}
-	.numberSpinner button{
-		display: block;
-		width:3em;
-		margin: 0;
-	}
-	.numberSpinner section input{
-		font-size: 20px;
+		  transform: rotate(90deg);
+		  transform-origin: center;
 	}
 }
 @media(max-width:450px){
@@ -3167,6 +3151,9 @@ input[type="checkbox"] {
 	.price-prices {
 	font-size: 0.8em;
   }
+	.numberSpinner {
+		width: 6.8em;
+	}
 	.price-description {
   font-size: 0.8em;
   }
@@ -3174,4 +3161,39 @@ input[type="checkbox"] {
 		width: 100%;
 		height: 100%;
 	}
+}
+.group {
+  border: 0.25em solid #ccbca7;
+  margin: 1em;
+  padding: 0em;
+}
+.group-header {
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 0;
+  border: 0;
+  background: #0c6b9e;
+  position: relative;
+}
+.group-title {
+  color: white;
+}
+.group-header-btn {
+  color: white;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: capitalize;
+  font-size: 1em;
+}
+.group .group-section {
+  height: 0;
+  overflow: hidden;
+}
+.group.active .group-section{
+  height: auto;
 }

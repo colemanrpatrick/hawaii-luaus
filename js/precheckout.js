@@ -118,7 +118,12 @@ let createDatePicker = function(landing){
         if ($("#dateInput").val() !== disabledDates) {
             $("#dateInput").prop('value', $(this).val());
             localStorage.setItem("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
-        };
+			
+			let dateError = document.getElementById("date-error");
+			if(dateError.className === "date-error active"){
+				dateError.className = "date-error";
+			};
+		};
     });
 
 };
@@ -146,8 +151,8 @@ let createSpinners = function(landing,$name,index){
         spinnerMinus.setAttribute("type","button");
         spinnerPlus.setAttribute("class","numberPlus");
         spinnerMinus.setAttribute("class","numberMinus");
-        spinnerPlus.innerHTML = " + ";
-        spinnerMinus.innerHTML = " - ";
+        spinnerPlus.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+        spinnerMinus.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
 
 		numberSpinner.appendChild(spinnerMinus);
 		spinnerSection.appendChild(spinnerInput);
@@ -157,84 +162,122 @@ let createSpinners = function(landing,$name,index){
 		landing.appendChild(numberSpinner);
 
 };
-
 /*========================================================*/
 /*==================|     Prices      |==================*/
 /*======================================================*/
 
-let createPrices = function(landing){
+let createPrices = (landing) => {
 
-	let cartPrices = cartConfig.Prices;
-
-	Array.prototype.forEach.call(cartPrices, function(item, index) {
-		let description = item.Description;
-		let grouping = item.Grouping;
-
-		let priceOption = document.createElement('UL');
-		priceOption.setAttribute("class","price-option");
-		priceOption.setAttribute('data-group',grouping.replace(/\s/g, ''));
-
-		let priceSpinnerCont = document.createElement("LI");
-		priceSpinnerCont.setAttribute("class","price-spinner-cont");
-		createSpinners(priceSpinnerCont,item.ControlName,index);
-
-		let priceDescription = document.createElement("LI");
-		priceDescription.setAttribute('class','price-description');
-		priceDescription.innerHTML = "<p>" + description + "</p>";
-
-		let PricePrices = document.createElement("li");
-		PricePrices.setAttribute('class','price-prices');
-		PricePrices.innerHTML = "<p>from<span class='linethru'>$" + 
-								item.ListPrice + "</span></p><p>now<span>$" + 
-								item.Saleprice + "</span></p>";
-
-		priceOption.appendChild(priceSpinnerCont);
-		priceOption.appendChild(priceDescription);
-		priceOption.appendChild(PricePrices);
-
-		landing.appendChild(priceOption);
-	});
-
-};
-
-/*========================================================*/
-/*==============| create groups template  |==============*/
-/*======================================================*/
-
-let createGroupTemplate = function(landing){
+	// create group template
 
 	let groupTemplate = document.createElement("DIV");
 	groupTemplate.setAttribute("id","groups");
-
+		
 	let groups = cartConfig.Groupings;
-	console.log(groups);
+	let group;
 
 	Array.prototype.forEach.call(groups, function(item, index) {
-
-		let group = document.createElement("DIV");
+		
+		group = document.createElement("DIV");
 		group.setAttribute("class","group");
-
+		
 		let groupHeader = document.createElement("BUTTON");
 		groupHeader.setAttribute("type","button");
 		groupHeader.setAttribute("class","group-header");
-
-		let groupSection = document.createElement("div");
-		groupSection.setAttribute("class","group-section");
+		
+		let groupHeaderBtn = document.createElement('SPAN');
+		groupHeaderBtn.setAttribute("class","group-header-btn");
+		groupHeaderBtn.innerHTML = '<span class="material-symbols-outlined">add_circle</span> view';
 
 		let groupH2 = document.createElement("H2");
 		groupH2.setAttribute("class","group-title");
 
+		let groupSection = document.createElement("div");
+		groupSection.setAttribute("class","group-section");
+		
 		if(item.Active === true){
 			groupH2.innerHTML = item.Name;
 			group.setAttribute("id",item.Name.replace(/\s/g, ''));
+			groupHeader.appendChild(groupHeaderBtn);
 			groupHeader.appendChild(groupH2);
 			group.appendChild(groupHeader);
 			group.appendChild(groupSection);
 			groupTemplate.appendChild(group);
 		};
+
+		landing.appendChild(groupTemplate);
+
 	});
 
-	landing.appendChild(groupTemplate);
+	// create prices
+
+	let cartPrices = cartConfig.Prices;
+	let priceOption;
+
+	Array.prototype.forEach.call(cartPrices, function(item, index) {
+
+		let description = item.Description;
+		let grouping = item.Grouping;
+
+		priceOption = document.createElement('UL');
+		priceOption.setAttribute("class", "price-option");
+		priceOption.setAttribute('data-group', grouping.replace(/\s/g, ''));
+
+		let priceSpinnerCont = document.createElement("LI");
+		priceSpinnerCont.setAttribute("class", "price-spinner-cont");
+		createSpinners(priceSpinnerCont, item.ControlName, index);
+
+		let priceDescription = document.createElement("LI");
+		priceDescription.setAttribute('class', 'price-description');
+		priceDescription.innerHTML = "<p>" + description + "</p>";
+
+		let PricePrices = document.createElement("li");
+		PricePrices.setAttribute('class', 'price-prices');
+		PricePrices.innerHTML = "<p>from<span class='linethru'>$" +
+			item.ListPrice + "</span></p><p>now<span>$" +
+			item.Saleprice + "</span></p>";
+
+		priceOption.appendChild(priceSpinnerCont);
+		priceOption.appendChild(priceDescription);
+		priceOption.appendChild(PricePrices);
+		landing.appendChild(priceOption);
+
+	});
+
+	//assign prices to respective groups
+
+	priceOption = document.getElementsByClassName("price-option");
+
+	Array.prototype.forEach.call(priceOption, function(item, index){
+
+		itemGrouping = item.getAttribute('data-group');
+
+		let groupId = document.getElementById(itemGrouping);
+		let groupCollection = groupId.firstElementChild.nextElementSibling;
+		if( groupId.getAttribute("id") === itemGrouping ){
+			groupCollection.appendChild(item);
+		};
+
+	});
+
+	// remove empty groups and groups with single items
+	group = document.getElementsByClassName("group");
+
+	Array.prototype.forEach.call(group, function(item,index){
+
+		let groupChildren = item.firstElementChild.nextElementSibling;
+
+		if(groupChildren.childElementCount == 0){
+			item.style.display = 'none';
+		}else if(groupChildren.childElementCount < 2){
+			landing.appendChild(groupChildren.firstElementChild);
+		};
+
+		if(groupChildren.childElementCount == 0){
+			item.style.display = 'none';
+		}
+		
+	});
 
 };
 
@@ -242,37 +285,43 @@ let createGroupTemplate = function(landing){
 /*==============|  Additional Collectors  |==============*/
 /*======================================================*/
 
-let createAdditionalCollectors = function(landing){
+let createAdditionalCollectors = function (landing){
 
+	let collector;
 	let collectors = cartConfig.Collectors;
 	collectors = collectors.slice(1,collectors.length);
 
+	// create single collectors
 	Array.prototype.forEach.call(collectors, function(item, index) {
 
-		let collector = document.createElement("DIV");
+		collector = document.createElement("DIV");
 		collector.setAttribute("class","collector");
-
 		let collectorInput;
 
 		if(item.ApplicationDataType === 7){
 
+			// create collectors Select
+
 			collectorInput = document.createElement("SELECT");
 			let dropDown = item.ListMember.ListMembers;
-		
 			dropDown.push("" + item.Name + "");
-
 			Array.prototype.forEach.call(dropDown, function(element,elementIndex){
 				let _option = document.createElement("option");
 				_option.innerHTML = element;
 				collectorInput.appendChild(_option);
 			});
-
+		
 		}else if(item.ApplicationDataType === 1){
-			
+
+			// create collectors checkbox
+
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","checkbox");
+			collectorInput.setAttribute("class","checkbox");
 
 		}else{
+
+			// create collectors text
 
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","text");
@@ -280,6 +329,8 @@ let createAdditionalCollectors = function(landing){
 
 		};
 
+		// add identifiers to collectors
+	
 		collectorInput.setAttribute("name",item.ControlName);
 
 		let collectorLabel = document.createElement("LABEL");
@@ -291,14 +342,13 @@ let createAdditionalCollectors = function(landing){
 
 		landing.appendChild(collector);
 	});
-
 };
 
 /*========================================================*/
 /*==================|  Create Header  |==================*/
 /*======================================================*/
 
-let createCheckoutHeader = function(){
+let createCheckoutHeader = () => {
 	let checkOutHeader = document.getElementById("checkout-header");
 	checkOutHeader.innerHTML = cartConfig.ProductTitle;
 }
@@ -307,7 +357,7 @@ let createCheckoutHeader = function(){
 /*==================|  Create page 1  |==================*/
 /*======================================================*/
 
-let createPage1 = function(){
+let createPage1 = () => {
 	createDatePicker(page1.firstElementChild);
 };
 
@@ -315,7 +365,7 @@ let createPage1 = function(){
 /*==================|  Create page 2  |==================*/
 /*======================================================*/
 
-let createPage2 = function(){
+let createPage2 = () => {
 
 	createPrices(page2.firstElementChild);
 
@@ -348,7 +398,7 @@ let createPage2 = function(){
 /*==================|  Create page 3  |==================*/
 /*======================================================*/
 
-let createPage3 = function(){
+let createPage3 = () => {
 
 	createAdditionalCollectors(page3.firstElementChild);
 
@@ -363,7 +413,7 @@ let additionalInfo = document.createElement("DIV");
 
 additionalInfo.setAttribute("id", "additional-info");
 
-[].forEach.call(document.querySelectorAll(".bulletpointstyles"),function(item,index){
+[].forEach.call(document.querySelectorAll(".bulletpointstyles"),(item,index) => {
 
 	additionalInfo.append(item.previousElementSibling);
 	additionalInfo.append(item);
@@ -438,4 +488,33 @@ document.addEventListener("click", function(event){
     if(checkoutWindow.className === 'active' && event.target.id === "checkout-window" && event.target.id !== "checkout"){
         closeCheckout();
     };
+})
+
+let groupHeader = document.getElementsByClassName('group-header');
+
+Array.prototype.forEach.call(groupHeader, function(item, index) {
+	
+	item.addEventListener("click",function(){
+		
+		if(item.parentElement.className === 'group'){
+			item.parentElement.className = 'group active';
+			item.firstElementChild.innerHTML = '<span class="material-symbols-outlined">cancel</span> close';
+		}else{
+			item.parentElement.className = 'group';
+			item.firstElementChild.innerHTML = '<span class="material-symbols-outlined">add_circle</span> view';
+		}
+
+	},false);
+
+});
+
+let lastCheckbox = document.querySelectorAll(".checkbox")
+let $checkout = document.getElementById("addToCartSubmit");
+
+lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
+	if (this.checked) {
+		$checkout.disabled = false;
+	} else {
+		$checkout.disabled = true;
+	}
 })
