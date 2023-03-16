@@ -3126,13 +3126,15 @@ input[type="checkbox"] {
 	line-height: 1em;
 }
 .date-error,
-#price-error{
+.price-error{
 	width: 0;
 	overflow: hidden;
 }
-.date-error.active{
+.date-error.active,
+.price-error.active{
 	width: auto;
 }
+
 @media(max-width:600px){
 	.numberSpinner {
   transform: rotate(-90deg);

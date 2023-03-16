@@ -1,5 +1,4 @@
 console.log("precheckout.js");
-//console.log(cartConfig);
 
 let page1 = document.getElementById("page-1");
 let page2 = document.getElementById("page-2");
@@ -36,10 +35,16 @@ const getTodaysDate = function() {
 function numIncrement( numberInput, increase ) { 
 
 	var myInputObject = document.getElementById( numberInput ); 
+	myInputObject.focus();
+
 	if ( increase ) { 
 		myInputObject.value++;
 		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
-		 
+		
+		if(myInputObject.value == 0){
+
+		}
+
 	} else { 
 		myInputObject.value--;
 		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
@@ -57,6 +62,9 @@ function numIncrement( numberInput, increase ) { 
 /*========================================================*/
 /*==================|   Date Picker   |==================*/
 /*======================================================*/
+
+
+let availability = cartConfig.Availabilities[0].Cutoff;
 
 let createDatePicker = function(landing){
 
@@ -139,7 +147,7 @@ let createSpinners = function(landing,$name,index){
         let spinnerSection = document.createElement("SECTION");
 
 		let spinnerInput = document.createElement('INPUT');
-		spinnerInput.setAttribute("type","number");
+		spinnerInput.setAttribute("type","text");
 		spinnerInput.setAttribute("name",$name);
 		spinnerInput.setAttribute("id",$name);
 		spinnerInput.setAttribute('class','price');
@@ -233,7 +241,7 @@ let createPrices = (landing) => {
 
 		let PricePrices = document.createElement("li");
 		PricePrices.setAttribute('class', 'price-prices');
-		PricePrices.innerHTML = "<p>from<span class='linethru'>$" +
+		PricePrices.innerHTML = "<p>was<span class='linethru'>$" +
 			item.ListPrice + "</span></p><p>now<span>$" +
 			item.Saleprice + "</span></p>";
 
@@ -301,13 +309,12 @@ let createAdditionalCollectors = function (landing){
 		if(item.ApplicationDataType === 7){
 
 			// create collectors Select
-
 			collectorInput = document.createElement("SELECT");
-			let dropDown = item.ListMember.ListMembers;
-			dropDown.push("" + item.Name + "");
-			Array.prototype.forEach.call(dropDown, function(element,elementIndex){
+			let dropDownItems = item.ListMember.ListMembers;
+
+			Array.prototype.forEach.call(dropDownItems, function(element,elementIndex){
 				let _option = document.createElement("option");
-				_option.innerHTML = element;
+				_option.innerHTML = element.Shortcode;
 				collectorInput.appendChild(_option);
 			});
 		
@@ -434,12 +441,16 @@ createPage3();
 let pageIndex;
 pageIndex = 1;
 
+/*======================================================*/
+
 let showPage1 = function(){
 	page1.className = "addToCartPage active";
 	page2.className = "addToCartPage";
 	page3.className = "addToCartPage";
 	pageIndex = 1;
 };
+
+/*======================================================*/
 
 let showPage2 = function(){
 	
@@ -459,21 +470,34 @@ let showPage2 = function(){
 	};	
 };
 
+/*======================================================*/
+
 let showPage3 = function(){
 
 	let priceOptions = document.getElementsByClassName("price");
+	let priceValuesTotal = [];
 
 	for (let i = 0; i < priceOptions.length; i++) {
-		if(priceOptions[i].value == 0){
-			console.log("no item selected");
-		}else{
-			page1.className = "addToCartPage";
-			page2.className = "addToCartPage";
-			page3.className = "addToCartPage active";
-			pageIndex = 3;
-		};
+		priceValuesTotal.push(priceOptions[i].value);
 	}
+
+	let  priceValuesCombine = priceValuesTotal.reduce((accumulator,currentValue) => {
+		return accumulator + currentValue;
+	},0);
+
+	if( priceValuesCombine > 0){
+		document.getElementById("price-error").className = "price-error";
+		page1.className = "addToCartPage";
+		page2.className = "addToCartPage";
+		page3.className = "addToCartPage active";
+		 pageIndex = 3;
+	}else{
+		document.getElementById("price-error").className = "price-error active";
+	};
+
 };
+
+/*======================================================*/
 
 let openCheckout = function(){
     document.getElementById("checkout-window").className = "active";
@@ -518,3 +542,5 @@ lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
 		$checkout.disabled = true;
 	}
 })
+
+/*======================================================*/
