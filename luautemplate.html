@@ -1682,7 +1682,8 @@
             }
 
         </script>
-        <form action="">
+
+        <form id="addToCartForm">
             <div id="checkout-window">
                 <div id="checkout">
                     <header>
@@ -1721,6 +1722,11 @@
                 </div>
             </div>
         </form>
+        <script>
+            window.onload = function() {
+                document.getElementById("addToCartForm").setAttribute("action","/products/details/" + cartConfig.ProductID + "");
+            };
+        </script>
         <!-- ================================================ -->
         <div id="why-book-with">
             <h3>why book <br /> with us?</h3>
