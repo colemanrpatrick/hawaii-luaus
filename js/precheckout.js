@@ -8,18 +8,19 @@ let page3 = document.getElementById("page-3");
 /*==================| local/current date |==================*/
 /*=========================================================*/
 
-const getHawaiiTime = function() {
-	let hawaii_datetime_str = new Date().toLocaleString( "en-GB", {
-		timeZone: "Pacific/Honolulu"
+const getTime = function(_timezone) {
+	let datetime_str = new Date().toLocaleString( "en-GB", {
+		timeZone: _timezone
 	}, {
 		hour12: false
 	} );
-	dateArr = hawaii_datetime_str.split( ",", 2 );
+	dateArr = datetime_str.split( ",", 2 );
 	dateArr.shift();
-	hawaii_datetime_str = dateArr[ 0 ].slice( 1 );
-	hawaii_datetime_str = parseInt( hawaii_datetime_str );
-	return hawaii_datetime_str;
+	datetime_str = dateArr[ 0 ].slice( 1 );
+	datetime_str = parseInt( datetime_str );
+	return datetime_str;
 };
+
 const getTodaysDate = function() {
 	let currentDate = new Date().toLocaleDateString( 'en-US', {
 		year: "numeric",
@@ -28,6 +29,7 @@ const getTodaysDate = function() {
 	} );
 	return currentDate;
 };
+
 /*========================================================*/
 /*=================|   numberIncremet  |=================*/
 /*======================================================*/
@@ -40,19 +42,17 @@ function numIncrement( numberInput, increase ) { 
 	if ( increase ) { 
 		myInputObject.value++;
 		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
-		
-		if(myInputObject.value == 0){
-
-		}
 
 	} else { 
 		myInputObject.value--;
 		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
 		 
 	}; 
+
 	if ( myInputObject.value > 999 ) {
 		myInputObject.value = 999;
 	};
+
 	if ( myInputObject.value <= 0 ) {
 		myInputObject.value = 0;
 	};
@@ -62,9 +62,6 @@ function numIncrement( numberInput, increase ) { 
 /*========================================================*/
 /*==================|   Date Picker   |==================*/
 /*======================================================*/
-
-
-let availability = cartConfig.Availabilities[0].Cutoff;
 
 let createDatePicker = function(landing){
 
@@ -92,6 +89,7 @@ let createDatePicker = function(landing){
 
     $(datePicker).datepicker({
         minDate: dateToday,// dates before current day disabled //
+		defaultDate: "",
         beforeShowDay: function (date) { // disables dates based on disabledDates
             var disabledDatesString = jQuery.datepicker.formatDate('mm-dd-yy', date);
             return [disabledDates.indexOf(disabledDatesString) == -1]
@@ -103,7 +101,7 @@ let createDatePicker = function(landing){
     $("#dateInput").attr("name", "" + collectorName + "");
 
 	/*====== set datepicker / date input value ======*/
-
+	
     if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
 
         $("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
@@ -112,6 +110,7 @@ let createDatePicker = function(landing){
     } else {
 
         $('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+		$('.ui-datepicker-current-day .ui-state-active').removeClass('ui-state-active').removeClass('ui-state-hover');
         $('#dateInput').val('');
         $('#datepicker').val('');
     };
@@ -135,6 +134,28 @@ let createDatePicker = function(landing){
     });
 
 };
+
+/*========================================================*/
+/*==================|  dateValidation |==================*/
+/*======================================================*/
+
+let availabilityValidate = function(){
+	let availability = cartConfig.Availabilities[0].Cutoff;
+	let pickupDate = document.getElementById("dateInput");
+	let dateError = document.getElementById("date-error");
+	if ( pickupDate.value  == getTodaysDate() ) {
+		if ( parseFloat(getTime("Pacific/Honolulu")) > parseFloat(availability)) {
+			dateError.className === "date-error active";
+			return false;
+		} else {
+			dateError.className === "date-error";
+			return true;
+		};
+	}else{
+		return true;
+	}; 
+};
+
 /*========================================================*/
 /*==================|  number spinner |==================*/
 /*======================================================*/
@@ -170,6 +191,7 @@ let createSpinners = function(landing,$name,index){
 		landing.appendChild(numberSpinner);
 
 };
+
 /*========================================================*/
 /*==================|     Prices      |==================*/
 /*======================================================*/
@@ -284,7 +306,6 @@ let createPrices = (landing) => {
 		if(groupChildren.childElementCount == 0){
 			item.style.display = 'none';
 		}
-		
 	});
 
 };
@@ -453,7 +474,7 @@ let showPage1 = function(){
 /*======================================================*/
 
 let showPage2 = function(){
-	
+
 	let datePicker = document.getElementById("datepicker");
 	_dateError = document.getElementById("date-error");
 
@@ -462,13 +483,24 @@ let showPage2 = function(){
 		_dateError.className = "date-error active";
 	
 	} else {
-		_dateError.className = "date-error";
-		page1.className = "addToCartPage";
-		page2.className = "addToCartPage active";
-		page3.className = "addToCartPage";
-		pageIndex = 2;
+
+		if(availabilityValidate() === true){
+
+			_dateError.className = "date-error";
+			page1.className = "addToCartPage";
+			page2.className = "addToCartPage active";
+			page3.className = "addToCartPage";
+			pageIndex = 2;
+
+		}else{
+
+			_dateError.className = "date-error active";
+
+		};
+
 	};	
-};
+
+};	
 
 /*======================================================*/
 
@@ -503,6 +535,7 @@ let openCheckout = function(){
     document.getElementById("checkout-window").className = "active";
     showPage1();
 };
+
 let closeCheckout = function(){
     document.getElementById("checkout-window").className = "";
 };
