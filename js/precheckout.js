@@ -80,6 +80,7 @@ let createDatePicker = function(landing){
     var dateToday = new Date();
     
     // list of specific disabled dates //
+
     let disabledDates = cartConfig.Availabilities[0].ClosedDates;
     disabledDates = JSON.parse(disabledDates);
 
@@ -88,51 +89,39 @@ let createDatePicker = function(landing){
     };
 
     $(datePicker).datepicker({
+
         minDate: dateToday,// dates before current day disabled //
-		defaultDate: "",
+
         beforeShowDay: function (date) { // disables dates based on disabledDates
             var disabledDatesString = jQuery.datepicker.formatDate('mm-dd-yy', date);
             return [disabledDates.indexOf(disabledDatesString) == -1]
+
         }
+
     });
 
 	let collectorName = cartConfig.Collectors[0].ControlName;
 
     $("#dateInput").attr("name", "" + collectorName + "");
 
-	/*====== set datepicker / date input value ======*/
-	
-    if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
-
-        $("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
-        $("#datepicker").datepicker('setDate', $("#dateInput").val());
-
-    } else {
-
-        $('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
-		$('.ui-datepicker-current-day .ui-state-active').removeClass('ui-state-active').removeClass('ui-state-hover');
-        $('#dateInput').val('');
-        $('#datepicker').val('');
-    };
-
     /*====== set datepicker and input events ======*/
 
     $("#dateInput").change(function () {
         $("#datepicker").datepicker('setDate', $(this).val()).trigger('change');
-    });
+	});
 
     $("#datepicker").change(function () {
-        if ($("#dateInput").val() !== disabledDates) {
+       
+		if ($("#dateInput").val() !== disabledDates) {
             $("#dateInput").prop('value', $(this).val());
             localStorage.setItem("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
-			
 			let dateError = document.getElementById("date-error");
+
 			if(dateError.className === "date-error active"){
 				dateError.className = "date-error";
 			};
 		};
     });
-
 };
 
 /*========================================================*/
@@ -469,6 +458,21 @@ let showPage1 = function(){
 	page2.className = "addToCartPage";
 	page3.className = "addToCartPage";
 	pageIndex = 1;
+
+	/*====== set datepicker / date input value ======*/
+
+	if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
+
+		$("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
+		$("#datepicker").datepicker('setDate', $("#dateInput").val());
+	
+	} else {
+	
+		$('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+		$('#dateInput').val('');
+		$("#datepicker").val("");
+	
+	};
 };
 
 /*======================================================*/
