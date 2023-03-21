@@ -1,6 +1,4 @@
 console.log("precheckout.js");
-localStorage.clear();
-console.log("precheckout.js");
 
 let page1 = document.getElementById("page-1");
 let page2 = document.getElementById("page-2");
@@ -341,8 +339,6 @@ let createAdditionalCollectors = function (landing){
 			Array.prototype.forEach.call(dropDownItems, function(element,elementIndex){
 				let _option = document.createElement("option");
 				_option.innerHTML = element.Shortcode;
-				_option.setAttribute("id","" + element.ID + "")
-				_option.setAttribute("name","" + element.ID + "")
 				collectorInput.appendChild(_option);
 			});
 		
