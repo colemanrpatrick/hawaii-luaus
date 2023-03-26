@@ -2893,7 +2893,7 @@ input#dateInput {
 		padding-top: 0 !important;
   }
 }
-.numberSpinner section {
+#checkout-window .numberSpinner section {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -2917,7 +2917,7 @@ input#dateInput {
 .numberSpinner input {
 	-moz-appearance: textfield;
 }
-.numberSpinner .material-symbols-outlined {
+#checkout-window .numberSpinner .material-symbols-outlined {
   font-size: 2.5em;
 }
 .numberSpinner button {
@@ -3130,12 +3130,12 @@ input#dateInput {
 }
 
 @media(max-width:600px){
-	.numberSpinner {
+	#checkout-window .numberSpinner {
   transform: rotate(-90deg);
-	width: 6.47em;
-  transform-origin: bottom;
+	width: 7em;
+  transform-origin: center;
   }
-	.numberSpinner section{
+	#checkout-window .numberSpinner section{
 		  transform: rotate(90deg);
 		  transform-origin: center;
 	}

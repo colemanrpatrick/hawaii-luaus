@@ -185,3 +185,33 @@ cartHero.setAttribute("id","cart-hero");
 cartHero.innerHTML = "<h2><span class='material-symbols-outlined'>shopping_cart</span>Your Shopping Cart</h2>"
 let heroContainer = document.getElementById("container-0");
 heroContainer.insertBefore(cartHero,heroContainer.firstElementChild);
+
+/*=======================================================*/
+/*=============|   make checkout easier   |=============*/
+/*=====================================================*/
+
+let organizeCheckout = function(){
+  let scrollPoint;
+  scrollPoint = document.getElementsByClassName("title");
+  for (let i = 0; i < scrollPoint.length; i++) {
+    scrollPoint[i].setAttribute("id","title-" + i + "");
+  };
+  
+  let goToCheckout = document.createElement("BUTTON");
+
+  goToCheckout.setAttribute("type","button");
+  goToCheckout.setAttribute("id","goToCheckout");
+  goToCheckout.innerHTML = "<p>checkout</p><span class='material-symbols-outlined'>expand_circle_down</span>"
+
+  document.getElementById("cart-bottom").appendChild(goToCheckout);
+
+};
+organizeCheckout();
+
+const scrollButton = document.getElementById("goToCheckout");
+const scrollLocation = document.getElementById("title-1");
+
+scrollButton.addEventListener("click",function(){
+   scrollLocation.scrollIntoView({ behavior: "auto" });
+},false);
+
