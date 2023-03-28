@@ -103,7 +103,7 @@ h5 {
 p,
 a,
 b {
-	font-family: 'oswald', system-ui, sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-weight: 300;
 }
 
@@ -283,14 +283,14 @@ p {
 }
 
 #main-nav a {
-	font-size: 1.15em;
+	font-size: 1em;
 	color: white;
 	text-transform: capitalize;
 	margin-left: 2em;
 	display: inline-block;
 	transition: 0.3s;
 	text-shadow: 0em 0em 1.5em #1A535C;
-	letter-spacing: 0.05em;
+	letter-spacing: -0.06em;
 }
 
 #main-nav a:hover {
@@ -351,8 +351,11 @@ p {
 	z-index: 999;
 	cursor: pointer;
 	color: white;
-}
 
+}
+#return-top:hover {
+	transform: scale(1.1);
+}
 #return-top span,
 #return-top p {
 	display: table-cell;
@@ -497,7 +500,7 @@ p {
 }
 
 #banner-content h2 {
-	font-family: "oswald", system-ui, sans-serif;
+	font-family: "Inter", Inter, sans-serif;
 	text-transform: capitalize;
 	color: white;
 	font-size: 1.75em;
@@ -683,12 +686,12 @@ p {
 	bottom: 0.25em;
 	left: 0.25em;
 	color: white;
-	text-transform: capitalize;
-	font-size: 3.5em;
+	text-transform: uppercase;
+	font-size: 3em;
 	line-height: 1em;
 	width: 5em;
 	text-shadow: 0em 0em 0.25em black;
-	font-family: "oswald";
+	font-family: "Inter";
 }
 
 #compare-chart-cta ul li {
@@ -786,7 +789,9 @@ p {
 	padding: 0;
 	text-align: center;
 }
-
+.details.price-1 {
+	color: #b5b5b5;
+}
 .luau-detail .rating {
 	right: 0;
 	top: 0;
@@ -851,14 +856,14 @@ p {
 
 .luau-header span {
 	display: block;
-	font-family: "Oswald";
+	font-family: "Inter";
 	font-size: 0.75em;
 }
 
 .price-1,
 .price-2 {
 	font-size: 1.5em;
-	font-family: "oswald";
+	font-family: "Inter";
 }
 
 .price-1 {
@@ -896,6 +901,9 @@ p {
 
 #luaus aside a {
 	background-color: #f7b801;
+}
+#luaus aside a:hover{
+	background-color: gold;
 }
 
 #why-book-with {
@@ -978,8 +986,11 @@ p {
 	margin-top: 1em;
 	color: #9a031e;
 	text-transform: capitalize;
+	transition: 0.3s;
 }
-
+#book-with-cta:hover {
+	transform: scale(1.1);
+}
 #reading h3 {
 	padding: 8em 4em;
 	text-align: left;
@@ -1352,7 +1363,7 @@ footer h4 {
 	text-align: center;
 	font-size: 2em;
 	text-transform: capitalize;
-	font-family: "Oswald";
+	font-family: "Inter";
 	text-shadow: 0em 0em 1em black;
 	font-weight: normal;
 }
@@ -1485,7 +1496,7 @@ footer h4 {
 
 .luau-subtitle {
 	font-size: 1.25em;
-	font-family: "Oswald", sans-serif;
+	font-family: "Inter", sans-serif;
 	width: 100%;
 	text-align: left;
 	display: block;
@@ -1517,12 +1528,12 @@ footer h4 {
 	width: 95%;
 	display: block;
 	font-size: 1.5em;
-	font-family: "oswald";
+	font-family: "Inter";
 	text-transform: capitalize;
 }
 
 .before-price {
-	font-family: "oswald";
+	font-family: "Inter";
 	font-size: 1.75em;
 }
 
@@ -1589,7 +1600,7 @@ footer h4 {
 	color: white;
 	text-transform: capitalize;
 	font-size: 2em;
-	font-family: "Oswald";
+	font-family: "Inter";
 	line-height: 1.75em;
 	font-weight: normal;
 	text-shadow: 0em 0em 1em #457083;
@@ -1662,7 +1673,7 @@ footer h4 {
 	color: white;
 	font-size: 2em;
 	text-transform: capitalize;
-	font-family: "Lobster";
+	font-family: "Oleo Script";
 }
 
 #book-here article p {
@@ -1683,7 +1694,7 @@ footer h4 {
 }
 
 .first-row td {
-	font-family: "Oswald";
+	font-family: "Inter";
 	color: #053d52;
 	font-size: 1.15em;
 	text-transform: capitalize;
@@ -1703,7 +1714,7 @@ footer h4 {
 }
 
 .nth-row td {
-	font-family: "Oswald";
+	font-family: "Inter";
 	color: #053d52;
 	font-size: 1em;
 	text-transform: capitalize;
@@ -1735,7 +1746,7 @@ footer h4 {
 }
 
 .total-row td {
-	font-family: "Oswald";
+	font-family: "Inter";
 	color: white;
 	font-size: 1em;
 	text-transform: capitalize;
@@ -1857,7 +1868,7 @@ footer h4 {
 }
 
 .island-a h3 {
-	font-size: 2em;
+	font-size: 3em;
 	color: gold;
 	position: absolute;
 	width: 100%;
@@ -1868,7 +1879,7 @@ footer h4 {
 	text-transform: capitalize;
 	font-weight: normal;
 	line-height: 1em;
-	text-shadow: 0px 1px 0px darkred, 0px 2px 0px darkred, 0px 3px 0px darkred, 0px 4px 0px darkred, 0px 5px 0px darkred, 0px 8px 5px rgba(0, 0, 0, 0.5);
+	text-shadow: 0px 1px 0px #511419, 0px 2px 0px #53151a, 0px 3px 0px #53151a, 0px 4px 0px #4c0f14, 0px 5px 0px #50151a, 0px 8px 5px rgba(0, 0, 0, 0.5);
 	transition: 0.3s;
 }
 
@@ -2179,13 +2190,14 @@ footer h4 {
 	position: fixed;
 	bottom: 0.5em;
 	left: 0;
-	background: gold;
+	background: #f7b801;
 	font-size: 1.5em;
 	text-transform: capitalize;
 	border-top-right-radius: 0.75em;
 	border-bottom-right-radius: 0.75em;
 	padding: 0.25em;
 	cursor: pointer;
+	border: 0;
 }
 
 #book-now-mobile p {
@@ -2215,7 +2227,7 @@ footer h4 {
 }
 
 #luau-hero h3 {
-	font-family: "Oswald";
+	font-family: "Inter" ,sans-serif;
 	font-weight: lighter;
 	text-transform: uppercase;
 	font-size: 1.5em;
@@ -2242,19 +2254,19 @@ footer h4 {
 	display: table-cell;
 	width: 50%;
 	vertical-align: middle;
-	padding: 2em 4em 2em 0em;
+	padding: 2em 2em 2em 0em;
 	color: #333;
 }
 
 #luau-reading {
 	text-align: justify;
-	line-height: 2.5em;
+	line-height: 2.5em !important;
 	color: #333;
 }
 
 #luau-sub-desc {
 	text-transform: capitalize;
-	font-size: 2.5em;
+	font-size: 1.5em;
 	line-height: 1em;
 	font-weight: lighter;
 	width: 85%;
@@ -2313,7 +2325,7 @@ footer h4 {
 	display: inline-block;
 	vertical-align: middle;
 	width: 33%;
-	font-family: "Oswald";
+	font-family: "Inter";
 	text-transform: capitalize;
 	font-size: 1.75em;
 	text-align: left;
@@ -2324,13 +2336,16 @@ footer h4 {
 #luau-after-price span {
 	display: block;
 	font-size: 0.75em;
+	font-family: Sans-serif;
+}
+
+#luau-pricing b {
+	font-size: 1.5em;
 }
 
 #luau-before-price {
 	opacity: 0.5;
 }
-
-;
 
 #luau-before-price b {
 	text-decoration: line-through;
@@ -2369,7 +2384,7 @@ footer h4 {
 #luau-highlights li:not(#highlights-header) {
 	text-align: left;
 	line-height: 3em;
-	font-family: "Oswald";
+	font-family: "Inter", sans-serif;
 	list-style-type: disc;
 	list-style-position: inside;
 	padding-left: 3em;
@@ -2395,7 +2410,7 @@ footer h4 {
 }
 
 #luau-ratings li {
-	font-family: "Oswald";
+	font-family: "Inter";
 	text-align: center;
 	display: inline-block;
 	padding: 0.25em 0.75em;
@@ -2517,18 +2532,20 @@ footer h4 {
 #additional-info p {
 	color: #073e53;
 	font-size: 1.5em;
-	font-family: "Lobster";
+	font-family: "Oleo Script";
 	width: 100%;
 }
 
 .bulletpointstyles {
 	color: #333;
-	font-family: "Oswald";
+	font-family: "Inter", sans-serif !important;
 	line-height: 2em;
 	padding-left: 2em;
 	width: 100%;
 }
-
+#luau-article {
+  line-height: 1.65em;
+}
 @media(max-width:950px) {
 
 	#luau-details,
@@ -2633,7 +2650,7 @@ footer h4 {
 }
 
 #contact-right label {
-	font-family: "Oswald", sans-serif;
+	font-family: "Inter", sans-serif;
 	text-transform: capitalize;
 	font-weight: normal;
 }
@@ -2808,7 +2825,7 @@ footer h4 {
 }
 /* datepicker custom styling */
 .ui-widget {
-	font-family: system-ui;
+	/*! font-family: Inter; */
 }
 
 .ui-datepicker {
@@ -2836,7 +2853,7 @@ footer h4 {
 	border: none;
 	background: #0c6b9e;
 	color: white;
-	padding: 2em 0.25em 0.25em 2em;
+	padding: 2.5em 0.25em 0.25em 2.5em;
 }
 
 .ui-state-hover,
@@ -3047,11 +3064,6 @@ input#dateInput {
   font-size: 1em;
 }
 .collector {
-  font-family: "Oswald",sans-serif;
-  padding: 1em;
-  display: block;
-  width: 100%;
-  text-align: center;
 }
 .collector input[type=text] {
   display: block;
@@ -3067,14 +3079,14 @@ input#dateInput {
 .collector label {
   color: #0c6b9e;
 }
-.collector {
-  font-family: "Oswald",sans-serif;
-  padding: 1em;
+.collector, #email-collector, #phone-collector{
+  font-family: "Inter",sans-serif;
   display: block;
   width: 100%;
   text-align: center;
+  padding: 1em 0em 0em 0em;
 }
-.collector input[type=text] {
+.collector input[type="text"], #phone-collector input[type="phone"], #email-collector input[type="email"]{
   display: block;
   margin: 0 auto;
   padding: 1em;
@@ -3105,14 +3117,14 @@ input#dateInput {
   margin-left: 0.5em;
   cursor: pointer;
 }
-.collector label {
+.collector label, #phone-collector label, #email-collector label {
   color: #0c6b9e;
 }
 #date-error,
 #price-error{
 	color: #970000;
 	text-transform: capitalize;
-	font-family: "Oswald";
+	font-family: "Inter",sans-serif;
 	font-size: 1.25em;
 	display: block;
 	text-align: center;

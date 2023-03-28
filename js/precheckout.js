@@ -319,7 +319,7 @@ let createPrices = (landing) => {
 /*==============|  Additional Collectors  |==============*/
 /*======================================================*/
 
-let createAdditionalCollectors = function (landing){
+let createAdditionalCollectors = (landing) => {
 
 	let collector;
 	let collectors = cartConfig.Collectors;
@@ -342,7 +342,7 @@ let createAdditionalCollectors = function (landing){
 				let _option = document.createElement("option");
 				_option.innerHTML = element.Shortcode;
 				_option.setAttribute("id","" + element.ID + "")
-				_option.setAttribute("name","" + element.ID + "")
+				_option.setAttribute("value","" + element.ID + "")
 				collectorInput.appendChild(_option);
 			});
 		
@@ -376,17 +376,80 @@ let createAdditionalCollectors = function (landing){
 		collector.appendChild(collectorInput); 
 
 		landing.appendChild(collector);
+
 	});
 };
+
+/*=========================================================*/
+/*==================|  email - phone   |==================*/
+/*=======================================================*/
+
+// let createEmailPhoneCollectors = (landing) => {
+
+// 	let emailCollector = document.createElement("DIV");
+// 	emailCollector.setAttribute("id","email-collector");
+
+// 	let email = document.createElement("INPUT");
+// 	email.setAttribute("type","email");
+// 	email.setAttribute("id","email");
+// 	email.setAttribute("placeholder","email");
+// 	email.setAttribute("name","email");
+
+// 	let emailLabel = document.createElement("LABEL");
+// 	emailLabel.innerHTML = "E-Mail";
+// 	emailLabel.setAttribute("for",email.getAttribute("name"));
+
+// 	let phoneCollector = document.createElement("DIV");
+// 	phoneCollector.setAttribute("id","phone-collector");
+
+// 	let phone = document.createElement("INPUT");
+// 	phone.setAttribute("type","phone");
+// 	phone.setAttribute("id","phone");
+// 	phone.setAttribute("placeholder","phone");
+// 	phone.setAttribute("name","phone");
+// 	if(window.intlTelInput){
+// 		window.intlTelInput(phone);
+// 	};
+
+// 	let phoneLabel = document.createElement("LABEL");
+// 	phoneLabel.innerHTML = "Phone";
+// 	phoneLabel.setAttribute("for",email.getAttribute("name"));
+	
+// 	emailCollector.appendChild(emailLabel);
+// 	emailCollector.appendChild(email);
+
+// 	phoneCollector.appendChild(phoneLabel);
+// 	phoneCollector.appendChild(phone);
+	
+// 	let emailStore = localStorage.getItem("email-submitted");
+// 	let phoneStore = localStorage.getItem("phone-submitted");
+
+// 	console.log(emailStore);
+// 	console.log(phoneStore);
+
+// 	if(emailStore && emailStore == true){
+// 		console.log(emailStore);
+// 		phoneCollector.appendChild(phone);
+// 	}else if(phoneStore && phoneStore == true){
+// 		// do nothing, everything has been collected
+// 		console.log(phoneStore);
+// 	}else{
+// 		console.log("no store");
+// 		landing.appendChild(emailCollector);
+// 	}
+
+// };
 
 /*========================================================*/
 /*==================|  Create Header  |==================*/
 /*======================================================*/
 
 let createCheckoutHeader = () => {
+
 	let checkOutHeader = document.getElementById("checkout-header");
 	checkOutHeader.innerHTML = cartConfig.ProductTitle;
 }
+
 
 /*========================================================*/
 /*==================|  Create page 1  |==================*/
@@ -435,8 +498,9 @@ let createPage2 = () => {
 
 let createPage3 = () => {
 
+	// createEmailPhoneCollectors(page3.firstElementChild);
 	createAdditionalCollectors(page3.firstElementChild);
-
+	
 };
 
 /*========================================================*/
@@ -597,7 +661,35 @@ lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
 		$checkout.disabled = false;
 	} else {
 		$checkout.disabled = true;
-	}
-})
+	};
+});
 
 /*======================================================*/
+
+// const addToCartForm = document.getElementById("addToCartSubmit");
+
+// let emailInpt = document.getElementById("email");
+// let phoneInpt = document.getElementById("phone");
+
+// addToCartForm.addEventListener("click",function(){
+
+// 	if(emailInpt && emailInpt.value.length > 0){
+
+// 		localStorage.setItem("email-submitted","true");
+// 		console.log(localStorage.getItem("email-submitted"));
+
+// 		alert("true email"); return false;
+
+// 	}else if(phoneInpt && phoneInpt.value.length > 0){
+
+// 		localStorage.setItem("phone-submitted","true");
+// 		console.log(localStorage.getItem("phone-submitted"));
+
+// 		alert("true phone"); return false; 
+
+// 	}else{
+
+// 		return false;
+
+// 	};
+// });

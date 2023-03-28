@@ -24,10 +24,9 @@
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Oswald:wght@300;500&display=swap"
-        rel="stylesheet">
-    </script>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Oleo+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="intl-tel-input/build/css/intlTelInput.min.css">
+
 
 <body>
     <main>
@@ -78,15 +77,14 @@
             <button type="button" onclick="openCheckout()" id="book-now-mobile">
                 <p>book now</p><span class="material-symbols-outlined">event_available</span>
             </button>
-            <div id="luau-hero" style="background-image: url('/Content/Files/GermainesLuau.jpg');">
+            <div id="luau-hero" style="background-image: url('InterGermainesLuau.jpg');">
                 <h1>Germaine's Luau - Oahu Luau</h1>
                 <h3>Oahu</h3>
             </div>
             <div id="luau-details">
                 <div id="playerWrapper">
                     <div id="player">
-                        <iframe
-                            src="https://www.youtube.com/embed/YpMH4ywHo3Y?rel=0&amp;amp;showinfo=0&amp;amp;fc=0"></iframe>
+                        <iframe src="https://www.youtube.com/embed/YpMH4ywHo3Y?rel=0&amp;amp;showinfo=0&amp;amp;fc=0"></iframe>
                     </div>
                 </div>
                 <div id="luau-article">
@@ -158,20 +156,20 @@
                 </ul>
             </div>
             <div id="luau-gallery">
-                <a href="/Content/Files/Germaines Luau.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Germaines Luau.jpg')"></a>
-                <a href="/Content/Files/Germaines Show.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Germaines Show.jpg')"></a>
-                <a href="/Content/Files/Fire-Knife Dancer ger.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Fire-Knife Dancer ger.jpg')"></a>
-                <a href="/Content/Files/Hula Dancers ger.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Hula Dancers ger.jpg')"></a>
-                <a href="/Content/Files/Luau Cast ger.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Luau Cast ger.jpg')"></a>
-                <a href="/Content/Files/Luau Dancers ger.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Luau Dancers ger.jpg')"></a>
-                <a href="/Content/Files/Luau Performers ger.jpg" Class="gallery-image"
-                    style="background-image: url('/Content/Files/Luau Performers ger.jpg')"></a>
+                <a href="InterGermaines Luau.jpg" Class="gallery-image"
+                    style="background-image: url('InterGermaines Luau.jpg')"></a>
+                <a href="InterGermaines Show.jpg" Class="gallery-image"
+                    style="background-image: url('InterGermaines Show.jpg')"></a>
+                <a href="InterFire-Knife Dancer ger.jpg" Class="gallery-image"
+                    style="background-image: url('InterFire-Knife Dancer ger.jpg')"></a>
+                <a href="InterHula Dancers ger.jpg" Class="gallery-image"
+                    style="background-image: url('InterHula Dancers ger.jpg')"></a>
+                <a href="InterLuau Cast ger.jpg" Class="gallery-image"
+                    style="background-image: url('InterLuau Cast ger.jpg')"></a>
+                <a href="InterLuau Dancers ger.jpg" Class="gallery-image"
+                    style="background-image: url('InterLuau Dancers ger.jpg')"></a>
+                <a href="InterLuau Performers ger.jpg" Class="gallery-image"
+                    style="background-image: url('InterLuau Performers ger.jpg')"></a>
             </div>
             <div id="luau-info">
                 <ul id="luau-highlights">
@@ -183,7 +181,7 @@
                 </ul>
 
                 <div id="seating-chart">
-                    <img src="/Content/Files/germaines-seating.png" alt="">
+                    <img src="Intergermaines-seating.png" alt="">
                 </div>
             </div>
         </div>
@@ -1683,7 +1681,10 @@
 
         </script>
 
-        <form id="addToCartForm">
+
+
+<form id="addToCartForm" method="post">
+        <form id="addToCartForm" method="post">
             <div id="checkout-window">
                 <div id="checkout-content">
                     <header>
@@ -1714,7 +1715,8 @@
                             <section></section>
                             <div class="checkout-footer">
                                 <button class="prev-btn" onclick="showPage2()" type="button">prev</button>
-                                <button type="submit" id="addToCartSubmit" disabled>add to cart</button>
+                                <input type="hidden" name="cart" value="True" />
+                                <button type="submit" name="submit" value="Add to Cart" id="addToCartSubmit" disabled>add to cart</button>
                             </div>
                         </div>
                         <!-- ====================== -->
@@ -1801,8 +1803,8 @@
     <script src="js/precheckout.js"></script>
     <script src="js/toggle.js" type="text/javascript">
     </script>
-    <script src="js/main.js" type="text/javascript">
-    </script>
+    <script src="intl-tel-input/build/js/intlTelInput.js"></script>
+
 </body>
 
 </html>

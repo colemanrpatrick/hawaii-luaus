@@ -29,7 +29,7 @@
 #checkout-section-header, #order-details-header, #totals-header {
     text-align: center;
     font-size: 2em;
-    font-family: "Lobster";
+    font-family: "Oleo Script";
     padding-bottom: 1em;
     display: inline-block;
     vertical-align: middle;
@@ -97,7 +97,7 @@
     vertical-align: middle;
     width: 24%;
     text-align: left;
-    font-family: "Oswald";
+    font-family: "Inter";
     font-weight: lighter;
 }
 
@@ -136,7 +136,7 @@ background: #fdf8f2;
     text-align: center;
     display: block;
     margin: 1em auto;
-    font-family: "Oswald";
+    font-family: "Inter";
 }
 
 #accordion {
@@ -155,13 +155,13 @@ background: #fdf8f2;
 }
 .card-body table {
     width: 100%;
-    font-family: system-ui;
+    font-family: Inter;
     margin-top: 2em;
     border-collapse: collapse;
 }
 .card-body td {
     text-align: center;
-    font-family: "oswald";
+    font-family: "Inter";
     color: #333;
 }
 .card-body th{
@@ -169,13 +169,13 @@ background: #fdf8f2;
 }
 .card-header {
     display: none;
-    font-family: system-ui;
+    font-family: Inter;
 }
 .anchor-21,
 .anchor-22{
   text-transform: capitalize;
   color: #0c6b9e;
-  font-family: "Lobster", sans-serif;
+  font-family: "Oleo Script", sans-serif;
   font-size: 1.25em;
   text-decoration: none;
   border: 2px solid;
@@ -212,7 +212,7 @@ background: #fdf8f2;
     display: inline-block;
     text-align: left;
     padding: 2em;
-    font-family: "Oswald";
+    font-family: "Inter";
     color: #333333cf;
     width: 50%;
 }
@@ -220,7 +220,7 @@ background: #fdf8f2;
 #accordion th {
     text-transform: capitalize;
     color: #0c6b9e;
-    font-family: "Lobster";
+    font-family: "Oleo Script";
     font-size: 1.25em;
 }
 
@@ -249,7 +249,7 @@ background: #fdf8f2;
 }
 /* datepicker custom styling */
 .ui-widget {
-    font-family: system-ui;
+    font-family: Inter;
 }
 
 .ui-datepicker {
@@ -394,7 +394,7 @@ border-radius: 2em;
 cursor: pointer;
 font-size: 1em;
 margin: 0.5em;
-    font-family: oswald;
+    font-family: Inter;
     font-weight: lighter;
 }
 #goToCheckout{
@@ -419,7 +419,7 @@ margin: 0.5em;
 
 .terms-scroll-box {
     background: #ece8e3;
-    font-family: "Oswald";
+    font-family: "Inter";
     line-height: 2em;
     text-align: justify;
     max-width: 50em;
@@ -435,7 +435,7 @@ margin: 0.5em;
 }
 
 .terms-scroll-box .title {
-    font-family: system-ui;
+    font-family: Inter;
     font-size: 1.5em;
     font-weight: 300;
     color: #006c9c;
