@@ -6,6 +6,19 @@ let page1 = document.getElementById("page-1");
 let page2 = document.getElementById("page-2");
 let page3 = document.getElementById("page-3");
 
+
+
+/*==========================================================*/
+/*==================| get / set storage |==================*/
+/*========================================================*/
+let storeValue = function(_name,_value){
+	localStorage.setItem(_name,_value);
+	console.log("stored! ",localStorage.getItem(_name));
+};
+let getValue = function(_name){
+	console.log("value ",localStorage.getItem(_name));
+	return localStorage.getItem(_name);
+};
 /*===========================================================*/
 /*==================| local/current date |==================*/
 /*=========================================================*/
@@ -106,11 +119,11 @@ let createDatePicker = function(landing){
 
     $("#dateInput").attr("name", "" + collectorName + "");
 
-	/*====== set datepicker / date input value ======*/
+	/*====== get datepicker / date input value ======*/
 
-    if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
+    if (getValue("" + $('#dateInput').attr('name') + "")) {
 
-        $("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
+        $("#dateInput").prop('value', getValue("" + $('#dateInput').attr('name') + "")).trigger('change');
         $("#datepicker").datepicker('setDate', $("#dateInput").val());
 
     } else {
@@ -129,8 +142,9 @@ let createDatePicker = function(landing){
     $("#datepicker").change(function () {
         if ($("#dateInput").val() !== disabledDates) {
             $("#dateInput").prop('value', $(this).val());
-            localStorage.setItem("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
-			
+
+            storeValue("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
+
 			let dateError = document.getElementById("date-error");
 			if(dateError.className === "date-error active"){
 				dateError.className = "date-error";
@@ -177,7 +191,7 @@ let createSpinners = function(landing,$name,index){
 		spinnerInput.setAttribute("name",$name);
 		spinnerInput.setAttribute("id",$name);
 		spinnerInput.setAttribute('class','price');
-		spinnerInput.setAttribute('min',0);
+		spinnerInput.setAttribute('placeholder','0');
 
         let spinnerPlus = document.createElement("BUTTON");
         let spinnerMinus = document.createElement("BUTTON");
@@ -312,7 +326,6 @@ let createPrices = (landing) => {
 			item.style.display = 'none';
 		}
 	});
-
 };
 
 /*========================================================*/
@@ -384,61 +397,61 @@ let createAdditionalCollectors = (landing) => {
 /*==================|  email - phone   |==================*/
 /*=======================================================*/
 
-// let createEmailPhoneCollectors = (landing) => {
+let createEmailPhoneCollectors = (landing) => {
 
-// 	let emailCollector = document.createElement("DIV");
-// 	emailCollector.setAttribute("id","email-collector");
+	let emailCollector = document.createElement("DIV");
+	emailCollector.setAttribute("id","email-collector");
 
-// 	let email = document.createElement("INPUT");
-// 	email.setAttribute("type","email");
-// 	email.setAttribute("id","email");
-// 	email.setAttribute("placeholder","email");
-// 	email.setAttribute("name","email");
+	let email = document.createElement("INPUT");
+	email.setAttribute("type","email");
+	email.setAttribute("id","email");
+	email.setAttribute("placeholder","email");
+	email.setAttribute("name","email");
 
-// 	let emailLabel = document.createElement("LABEL");
-// 	emailLabel.innerHTML = "E-Mail";
-// 	emailLabel.setAttribute("for",email.getAttribute("name"));
+	let emailLabel = document.createElement("LABEL");
+	emailLabel.innerHTML = "E-Mail";
+	emailLabel.setAttribute("for",email.getAttribute("name"));
 
-// 	let phoneCollector = document.createElement("DIV");
-// 	phoneCollector.setAttribute("id","phone-collector");
+	let phoneCollector = document.createElement("DIV");
+	phoneCollector.setAttribute("id","phone-collector");
 
-// 	let phone = document.createElement("INPUT");
-// 	phone.setAttribute("type","phone");
-// 	phone.setAttribute("id","phone");
-// 	phone.setAttribute("placeholder","phone");
-// 	phone.setAttribute("name","phone");
-// 	if(window.intlTelInput){
-// 		window.intlTelInput(phone);
-// 	};
+	let phone = document.createElement("INPUT");
+	phone.setAttribute("type","phone");
+	phone.setAttribute("id","phone");
+	phone.setAttribute("placeholder","phone");
+	phone.setAttribute("name","phone");
+	if(window.intlTelInput){
+		window.intlTelInput(phone);
+	};
 
-// 	let phoneLabel = document.createElement("LABEL");
-// 	phoneLabel.innerHTML = "Phone";
-// 	phoneLabel.setAttribute("for",email.getAttribute("name"));
+	let phoneLabel = document.createElement("LABEL");
+	phoneLabel.innerHTML = "Phone";
+	phoneLabel.setAttribute("for",email.getAttribute("name"));
 	
-// 	emailCollector.appendChild(emailLabel);
-// 	emailCollector.appendChild(email);
+	emailCollector.appendChild(emailLabel);
+	emailCollector.appendChild(email);
 
-// 	phoneCollector.appendChild(phoneLabel);
-// 	phoneCollector.appendChild(phone);
+	phoneCollector.appendChild(phoneLabel);
+	phoneCollector.appendChild(phone);
 	
-// 	let emailStore = localStorage.getItem("email-submitted");
-// 	let phoneStore = localStorage.getItem("phone-submitted");
+	let emailStore = localStorage.getItem("email-submitted");
+	let phoneStore = localStorage.getItem("phone-submitted");
 
-// 	console.log(emailStore);
-// 	console.log(phoneStore);
+	console.log(emailStore);
+	console.log(phoneStore);
 
-// 	if(emailStore && emailStore == true){
-// 		console.log(emailStore);
-// 		phoneCollector.appendChild(phone);
-// 	}else if(phoneStore && phoneStore == true){
-// 		// do nothing, everything has been collected
-// 		console.log(phoneStore);
-// 	}else{
-// 		console.log("no store");
-// 		landing.appendChild(emailCollector);
-// 	}
+	if(emailStore && emailStore == true){
+		console.log(emailStore);
+		phoneCollector.appendChild(phone);
+	}else if(phoneStore && phoneStore == true){
+		// do nothing, everything has been collected
+		console.log(phoneStore);
+	}else{
+		console.log("no store");
+		landing.appendChild(emailCollector);
+	}
 
-// };
+};
 
 /*========================================================*/
 /*==================|  Create Header  |==================*/
@@ -484,11 +497,11 @@ let createPage2 = () => {
 
 	let $price = document.getElementsByClassName("price");
 
-	Array.prototype.forEach.call($price, function(item,index) {
-		if(item.value.length < 1){
-			item.value = 0;
-		};
-	});
+	// Array.prototype.forEach.call($price, function(item,index) {
+	// 	if(item.value.length < 1){
+	// 		item.value = 0;
+	// 	};
+	// });
 
 };
 
