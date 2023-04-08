@@ -1,24 +1,9 @@
 console.log("precheckout.js");
-localStorage.clear();
-console.log("precheckout.js");
 
 let page1 = document.getElementById("page-1");
 let page2 = document.getElementById("page-2");
 let page3 = document.getElementById("page-3");
 
-
-
-/*==========================================================*/
-/*==================| get / set storage |==================*/
-/*========================================================*/
-let storeValue = function(_name,_value){
-	localStorage.setItem(_name,_value);
-	console.log("stored! ",localStorage.getItem(_name));
-};
-let getValue = function(_name){
-	console.log("value ",localStorage.getItem(_name));
-	return localStorage.getItem(_name);
-};
 /*===========================================================*/
 /*==================| local/current date |==================*/
 /*=========================================================*/
@@ -85,6 +70,13 @@ let createDatePicker = function(landing){
     
     dateInput.setAttribute("type","text");
     dateInput.setAttribute("id","dateInput");
+	dateInput.setAttribute("name",cartConfig.Collectors[0].ControlName);
+	dateInput.setAttribute("value",cartConfig.Collectors[0].Value);
+
+	if(dateInput.value == null){
+		dateInput.value = "";
+	};
+
     datePicker.setAttribute('id','datepicker');
 
     landing.appendChild(dateInput);
@@ -95,7 +87,6 @@ let createDatePicker = function(landing){
     var dateToday = new Date();
     
     // list of specific disabled dates //
-
     let disabledDates = cartConfig.Availabilities[0].ClosedDates;
     disabledDates = JSON.parse(disabledDates);
 
@@ -115,25 +106,20 @@ let createDatePicker = function(landing){
 
     });
 
-	let collectorName = cartConfig.Collectors[0].ControlName;
+	/*====== set datepicker / date input value ======*/
 
-    $("#dateInput").attr("name", "" + collectorName + "");
+	if(dateInput.value.length > 0 ){
 
-	/*====== get datepicker / date input value ======*/
+		$("#datepicker").datepicker('setDate', $("#dateInput").val());
 
-    if (getValue("" + $('#dateInput').attr('name') + "")) {
+	}else{
 
-        $("#dateInput").prop('value', getValue("" + $('#dateInput').attr('name') + "")).trigger('change');
-        $("#datepicker").datepicker('setDate', $("#dateInput").val());
-
-    } else {
-
-        $('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
-        $('#dateInput').val('');
+		$('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
         $('#datepicker').val('');
-    };
 
-    /*====== set datepicker and input events ======*/
+	};
+
+    /*====== datepicker / date input events ======*/
 
     $("#dateInput").change(function () {
         $("#datepicker").datepicker('setDate', $(this).val()).trigger('change');
@@ -142,9 +128,6 @@ let createDatePicker = function(landing){
     $("#datepicker").change(function () {
         if ($("#dateInput").val() !== disabledDates) {
             $("#dateInput").prop('value', $(this).val());
-
-            storeValue("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
-
 			let dateError = document.getElementById("date-error");
 			if(dateError.className === "date-error active"){
 				dateError.className = "date-error";
@@ -179,7 +162,7 @@ let availabilityValidate = function(){
 /*==================|  number spinner |==================*/
 /*======================================================*/
 
-let createSpinners = function(landing,$name,index){
+let createSpinners = function(landing,$name,priceValue){
 
         let numberSpinner = document.createElement("DIV");
 		numberSpinner.setAttribute("class","numberSpinner");
@@ -193,7 +176,11 @@ let createSpinners = function(landing,$name,index){
 		spinnerInput.setAttribute('class','price');
 		spinnerInput.setAttribute('placeholder','0');
 
-        let spinnerPlus = document.createElement("BUTTON");
+		if(!priceValue == 0){
+			spinnerInput.value = priceValue;
+		}
+		
+		let spinnerPlus = document.createElement("BUTTON");
         let spinnerMinus = document.createElement("BUTTON");
         spinnerPlus.setAttribute("type","button");
         spinnerMinus.setAttribute("type","button");
@@ -274,7 +261,9 @@ let createPrices = (landing) => {
 
 		let priceSpinnerCont = document.createElement("LI");
 		priceSpinnerCont.setAttribute("class", "price-spinner-cont");
-		createSpinners(priceSpinnerCont, item.ControlName, index);
+
+		createSpinners(priceSpinnerCont, item.ControlName, item.Quantity);
+		console.log(item.Quantity);
 
 		let priceDescription = document.createElement("LI");
 		priceDescription.setAttribute('class', 'price-description');
@@ -354,18 +343,25 @@ let createAdditionalCollectors = (landing) => {
 			Array.prototype.forEach.call(dropDownItems, function(element,elementIndex){
 				let _option = document.createElement("option");
 				_option.innerHTML = element.Shortcode;
-				_option.setAttribute("id","" + element.ID + "")
-				_option.setAttribute("value","" + element.ID + "")
+				_option.setAttribute("id","" + element.ID + "");
+				_option.setAttribute("value","" + element.Shortcode + "");
 				collectorInput.appendChild(_option);
 			});
+
+			collectorInput.value = item.Value;
+			console.log(collectorInput.value);
 		
-		}else if(item.ApplicationDataType === 1){
+		}else if(item.ApplicationDataType == 1){
 
 			// create collectors checkbox
 
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","checkbox");
 			collectorInput.setAttribute("class","checkbox");
+
+            if (item.Value == true){
+				collectorInput.checked = true;
+			}
 
 		}else{
 
@@ -374,7 +370,7 @@ let createAdditionalCollectors = (landing) => {
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","text");
 			collectorInput.setAttribute("placeholder",item.Name);
-
+			collectorInput.value = item.Value;
 		};
 
 		// add identifiers to collectors
@@ -461,6 +457,7 @@ let createCheckoutHeader = () => {
 
 	let checkOutHeader = document.getElementById("checkout-header");
 	checkOutHeader.innerHTML = cartConfig.ProductTitle;
+	
 }
 
 
@@ -494,15 +491,6 @@ let createPage2 = () => {
         	numIncrement("" + this.nextElementSibling.firstChild.id + "",false)
     	});
 	};
-
-	let $price = document.getElementsByClassName("price");
-
-	// Array.prototype.forEach.call($price, function(item,index) {
-	// 	if(item.value.length < 1){
-	// 		item.value = 0;
-	// 	};
-	// });
-
 };
 
 /*========================================================*/
@@ -553,23 +541,6 @@ let showPage1 = function(){
 	page2.className = "addToCartPage";
 	page3.className = "addToCartPage";
 	pageIndex = 1;
-
-	/*====== set datepicker / date input value ======*/
-
-	if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
-
-		$("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
-		$("#datepicker").datepicker('setDate', $("#dateInput").val());
-	
-	} else {
-
-		localStorage.getItem("" + $('#dateInput').attr('name') + "");
-
-		$('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
-		$('#dateInput').val('');
-		$("#datepicker").val("");
-	
-	};
 };
 
 /*======================================================*/
