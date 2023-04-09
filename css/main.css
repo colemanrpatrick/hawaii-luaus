@@ -2876,7 +2876,12 @@ a.ui-button:active,
 	height: 3.82em;
 }
 input#dateInput {
-
+ position: absolute;
+	z-index: -1;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	opacity: 0;
 } 
 .numberSpinner {
 	margin: 0.5em;
@@ -3069,14 +3074,18 @@ input#dateInput {
 .collector label {
   color: #0c6b9e;
 }
-.collector {
+.collector,
+#email-collector,
+#phone-collector{
   font-family: "Montserrat",sans-serif;
   padding: 1em;
   display: block;
   width: 100%;
   text-align: center;
 }
-.collector input[type=text] {
+.collector input[type=text],
+#email,
+#phone{
   display: block;
   margin: 0 auto;
   padding: 1em;
@@ -3107,7 +3116,9 @@ input#dateInput {
   margin-left: 0.5em;
   cursor: poMontserrat;
 }
-.collector label {
+.collector label,
+#email-collector label,
+#phone-collector label{
   color: #0c6b9e;
 }
 #date-error,

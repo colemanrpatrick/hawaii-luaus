@@ -185,7 +185,15 @@
                 </div>
             </div>
         </div>
+        <script>
+            try{
+                const emailName = Order.Customer.PrimaryEmail;
+                const emailPhone = Order.Customer.MobilePhone;
+            }catch(error){
+                console.log("email or phone variable names not defined correctly",error);
+            };
 
+        </script>
         <script>
             let cartConfig = {
                 "ProductID": 1,
@@ -1608,6 +1616,14 @@
                         "DisplayOrder": 0,
                         "Value": true,
                         "Required": false
+                    }
+                ],
+                "Customer": [
+                    {
+                        "Email": "colemanrpatrick@gmail.com"
+                    },
+                    { 
+                        "MobilePhone": "8439015775"
                     }
                 ],
                 "Schedules": [],

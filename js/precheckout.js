@@ -263,7 +263,6 @@ let createPrices = (landing) => {
 		priceSpinnerCont.setAttribute("class", "price-spinner-cont");
 
 		createSpinners(priceSpinnerCont, item.ControlName, item.Quantity);
-		console.log(item.Quantity);
 
 		let priceDescription = document.createElement("LI");
 		priceDescription.setAttribute('class', 'price-description');
@@ -349,7 +348,6 @@ let createAdditionalCollectors = (landing) => {
 			});
 
 			collectorInput.value = item.Value;
-			console.log(collectorInput.value);
 		
 		}else if(item.ApplicationDataType == 1){
 
@@ -394,6 +392,7 @@ let createAdditionalCollectors = (landing) => {
 /*=======================================================*/
 
 let createEmailPhoneCollectors = (landing) => {
+	//=========== create email ===========// 
 
 	let emailCollector = document.createElement("DIV");
 	emailCollector.setAttribute("id","email-collector");
@@ -402,11 +401,19 @@ let createEmailPhoneCollectors = (landing) => {
 	email.setAttribute("type","email");
 	email.setAttribute("id","email");
 	email.setAttribute("placeholder","email");
-	email.setAttribute("name","email");
 
 	let emailLabel = document.createElement("LABEL");
 	emailLabel.innerHTML = "E-Mail";
 	emailLabel.setAttribute("for",email.getAttribute("name"));
+
+	try{
+		email.setAttribute("name",emailName);
+	} catch(error){
+		console.log(error);
+	};
+
+
+	//=========== create phone ===========//  
 
 	let phoneCollector = document.createElement("DIV");
 	phoneCollector.setAttribute("id","phone-collector");
@@ -416,39 +423,41 @@ let createEmailPhoneCollectors = (landing) => {
 	phone.setAttribute("id","phone");
 	phone.setAttribute("placeholder","phone");
 	phone.setAttribute("name","phone");
-	if(window.intlTelInput){
-		window.intlTelInput(phone);
-	};
 
 	let phoneLabel = document.createElement("LABEL");
 	phoneLabel.innerHTML = "Phone";
 	phoneLabel.setAttribute("for",email.getAttribute("name"));
 	
+	try{
+		email.setAttribute("name",mailPhone);
+	} catch(error){
+		console.log(error);
+	};
+
+    //=========== show email/phone ===========// 
+
 	emailCollector.appendChild(emailLabel);
 	emailCollector.appendChild(email);
 
 	phoneCollector.appendChild(phoneLabel);
 	phoneCollector.appendChild(phone);
-	
-	let emailStore = localStorage.getItem("email-submitted");
-	let phoneStore = localStorage.getItem("phone-submitted");
 
-	console.log(emailStore);
-	console.log(phoneStore);
+   //=========== populate email ===========//
 
-	if(emailStore && emailStore == true){
-		console.log(emailStore);
-		phoneCollector.appendChild(phone);
-	}else if(phoneStore && phoneStore == true){
-		// do nothing, everything has been collected
-		console.log(phoneStore);
+	if(cartConfig.Customer[0].Email.length > 0 && cartConfig.Customer[1].MobilePhone.length > 0){
+
+		// do nothing
+
+	}else if(cartConfig.Customer[0].Email.length > 0){
+
+		cartConfig.Customer[1].MobilePhone;
+
 	}else{
-		console.log("no store");
+
 		landing.appendChild(emailCollector);
+
 	}
-
 };
-
 /*========================================================*/
 /*==================|  Create Header  |==================*/
 /*======================================================*/
@@ -499,7 +508,7 @@ let createPage2 = () => {
 
 let createPage3 = () => {
 
-	// createEmailPhoneCollectors(page3.firstElementChild);
+	createEmailPhoneCollectors(page3.firstElementChild);
 	createAdditionalCollectors(page3.firstElementChild);
 	
 };
@@ -649,31 +658,3 @@ lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
 });
 
 /*======================================================*/
-
-// const addToCartForm = document.getElementById("addToCartSubmit");
-
-// let emailInpt = document.getElementById("email");
-// let phoneInpt = document.getElementById("phone");
-
-// addToCartForm.addEventListener("click",function(){
-
-// 	if(emailInpt && emailInpt.value.length > 0){
-
-// 		localStorage.setItem("email-submitted","true");
-// 		console.log(localStorage.getItem("email-submitted"));
-
-// 		alert("true email"); return false;
-
-// 	}else if(phoneInpt && phoneInpt.value.length > 0){
-
-// 		localStorage.setItem("phone-submitted","true");
-// 		console.log(localStorage.getItem("phone-submitted"));
-
-// 		alert("true phone"); return false; 
-
-// 	}else{
-
-// 		return false;
-
-// 	};
-// });
