@@ -34,27 +34,30 @@ const getTodaysDate = function() {
 /*=================|   numberIncremet  |=================*/
 /*======================================================*/
 
-function numIncrement(numberInput, increase) {
-    var myInputObject = document.getElementById(numberInput);
-	myInputObject.setAttribute("placeholder","0");
-    if (increase) {
-        if (myInputObject.Value == " "){
-            myInputObject.value = 1;
-        }else{
-           myInputObject.value++;
-        }
-        localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-    } else {
-        myInputObject.value--;
-        localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-    };
-    if (myInputObject.value > 999) {
-        myInputObject.value = 999;
-    };
-    if (myInputObject.value < 1) {
-        myInputObject.value = " ";
-    };
-};
+function numIncrement( numberInput, increase ) { 
+
+	var myInputObject = document.getElementById( numberInput ); 
+	myInputObject.focus();
+
+	if ( increase ) { 
+		myInputObject.value++;
+		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
+
+	} else { 
+		myInputObject.value--;
+		localStorage.setItem( "" + myInputObject.getAttribute( "name" ) + "", myInputObject.value );
+		 
+	}; 
+
+	if ( myInputObject.value > 999 ) {
+		myInputObject.value = 999;
+	};
+
+	if ( myInputObject.value <= 0 ) {
+		myInputObject.value = 0;
+	};
+
+}; 
 
 /*========================================================*/
 /*==================|   Date Picker   |==================*/
@@ -67,13 +70,6 @@ let createDatePicker = function(landing){
     
     dateInput.setAttribute("type","text");
     dateInput.setAttribute("id","dateInput");
-	dateInput.setAttribute("name",cartConfig.Collectors[0].ControlName);
-	dateInput.setAttribute("value",cartConfig.Collectors[0].Value);
-
-	if(dateInput.value == null){
-		dateInput.value = "";
-	};
-
     datePicker.setAttribute('id','datepicker');
 
     landing.appendChild(dateInput);
@@ -84,6 +80,7 @@ let createDatePicker = function(landing){
     var dateToday = new Date();
     
     // list of specific disabled dates //
+
     let disabledDates = cartConfig.Availabilities[0].ClosedDates;
     disabledDates = JSON.parse(disabledDates);
 
@@ -103,20 +100,25 @@ let createDatePicker = function(landing){
 
     });
 
+	let collectorName = cartConfig.Collectors[0].ControlName;
+
+    $("#dateInput").attr("name", "" + collectorName + "");
+
 	/*====== set datepicker / date input value ======*/
 
-	if(dateInput.value.length > 0 ){
+    if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
 
-		$("#datepicker").datepicker('setDate', $("#dateInput").val());
+        $("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
+        $("#datepicker").datepicker('setDate', $("#dateInput").val());
 
-	}else{
+    } else {
 
-		$('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+        $('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+        $('#dateInput').val('');
         $('#datepicker').val('');
+    };
 
-	};
-
-    /*====== datepicker / date input events ======*/
+    /*====== set datepicker and input events ======*/
 
     $("#dateInput").change(function () {
         $("#datepicker").datepicker('setDate', $(this).val()).trigger('change');
@@ -125,6 +127,8 @@ let createDatePicker = function(landing){
     $("#datepicker").change(function () {
         if ($("#dateInput").val() !== disabledDates) {
             $("#dateInput").prop('value', $(this).val());
+            localStorage.setItem("" + $('#dateInput').attr('name') + "", "" + $('#dateInput').val() + "");
+			
 			let dateError = document.getElementById("date-error");
 			if(dateError.className === "date-error active"){
 				dateError.className = "date-error";
@@ -159,7 +163,7 @@ let availabilityValidate = function(){
 /*==================|  number spinner |==================*/
 /*======================================================*/
 
-let createSpinners = function(landing,$name,priceValue){
+let createSpinners = function(landing,$name,index){
 
         let numberSpinner = document.createElement("DIV");
 		numberSpinner.setAttribute("class","numberSpinner");
@@ -171,13 +175,9 @@ let createSpinners = function(landing,$name,priceValue){
 		spinnerInput.setAttribute("name",$name);
 		spinnerInput.setAttribute("id",$name);
 		spinnerInput.setAttribute('class','price');
-		spinnerInput.setAttribute('placeholder','0');
+		spinnerInput.setAttribute('min',0);
 
-		if(!priceValue == 0){
-			spinnerInput.value = priceValue;
-		}
-		
-		let spinnerPlus = document.createElement("BUTTON");
+        let spinnerPlus = document.createElement("BUTTON");
         let spinnerMinus = document.createElement("BUTTON");
         spinnerPlus.setAttribute("type","button");
         spinnerMinus.setAttribute("type","button");
@@ -258,8 +258,7 @@ let createPrices = (landing) => {
 
 		let priceSpinnerCont = document.createElement("LI");
 		priceSpinnerCont.setAttribute("class", "price-spinner-cont");
-
-		createSpinners(priceSpinnerCont, item.ControlName, item.Quantity);
+		createSpinners(priceSpinnerCont, item.ControlName, index);
 
 		let priceDescription = document.createElement("LI");
 		priceDescription.setAttribute('class', 'price-description');
@@ -311,13 +310,14 @@ let createPrices = (landing) => {
 			item.style.display = 'none';
 		}
 	});
+
 };
 
 /*========================================================*/
 /*==============|  Additional Collectors  |==============*/
 /*======================================================*/
 
-let createAdditionalCollectors = (landing) => {
+let createAdditionalCollectors = function (landing){
 
 	let collector;
 	let collectors = cartConfig.Collectors;
@@ -339,24 +339,16 @@ let createAdditionalCollectors = (landing) => {
 			Array.prototype.forEach.call(dropDownItems, function(element,elementIndex){
 				let _option = document.createElement("option");
 				_option.innerHTML = element.Shortcode;
-				_option.setAttribute("id","" + element.ID + "");
-				_option.setAttribute("value","" + element.Shortcode + "");
 				collectorInput.appendChild(_option);
 			});
-
-			collectorInput.value = item.Value;
 		
-		}else if(item.ApplicationDataType == 1){
+		}else if(item.ApplicationDataType === 1){
 
 			// create collectors checkbox
 
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","checkbox");
 			collectorInput.setAttribute("class","checkbox");
-
-            if (item.Value == true){
-				collectorInput.checked = true;
-			}
 
 		}else{
 
@@ -365,7 +357,7 @@ let createAdditionalCollectors = (landing) => {
 			collectorInput = document.createElement("INPUT");
 			collectorInput.setAttribute("type","text");
 			collectorInput.setAttribute("placeholder",item.Name);
-			collectorInput.value = item.Value;
+
 		};
 
 		// add identifiers to collectors
@@ -380,92 +372,17 @@ let createAdditionalCollectors = (landing) => {
 		collector.appendChild(collectorInput); 
 
 		landing.appendChild(collector);
-
 	});
 };
 
-/*=========================================================*/
-/*==================|  email - phone   |==================*/
-/*=======================================================*/
-
-let createEmailPhoneCollectors = (landing) => {
-	//=========== create email ===========// 
-
-	let emailCollector = document.createElement("DIV");
-	emailCollector.setAttribute("id","email-collector");
-
-	let email = document.createElement("INPUT");
-	email.setAttribute("type","email");
-	email.setAttribute("id","email");
-	email.setAttribute("placeholder","email");
-
-	let emailLabel = document.createElement("LABEL");
-	emailLabel.innerHTML = "E-Mail";
-	emailLabel.setAttribute("for",email.getAttribute("name"));
-
-	try{
-		email.setAttribute("name",emailName);
-	} catch(error){
-		console.log(error);
-	};
-
-
-	//=========== create phone ===========//  
-
-	let phoneCollector = document.createElement("DIV");
-	phoneCollector.setAttribute("id","phone-collector");
-
-	let phone = document.createElement("INPUT");
-	phone.setAttribute("type","phone");
-	phone.setAttribute("id","phone");
-	phone.setAttribute("placeholder","phone");
-	phone.setAttribute("name","phone");
-
-	let phoneLabel = document.createElement("LABEL");
-	phoneLabel.innerHTML = "Phone";
-	phoneLabel.setAttribute("for",email.getAttribute("name"));
-	
-	try{
-		email.setAttribute("name",mailPhone);
-	} catch(error){
-		console.log(error);
-	};
-
-    //=========== show email/phone ===========// 
-
-	emailCollector.appendChild(emailLabel);
-	emailCollector.appendChild(email);
-
-	phoneCollector.appendChild(phoneLabel);
-	phoneCollector.appendChild(phone);
-
-   //=========== populate email ===========//
-
-	if(cartConfig.Customer[0].Email.length > 0 && cartConfig.Customer[1].MobilePhone.length > 0){
-
-		// do nothing
-
-	}else if(cartConfig.Customer[0].Email.length > 0){
-
-		cartConfig.Customer[1].MobilePhone;
-
-	}else{
-
-		landing.appendChild(emailCollector);
-
-	}
-};
 /*========================================================*/
 /*==================|  Create Header  |==================*/
 /*======================================================*/
 
 let createCheckoutHeader = () => {
-
 	let checkOutHeader = document.getElementById("checkout-header");
 	checkOutHeader.innerHTML = cartConfig.ProductTitle;
-	
 }
-
 
 /*========================================================*/
 /*==================|  Create page 1  |==================*/
@@ -497,6 +414,15 @@ let createPage2 = () => {
         	numIncrement("" + this.nextElementSibling.firstChild.id + "",false)
     	});
 	};
+
+	let $price = document.getElementsByClassName("price");
+
+	Array.prototype.forEach.call($price, function(item,index) {
+		if(item.value.length < 1){
+			item.value = 0;
+		};
+	});
+
 };
 
 /*========================================================*/
@@ -505,9 +431,8 @@ let createPage2 = () => {
 
 let createPage3 = () => {
 
-	createEmailPhoneCollectors(page3.firstElementChild);
 	createAdditionalCollectors(page3.firstElementChild);
-	
+
 };
 
 /*========================================================*/
@@ -547,6 +472,23 @@ let showPage1 = function(){
 	page2.className = "addToCartPage";
 	page3.className = "addToCartPage";
 	pageIndex = 1;
+
+	/*====== set datepicker / date input value ======*/
+
+	if (localStorage.getItem("" + $('#dateInput').attr('name') + "")) {
+
+		$("#dateInput").prop('value', localStorage.getItem($('#dateInput').attr('name'))).trigger('change');
+		$("#datepicker").datepicker('setDate', $("#dateInput").val());
+	
+	} else {
+
+		localStorage.getItem("" + $('#dateInput').attr('name') + "");
+
+		$('.ui-datepicker-current-day').removeClass('ui-datepicker-current-day');
+		$('#dateInput').val('');
+		$("#datepicker").val("");
+	
+	};
 };
 
 /*======================================================*/
@@ -651,7 +593,7 @@ lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
 		$checkout.disabled = false;
 	} else {
 		$checkout.disabled = true;
-	};
-});
+	}
+})
 
 /*======================================================*/

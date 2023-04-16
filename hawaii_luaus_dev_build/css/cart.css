@@ -1,0 +1,624 @@
+#container-0 {
+    background: url("../images/tapasBeige.jpg");
+    background-size: 12em;
+    background-position: top;
+}
+#cart-hero {
+  background-image: url("../images/cartheader.png");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  text-align: center;
+  padding: 12em 0em 5em 0em;
+  margin-bottom: 1em;
+}
+#cart-hero h2 {
+  color: white;
+  font-size: 2.5em;
+  background: #cc8400bd;
+  padding: 0.5em;
+}
+.row {
+  padding-top: 1em;
+}
+#cart-hero .material-symbols-outlined {
+  color: white;
+  font-size: 1em;
+  margin: 0em 0.25em;
+}
+#checkout-section-header, #order-details-header, #totals-header {
+    text-align: center;
+    font-size: 2em;
+    font-family: "Oleo Script";
+    padding-bottom: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    color: #0c6b9e;
+}
+
+    #checkout-section-header:before,
+    #order-details-header:before,
+    #totals-header:before {
+        font-size: 0.85em;
+        padding: 0em 0.5em;
+        border-radius: 50%;
+        margin-right: 0.25em;
+        vertical-align: bottom;
+        display: inline-block;
+        border: 0.09em solid;
+    }
+
+    #checkout-section-header:before {
+        content: "1";
+    }
+
+    #order-details-header:before {
+        content: "2";
+    }
+
+    #totals-header:before {
+        content: "3";
+    }
+
+.col-md-12.col-lg-4.order-0.order-md-0, .col-md-12.col-lg-8.order-1.order-md-1 {
+    display: block;
+    /*! padding: 1em; */
+    text-align: center;
+    margin-top: 1em;
+}
+
+.checkout-section {
+    background: #ece8e3;
+    padding: 2em;
+    border-radius: 1em;
+    text-align: center;
+    max-width: 50em;
+    margin: 0 auto;
+    border: 0.25em solid #e6d4bf;
+}
+
+    .checkout-section .container {
+        margin: 0 auto;
+        text-align: left;
+        width: 100%;
+    }
+
+.customer-fields {
+    display: inline-table;
+    width: 49%;
+    position: relative;
+    margin: 1em 0em;
+    text-align: center;
+}
+
+.detail-label {
+    color: #0c6b9e;
+    display: inline-block;
+    vertical-align: middle;
+    width: 24%;
+    text-align: left;
+    font-family: "Inter";
+    font-weight: lighter;
+}
+
+.detail-input {
+display: inline-block;
+text-align: left;
+margin: 0 auto;
+  margin-top: 0px;
+padding: 0.75em;
+max-width: 24em;
+font-size: 0.9em;
+border: 0.15em solid #e6d4bf;
+margin-top: 1em;
+border-radius: 1em;
+background: #fdf8f2;
+}
+
+.checkout-section input:focus {
+    outline-color: #009fdf;
+}
+
+.checkout-section br {
+    line-height: 3.5em;
+    display: none;
+}
+
+.price-n span {
+    text-decoration: line-through;
+    margin-right: 0.5em;
+    color: #d5d2db;
+}
+
+#container-1 .error:not(input) {
+    color: #9c0000;
+    padding: 0;
+    text-align: center;
+    display: block;
+    margin: 1em auto;
+    font-family: "Inter";
+}
+
+#accordion {
+    background: #ece8e3;
+    padding: 3em;
+    border-radius: 1em;
+    text-align: center;
+    max-width: 50em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    position: relative;
+    border: 0.25em solid #e6d4bf;
+}
+.card-body{
+  text-align: right;
+}
+.card-body table {
+    width: 100%;
+    font-family: Inter;
+    margin-top: 2em;
+    border-collapse: collapse;
+}
+.card-body td {
+    text-align: center;
+    font-family: "Inter";
+    color: #333;
+}
+.card-body th{
+    text-align: center;
+}
+.card-header {
+    display: none;
+    font-family: Inter;
+}
+.anchor-21,
+.anchor-22{
+  text-transform: capitalize;
+  color: #0c6b9e;
+  font-family: "Oleo Script", sans-serif;
+  font-size: 1.25em;
+  text-decoration: none;
+  border: 2px solid;
+  padding: 0em 1em;
+  border-radius: 1em;
+}
+.fa-trash,
+.fa-eye{
+  font: normal normal normal 1em FontAwesome;
+  margin-right: 0.25em;
+}
+.anchor-12 {
+  background-color: rgb(12, 107, 158);
+  border: 0;
+  color: white;
+  text-transform: capitalize;
+  padding: 0.25em 1em;
+  border-radius: 2em;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0.5em;
+}
+.anchor-13 {
+  background-color: rgb(12, 107, 158);
+  border: 0;
+  color: white;
+  text-transform: capitalize;
+  padding: 0.25em 1em;
+  border-radius: 2em;
+  cursor: pointer;
+  font-size: 1em;
+}
+#accordion label {
+    display: inline-block;
+    text-align: left;
+    padding: 2em;
+    font-family: "Inter";
+    color: #333333cf;
+    width: 50%;
+}
+
+#accordion th {
+    text-transform: capitalize;
+    color: #0c6b9e;
+    font-family: "Oleo Script";
+    font-size: 1.25em;
+}
+
+
+#accordion input:not([type="number"]),#accordion select {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
+    padding: 0.75em;
+    max-width: 24em;
+    font-size: 0.9em;
+    border: 0.15em solid #e6d4bf;
+    margin-top: 1em;
+    border-radius: 1em;
+    background: #fdf8f2;
+    width: 20em;
+}
+
+#accordion label.error {
+    text-align: center !important;
+    margin: 0 auto;
+    padding: 0 !important;
+    color: red;
+    font-weight: bold;
+    display: none !important;
+}
+/* datepicker custom styling */
+.ui-widget {
+    font-family: Inter;
+}
+
+.ui-datepicker {
+    width: auto;
+    max-width: 40em;
+}
+
+    .ui-datepicker .ui-datepicker-title {
+        padding: 0.75em;
+    }
+
+.ui-datepicker-calendar th span {
+    font-weight: normal;
+}
+
+.ui-widget.ui-widget-content {
+    margin: 0 auto;
+    border: none;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-button,
+.ui-button {
+    border: none;
+    background: #0c6b9e;
+    color: white;
+    padding: 2em 0.25em 0.25em 2em;
+}
+
+    .ui-state-hover,
+    .ui-widget-content .ui-state-hover,
+    .ui-widget-header .ui-state-hover,
+    .ui-state-focus,
+    .ui-widget-content .ui-state-focus,
+    .ui-widget-header .ui-state-focus,
+    .ui-button:hover,
+    .ui-button:focus {
+        border: none;
+        background: white;
+        font-weight: normal;
+        color: #212121;
+    }
+
+    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+        background: gold !important;
+        color: #0c6b9e !important;
+        font-weight: bold;
+    }
+
+.ui-widget-header {
+    border: none;
+    color: #0c6b9e;
+    width: 100%;
+    background: #f9d365;
+}
+
+#cart-edit-bottom {
+    background: #ece8e3;
+    padding: 1em;
+    border-radius: 1em;
+    text-align: center;
+    max-width: 50em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border: 0.25em solid #e6d4bf;
+}
+
+    #cart-edit-bottom p {
+        display: inline-block;
+        vertical-align: top;
+        padding: 1em;
+        font-weight: bold;
+        color: #0c6b9e;
+        font-size: 1.25em;
+        font-family: "kon-tiki-aloha-jf", sans-serif;
+    }
+
+    #cart-edit-bottom span {
+        display: block;
+        font-weight: 300;
+        color: #333;
+        font-size: 0.85em;
+    }
+
+#cart-bottom {
+    margin: 0 auto;
+    display: table;
+    /*! width: 20em; */
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+    #cart-bottom .col-sm-6 {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+
+#purchase.price-form {
+    background-image: url("../images/tapaBGwhite.jpg");
+    background-size: 10em;
+}
+#checkout {
+	background: #f7b801;
+	width: 100%;
+	display: block;
+	max-width: 13.35em;
+	margin: 0 auto;
+	padding: 0.5em;
+	font-size: 1.5em;
+	font-family: "oleo script", san-serif;
+	border-radius: 1em;
+	color: #9a031e;
+	text-transform: capitalize;
+	cursor: pointer;
+	border: 0;
+}
+
+    #checkout:hover {
+        background-color: #fffeb2;
+        color: #234358;
+    }
+
+#checkout {
+    opacity: 1;
+}
+
+    #checkout:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+#cart-bottom #input-2, #cart-bottom #input-1 {
+background: #0c6b9e;
+border: 0;
+color: white;
+text-transform: capitalize;
+padding: 0.75em 4em;
+border-radius: 2em;
+cursor: pointer;
+font-size: 1em;
+margin: 0.5em;
+    font-family: Inter;
+    font-weight: lighter;
+}
+#goToCheckout{
+  background: #f6b700;
+  border: 0;
+  color: #0c6b9e;
+  text-transform: capitalize;
+  padding: 0.75em 4em;
+  border-radius: 2em;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0.5em;
+  display: block;
+  margin: 0 auto;
+}
+}
+
+    #cart-bottom #input-2:hover,
+    #cart-bottom #input-1:hover {
+        background-color: #F9D365;
+    }
+
+.terms-scroll-box {
+    background: #ece8e3;
+    font-family: "Inter";
+    line-height: 2em;
+    text-align: justify;
+    max-width: 50em;
+    margin: 0 auto;
+    padding-bottom: 3em;
+    font-weight: lighter;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 1em auto;
+}
+
+.terms-scroll-box .title {
+    font-family: Inter;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #006c9c;
+}
+#container-2 {
+  background: #ece8e3;
+}
+
+#checkout-display-warning {
+    transition: 1s;
+}
+
+#checkout-display-warning {
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0em 0em 2em rgba(0,0,0,0.5);
+    width: 100%;
+    left: 0;
+    color: white;
+    background: #a60c17;
+    text-shadow: none !important;
+}
+
+
+.card-body .numberSpinner {
+  display: block;
+  max-width: 7em;
+  margin: 0 auto;
+}
+.card-body .numberSpinner section {
+  display: inline-block;
+  width: 2.5em;
+  overflow: hidden;
+  vertical-align: middle;
+  font-size: 1.21em;
+}
+.card-body .numberSpinner input {
+  padding-left: 1em;
+  padding-bottom: 0.25em;
+}
+.card-body .numberSpinner button .material-symbols-outlined {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+#goToCheckout p {
+  display: inline-block;
+  vertical-align: middle;
+}
+#goToCheckout .material-symbols-outlined {
+  display: inline-block;
+  vertical-align: middle;
+}
+@media(max-width:1167px) {
+    /* .checkout-section {
+		max-width: 100%;
+		margin: 0 auto;
+		width: 95%;
+	} */
+    .container {
+        max-width: 100%;
+    }
+
+    .checkout-section {
+        padding: 2em;
+    }
+}
+@media(max-width: 1000px){
+  #accordion{
+     padding: 1em;
+   }
+}
+@media(max-width:800px){
+   #accordion input:not([type="number"]),#accordion select {
+   max-width: 15em;
+   }
+}
+
+@media(max-width:750px) {
+
+    .card-body .numberSpinner{
+      max-width: 2em;
+      max-height: 6em;
+    }
+    .card-body .numberSpinner button {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        transform: rotate(90deg);
+    }
+    .card-body .numberSpinner input{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        padding-bottom: 0;
+        padding-left: 0.5em;
+    }
+    .card-body .numberSpinner section{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    } 
+    .customer-fields {
+        display: table;
+        width: 100%;
+    }
+}
+@media(max-width:650px) {
+.card-body .numberSpinner button .material-symbols-outlined {
+	font-size:   1.75em !important;
+	font-weight: bold;
+    }
+}
+
+@media(max-width:600px) {
+    #checkout-window .numberSpinner button,
+    #checkout-window .numberSpinner input {
+        font-size: 12px;
+    }
+
+    .col-md-12.col-lg-4.order-0.order-md-0, .col-md-12.col-lg-8.order-1.order-md-1 {
+        display: block;
+        padding: 1em 0em;
+        text-align: center;
+    }
+
+    #accordion {
+        border-radius: 0;
+    }
+
+        #accordion label {
+            display: block;
+            text-align: center;
+        }
+
+    .terms-scroll-box {
+        padding: 1em;
+    }
+
+    .checkout-section {
+        background: white;
+        border-radius: 0;
+    }
+
+    #cart-edit-bottom {
+        border-radius: 0;
+    }
+
+    .detail-label {
+        width: 40%;
+        text-align: left;
+    }
+
+    .detail-input {
+        width: 60%;
+    }
+    #accordion label {
+        font-size: 1.25em;
+        color: #0c6b9e;
+        padding: 0;
+        margin: 0.75em;
+        width: 100%;
+    }
+    .price-n {
+        font-weight: bold;
+        color: #0c6b9e;
+    }
+        .price-n span {
+            display: block;
+            line-height: 2em;
+        }
+}
+
+@media(max-width:450px) {
+    #accordion {
+        font-size: 14px;
+    }
+}
+@media(max-width: 600px){
+    #goToCheckout{
+        display: block;
+    }
+}

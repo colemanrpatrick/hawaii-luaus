@@ -216,6 +216,36 @@ p {
 	display: none;
 }
 
+#nested-menu {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+#nested-list {
+  position: absolute;
+  left: 0;
+  text-align: left;
+  display: block !important;
+  width: 14em !important;
+  background: #03223ebd;
+  top: 1.5em;
+  transform: scaleY(0);
+}
+#nested-menu:hover #nested-list{
+	 transform: scaleY(1);
+}
+#nested-menu ul li {
+  display: block !important;
+  width: 100% !important;
+  text-align: left;
+  padding: 1em;
+}
+#nested-menu ul li a {
+  display: block;
+  width: auto;
+  text-align: left;
+  margin: 0;
+}
 @media(max-width:900px) {
 
 	.menu-btn,
@@ -250,7 +280,6 @@ p {
 	top: 0;
 	left: 0;
 	z-index: 999;
-	background: rgb(2, 0, 36);
 	background: rgba(2, 0, 36, 0.45) 0%;
 }
 
@@ -261,13 +290,11 @@ p {
 
 #masthead ul li {
 	display: table-cell;
-	vertical-align: middle;
+	vertical-align: bottom;
 	position: relative;
 }
 
 #masthead ul li:first-child {
-	text-align: left;
-	width: 33.3%;
 }
 
 #masthead ul li:last-child {
@@ -278,22 +305,23 @@ p {
 #main-nav {
 	display: block;
 	width: 100%;
-	margin-top: 0.5em;
+	margin-top: 1.5em;
 }
 
 #main-nav a {
 	font-size: 1.15em;
 	color: white;
 	text-transform: capitalize;
-	margin-left: 2em;
+	margin-right: 2em;
 	display: inline-block;
 	transition: 0.3s;
 	text-shadow: 0em 0em 1.5em #1A535C;
 	letter-spacing: 0.05em;
+	border-bottom: 0.25em solid transparent;
 }
 
 #main-nav a:hover {
-	transform: scale(1.2);
+	border-bottom: 0.25em solid white;
 }
 
 #phone-desktop {
@@ -418,12 +446,31 @@ p {
 		transform: scaleY(1);
 	}
 
+	#nested-list {
+	position: relative;
+	left: auto;
+	text-align: left;
+	display: block !important;
+	width: auto !important;
+	background: transparent;
+	top: auto;
+	transform: scaleY(1);
+	width: 100% !important;
+}
+	#nested-menu{
+		display: block;
+		width: 100%;
+	}
+	#masthead ul li:not(#logo){
+		text-align: center;
+	}
 	#main-nav a {
 		display: block;
 		width: 100%;
 		margin: 0em;
 		padding: 0.85em;
 		font-size: 1.25em;
+		text-align: right;
 	}
 
 	#main-nav a,
@@ -439,13 +486,28 @@ p {
 		padding: 0;
 	}
 
-	#masthead ul li:first-child {
+	#logo {
 		width: 75%;
-		top: 1em;
+		top: auto;
+		text-align: left;
+		padding-top: 1em;
+		padding-left: 0.25em;
 	}
 
 	#masthead ul li:last-child {
 		width: 25%;
+	}
+	
+	#nested-menu ul li a {
+  display: block;
+  width: auto;
+  text-align: right;
+  margin: 0;
+}
+	#nested-list li{
+		display: block !important;
+		padding: 0 !important;
+		text-align: right !important;
 	}
 }
 
@@ -2213,16 +2275,19 @@ footer h4 {
 #luau-hero h1 {
 	text-transform: capitalize;
 	font-size: 4em;
-	line-height: 1em;
+	line-height: 0.9em;
 	color: white;
 }
-
-#luau-hero h3 {
+#luau-hero h1 span {
 	font-family: "Montserrat";
 	font-weight: lighter;
 	text-transform: uppercase;
-	font-size: 1.5em;
+	font-size: 0.5em;
+	display: block;
 	color: white;
+}
+#luau-hero h3 {
+  display: none;
 }
 
 #luau-details {

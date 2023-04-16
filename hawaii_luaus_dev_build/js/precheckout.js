@@ -440,20 +440,17 @@ let createEmailPhoneCollectors = (landing) => {
 	phoneCollector.appendChild(phone);
 
    //=========== populate email ===========//
-
+   try{
 	if(cartConfig.Customer[0].Email.length > 0 && cartConfig.Customer[1].MobilePhone.length > 0){
-
 		// do nothing
-
 	}else if(cartConfig.Customer[0].Email.length > 0){
-
 		cartConfig.Customer[1].MobilePhone;
-
 	}else{
-
 		landing.appendChild(emailCollector);
-
 	}
+   }catch(error){
+	console.log(error);
+   }
 };
 /*========================================================*/
 /*==================|  Create Header  |==================*/
@@ -509,25 +506,6 @@ let createPage3 = () => {
 	createAdditionalCollectors(page3.firstElementChild);
 	
 };
-
-/*========================================================*/
-/*==================|  misc re-style  |==================*/
-/*======================================================*/
-
-let luauGallery = document.getElementById("luau-gallery");
-let additionalInfo = document.createElement("DIV");
-
-additionalInfo.setAttribute("id", "additional-info");
-
-[].forEach.call(document.querySelectorAll(".bulletpointstyles"),(item,index) => {
-
-	additionalInfo.append(item.previousElementSibling);
-	additionalInfo.append(item);
-
-});
-
-luauGallery.parentNode.insertBefore(additionalInfo, luauGallery.nextElementSibling);
-
 /*========================================================*/
 /*==================|     events!     |==================*/
 /*======================================================*/
@@ -654,4 +632,28 @@ lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
 	};
 });
 
+/*========================================================*/
+/*==================|  misc re-style  |==================*/
 /*======================================================*/
+
+let luauGallery = document.getElementById("luau-gallery");
+let additionalInfo = document.createElement("DIV");
+
+additionalInfo.setAttribute("id", "additional-info");
+
+[].forEach.call(document.querySelectorAll(".bulletpointstyles"),(item,index) => {
+
+	additionalInfo.append(item.previousElementSibling);
+	additionalInfo.append(item);
+
+});
+
+luauGallery.parentNode.insertBefore(additionalInfo, luauGallery.nextElementSibling);
+
+/*======================================================*/
+
+let activityTitle = document.querySelector("#luau-hero h1").innerHTML;
+activityTitle = activityTitle.replace("-", "<span>");
+activityTitle = activityTitle.concat("</span>");
+document.querySelector("#luau-hero h1").innerHTML = activityTitle; 
+console.log(activityTitle);
