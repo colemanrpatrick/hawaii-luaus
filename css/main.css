@@ -1,6 +1,13 @@
-*,
-*:before,
-*:after {
+/* delete this later*/
+input[type="number"] {
+	width: 3em;
+	font-size: 1.5em;
+}
+/*================*/
+
+
+
+*, *:before, *:after {
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box !important;
@@ -8,7 +15,6 @@
 	-ms-box-sizing: border-box !important;
 	box-sizing: border-box !important;
 }
-
 .clearfix:after {
 	clear: both;
 	content: ".";
@@ -17,29 +23,22 @@
 	line-height: 0;
 	visibility: hidden;
 }
-
 .material-symbols-outlined {
 	vertical-align: middle;
 }
-
 a {
 	text-decoration: none !important;
 }
-
 b {
 	/*! font-weight: bold !important; */
 }
-
-ul,
-ul li {
+ul, ul li {
 	list-style-type: none;
 	list-style-position: inside;
 }
-
 html {
 	overflow-x: hidden;
 }
-
 body {
 	position: relative;
 	padding: 0;
@@ -49,86 +48,66 @@ body {
 	overflow-x: hidden;
 	font-size: 32px;
 }
-
 body {
 	background-image: url("../images/tapasBlue.jpg");
 	background-size: 8em;
 }
-
 @media(max-width:2280px) {
 	body {
 		font-size: 28px;
 	}
 }
-
 @media(max-width:2160px) {
 	body {
 		font-size: 24px;
 	}
 }
-
 @media(max-width:1800px) {
 	body {
 		font-size: 20px;
 	}
 }
-
 @media(max-width:1608px) {
 	body {
 		font-size: 18px;
 	}
 }
-
 @media(max-width:640px) {
 	body {
 		font-size: 15px;
 	}
 }
-
 @media(max-width:450px) {
 	body {
 		font-size: 14px;
 	}
 }
-
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
 	font-family: 'Oleo Script', sans-serif;
 }
-
-p,
-a,
-b {
+p, a, b {
 	font-family: 'Montserrat', system-ui, sans-serif;
 	font-weight: 300;
 }
-
 p {
 	font-size: 1em;
 	font-weight: 300;
 }
-
 @media(max-width:1440px) {
 	p {
 		/*! font-size: 1.15em; */
 	}
 }
-
 @media(max-width:600px) {
 	p {
 		font-size: 1.25em;
 	}
 }
-
 @media(max-width:400px) {
 	p {
 		font-size: 1.5em;
 	}
 }
-
 /*======== mobile menu btn =========*/
 
 .menu-btn {
@@ -144,7 +123,6 @@ p {
 	top: 2.5em;
 	display: inline-block;
 }
-
 .menu-btn hr {
 	display: block;
 	width: 100%;
@@ -153,7 +131,6 @@ p {
 	border: 0.25em solid white;
 	height: 0;
 }
-
 .menu-btn-hr-1 {
 	top: 0;
 	left: 50%;
@@ -163,7 +140,6 @@ p {
 	-webkit-transform: translateX(-50%) rotate(0deg);
 	transform: translateX(-50%) rotate(0deg);
 }
-
 .menu-btn-hr-2 {
 	top: 50%;
 	left: 50%;
@@ -173,7 +149,6 @@ p {
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-
 .menu-btn-hr-3 {
 	bottom: 0;
 	left: 50%;
@@ -183,7 +158,6 @@ p {
 	-webkit-transform: translateX(-50%) rotate(0deg);
 	transform: translateX(-50%) rotate(0deg);
 }
-
 .menu-btn.active .menu-btn-hr-1 {
 	top: 50%;
 	-moz-transform: translate(-50%, -50%) rotate(-45deg);
@@ -192,11 +166,9 @@ p {
 	-webkit-transform: translate(-50%, -50%) rotate(-45deg);
 	transform: translate(-50%, -50%) rotate(-45deg);
 }
-
 .menu-btn.active .menu-btn-hr-2 {
 	opacity: 0;
 }
-
 .menu-btn.active .menu-btn-hr-3 {
 	top: 50%;
 	-moz-transform: translate(-50%, -50%) rotate(45deg);
@@ -205,74 +177,65 @@ p {
 	-webkit-transform: translate(-50%, -50%) rotate(45deg);
 	transform: translate(-50%, -50%) rotate(45deg);
 }
-
 /*=====================*/
 
 .menu-btn {
 	display: none;
 }
-
 #phone-button {
 	display: none;
 }
-
 #nested-menu {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
 }
 #nested-list {
-  position: absolute;
-  left: 0;
-  text-align: left;
-  display: block !important;
-  width: 14em !important;
-  background: #03223ebd;
-  top: 1.5em;
-  transform: scaleY(0);
+	position: absolute;
+	left: 0;
+	text-align: left;
+	display: block !important;
+	width: 14em !important;
+	background: #03223ebd;
+	top: 1.5em;
+	transform: scaleY(0);
 }
-#nested-menu:hover #nested-list{
-	 transform: scaleY(1);
+#nested-menu:hover #nested-list {
+	transform: scaleY(1);
 }
 #nested-menu ul li {
-  display: block !important;
-  width: 100% !important;
-  text-align: left;
-  padding: 1em;
+	display: block !important;
+	width: 100% !important;
+	text-align: left;
+	padding: 1em;
 }
 #nested-menu ul li a {
-  display: block;
-  width: auto;
-  text-align: left;
-  margin: 0;
+	display: block;
+	width: auto;
+	text-align: left;
+	margin: 0;
 }
 @media(max-width:900px) {
-
-	.menu-btn,
-	#phone-mobile {
+	.menu-btn, #phone-mobile {
 		display: block;
 	}
-
 	#masthead {
 		position: fixed;
 		top: 0;
 		left: 0;
 		z-index: 999;
 	}
-
 	#main-nav {
 		position: fixed;
 		background: black;
 		left: 0;
 		top: 5em;
 	}
-
 	#main-nav a {
 		display: block;
 		width: 100%;
 	}
 }
-
 #masthead {
 	padding: 1em 2em 1em 2em;
 	width: 100%;
@@ -282,32 +245,25 @@ p {
 	z-index: 999;
 	background: rgba(2, 0, 36, 0.45) 0%;
 }
-
 #masthead ul {
 	display: table;
 	width: 100%;
 }
-
 #masthead ul li {
 	display: table-cell;
 	vertical-align: bottom;
 	position: relative;
 }
-
-#masthead ul li:first-child {
-}
-
+#masthead ul li:first-child {}
 #masthead ul li:last-child {
 	text-align: right;
 	width: 66.6%;
 }
-
 #main-nav {
 	display: block;
 	width: 100%;
 	margin-top: 1.5em;
 }
-
 #main-nav a {
 	font-size: 1.15em;
 	color: white;
@@ -319,39 +275,32 @@ p {
 	letter-spacing: 0.05em;
 	border-bottom: 0.25em solid transparent;
 }
-
 #main-nav a:hover {
 	border-bottom: 0.25em solid white;
 }
-
 #phone-desktop {
 	font-size: 1.5em;
 	color: #f7b801;
 	transition: 0.1s
 }
-
 #phone-desktop span:first-child {
 	font-size: 0.75em;
 }
-
 #phone-desktop .material-symbols-outlined {
 	font-size: 1em;
 	font-weight: bold;
 	margin-right: -0.2em;
 	margin-left: 0.5em;
 }
-
 #logo {
 	display: inline-block;
 	transition: 0.2s;
 }
-
 #logo img {
 	display: inline-block;
 	width: 5em;
 	vertical-align: middle;
 }
-
 #logo h1 {
 	text-transform: capitalize;
 	color: white;
@@ -361,11 +310,9 @@ p {
 	/*! border-bottom: 0.05em solid #f7b801; */
 	line-height: 1em;
 }
-
 #logo:hover {
 	transform: scale(1.1);
 }
-
 #return-top {
 	position: fixed;
 	bottom: 0.5em;
@@ -379,45 +326,35 @@ p {
 	cursor: poMontserrat;
 	color: white;
 }
-
-#return-top span,
-#return-top p {
+#return-top span, #return-top p {
 	display: table-cell;
 	text-transform: capitalize;
 	vertical-align: middle;
 	padding: 0.25em;
 }
-
 #return-top span {
 	font-size: 1.25em;
 	border-right: 0.1em solid rgba(255, 255, 255, 0.5);
 }
-
 #phone-mobile {
 	display: none;
 }
-
 @media(max-width:900px) {
 	#phone-desktop {
 		display: none;
 	}
-
 	#phone-mobile {
 		position: absolute;
 		right: 4em;
 		top: 1.5em;
 	}
-
 	#phone-mobile .material-symbols-outlined {
 		color: white;
 		font-size: 3em;
 	}
-
-	.menu-btn,
-	#phone-mobile {
+	.menu-btn, #phone-mobile {
 		display: block;
 	}
-
 	#masthead {
 		position: fixed;
 		top: 0;
@@ -428,7 +365,6 @@ p {
 		height: 6em;
 		border-bottom: 0.23em solid #f7b801;
 	}
-
 	#main-nav {
 		position: fixed;
 		background: rgba(0, 0, 0, 0.95);
@@ -441,27 +377,25 @@ p {
 		transform: scaleY(0);
 		transition: 0.5s;
 	}
-
 	#main-nav.active {
 		transform: scaleY(1);
 	}
-
 	#nested-list {
-	position: relative;
-	left: auto;
-	text-align: left;
-	display: block !important;
-	width: auto !important;
-	background: transparent;
-	top: auto;
-	transform: scaleY(1);
-	width: 100% !important;
-}
-	#nested-menu{
+		position: relative;
+		left: auto;
+		text-align: left;
+		display: block !important;
+		width: auto !important;
+		background: transparent;
+		top: auto;
+		transform: scaleY(1);
+		width: 100% !important;
+	}
+	#nested-menu {
 		display: block;
 		width: 100%;
 	}
-	#masthead ul li:not(#logo){
+	#masthead ul li:not(#logo) {
 		text-align: center;
 	}
 	#main-nav a {
@@ -472,20 +406,15 @@ p {
 		font-size: 1.25em;
 		text-align: right;
 	}
-
-	#main-nav a,
-	#main-nav a:hover {
+	#main-nav a, #main-nav a:hover {
 		transform: scale(1);
 	}
-
 	#phone-desktop {
 		display: none;
 	}
-
 	#nasthead {
 		padding: 0;
 	}
-
 	#logo {
 		width: 75%;
 		top: auto;
@@ -493,34 +422,29 @@ p {
 		padding-top: 1em;
 		padding-left: 0.25em;
 	}
-
 	#masthead ul li:last-child {
 		width: 25%;
 	}
-	
 	#nested-menu ul li a {
-  display: block;
-  width: auto;
-  text-align: right;
-  margin: 0;
-}
-	#nested-list li{
+		display: block;
+		width: auto;
+		text-align: right;
+		margin: 0;
+	}
+	#nested-list li {
 		display: block !important;
 		padding: 0 !important;
 		text-align: right !important;
 	}
 }
-
 @media(max-width:450px) {
 	#main-nav a {
 		font-size: 1.5em;
 	}
-
 	#return-top p {
 		font-size: 1.25em;
 	}
 }
-
 /*===================================================*/
 
 #banner {
@@ -530,7 +454,6 @@ p {
 	background-position: top;
 	background-attachment: fixed;
 }
-
 #banner-content {
 	width: 100%;
 	max-width: 60em;
@@ -540,7 +463,6 @@ p {
 	padding-top: 16em;
 	/*! padding-bottom: 8em; */
 }
-
 #banner-content h3 {
 	font-size: 4.5em;
 	color: white;
@@ -552,11 +474,9 @@ p {
 	display: block;
 	margin: 0 auto;
 }
-
 #banner-content h3 br {
 	display: none;
 }
-
 #banner-content h2 {
 	font-family: "Montserrat", system-ui, sans-serif;
 	text-transform: capitalize;
@@ -566,18 +486,15 @@ p {
 	font-weight: lighter;
 	text-shadow: 0em 0em 1em rgba(0, 0, 0, 0.75);
 }
-
 #banner-content h2 br {
 	display: none;
 }
-
 .dropdown {
 	width: 100%;
 	position: relative;
 	max-width: 25em;
 	margin: 0 auto;
 }
-
 .dropdown-top {
 	width: 100%;
 	border: 0;
@@ -585,7 +502,6 @@ p {
 	background-color: white;
 	text-transform: capitalize;
 }
-
 .dropdown-top p {
 	display: table-cell;
 	color: #011627;
@@ -595,7 +511,6 @@ p {
 	width: 80%;
 	text-align: center;
 }
-
 .dropdown-top span {
 	background: #011627;
 	color: white;
@@ -606,24 +521,19 @@ p {
 	text-align: center;
 	font-size: 3em;
 }
-
 .dropdown-top span:nth-child(2) {
 	display: table-cell;
 }
-
 .dropdown-top span:nth-child(3) {
 	background: #1A535C;
 	display: none;
 }
-
 .dropdown-top.active span:nth-child(2) {
 	display: none;
 }
-
 .dropdown-top.active span:nth-child(3) {
 	display: table-cell;
 }
-
 .dropdown-tray {
 	position: absolute;
 	left: 0;
@@ -631,13 +541,11 @@ p {
 	width: 100%;
 	background: white;
 }
-
 .dropdown-tray li {
 	display: block;
 	text-align: center;
 	width: 100%;
 }
-
 .dropdown-tray li a {
 	display: block;
 	padding: 0.5em;
@@ -647,24 +555,20 @@ p {
 	font-size: 1.25em;
 	border-bottom: 0.15em solid #cbf3f0;
 }
-
 .dropdown-tray li a:hover {
 	background-color: #4ECDC4;
 	color: white;
 }
-
 .dropdown-tray {
 	transform: scaleY(0);
 	transform-origin: top;
 	transition: 0.3s;
 	border-top: 0.15em solid #cbf3f0;
 }
-
 .dropdown-tray.active {
 	transform: scaleY(1);
 	z-index: 998;
 }
-
 #banner-cta {
 	background: #f7b801;
 	width: 100%;
@@ -678,11 +582,9 @@ p {
 	margin-top: 1em;
 	color: #9a031e;
 }
-
 #banner-cta:hover {
 	background-color: #FFE66D;
 }
-
 #compare-chart-cta {
 	width: 100%;
 	max-width: 60em;
@@ -694,11 +596,9 @@ p {
 	margin-top: 10em;
 	transition: 0.3s;
 }
-
 #compare-chart-cta:hover {
 	transform: scale(1.05);
 }
-
 #compare-chart-cta.compare-chart-ad {
 	margin-top: 0;
 	max-width: 1800px;
@@ -706,39 +606,31 @@ p {
 	background-position: left;
 	padding: 3em;
 }
-
 #compare-chart-cta.compare-chart-ad section {
 	min-height: 20em;
 }
-
 #compare-chart-cta:hover {
 	transform: scale(1);
 }
-
 #compare-chart-cta section {
 	display: table;
 	width: 100%;
 	min-height: 18em;
 	background: rgba(0, 0, 0, 0.25);
 }
-
-#compare-chart-cta header,
-#compare-chart-cta ul {
+#compare-chart-cta header, #compare-chart-cta ul {
 	display: table-cell;
 	width: 50%;
 	position: relative;
 	padding: 1em;
 	vertical-align: middle;
 }
-
 #compare-chart-cta header {
 	text-align: left;
 }
-
 #compare-chart-cta ul {
 	text-align: center;
 }
-
 #compare-chart-cta header span {
 	position: absolute;
 	bottom: 0.25em;
@@ -751,12 +643,10 @@ p {
 	text-shadow: 0em 0em 0.25em black;
 	font-family: 'Oleo Script', sans-serif;
 }
-
 #compare-chart-cta ul li {
 	display: block;
 	margin-bottom: 0.25em;
 }
-
 #compare-chart-cta ul li p {
 	display: inline-block;
 	vertical-align: middle;
@@ -764,7 +654,6 @@ p {
 	font-size: 1.5em;
 	text-transform: capitalize;
 }
-
 #compare-chart-cta ul li .material-symbols-outlined {
 	font-size: 2em;
 	font-weight: bold;
@@ -773,7 +662,6 @@ p {
 	vertical-align: middle;
 	text-shadow: 0px 0px 15px white;
 }
-
 #compare-chart-cta ul li button {
 	display: inline-block;
 	color: #f7b801;
@@ -788,11 +676,9 @@ p {
 	cursor: poMontserrat;
 	transition: 0.3s;
 }
-
 #compare-chart-cta ul li button:hover {
 	color: white;
 }
-
 #suggested {
 	width: 100%;
 	text-align: center;
@@ -801,31 +687,25 @@ p {
 	background-image: url("../images/tapasWhite.jpg");
 	background-size: 8em;
 }
-
 #suggested h3 {
 	font-family: 'Oleo Script', sans-serif;
 	text-transform: capitalize;
 	font-size: 3em;
 	color: #8e0a16;
 }
-
-#luaus,
-.luau-details {
+#luaus, .luau-details {
 	display: table;
 	width: 100%;
 	text-align: center;
 	margin: 0 auto;
 	max-width: 80em;
 }
-
-.luau,
-.details {
+.luau, .details {
 	display: table-cell;
 	width: 33.3%;
 	position: relative;
 	vertical-align: middle;
 }
-
 .luau-card {
 	margin: 0.5em;
 	background: white;
@@ -834,31 +714,26 @@ p {
 	background-size: cover;
 	background-position: center;
 }
-
 .luau-card ul {
 	margin-top: 4em;
 }
-
 .luau-card ul li {
 	padding: 0;
 	text-align: center;
 	padding: 1em;
 	text-shadow: 0em 0em 0.25em black;
 }
-
 .luau-detail .rating {
 	right: 0;
 	top: 0;
 	border: 0.2em solid white;
 }
-
 .luau .rating {
 	top: -5em;
 	left: 1em;
 	width: 4.5em;
 	display: none;
 }
-
 .rating {
 	border-radius: 50%;
 	padding: 1.1em;
@@ -868,34 +743,27 @@ p {
 	position: absolute;
 	font-size: 1.2em;
 }
-
 .rating.blue {
 	background-color: #00A3FF;
 }
-
 .rating.green {
 	background-color: #00CFAA;
 }
-
 .rating.orange {
 	background-color: #F77401;
 }
-
 .rating.gold {
 	background: #36ac00;
 }
-
 .rating p {
 	line-height: 1em;
 	font-size: 1em;
 	color: white;
 }
-
 .rating p span {
 	font-size: 0.75em;
 	/*! display: block; */
 }
-
 .luau-header {
 	color: white;
 	text-transform: capitalize;
@@ -908,46 +776,37 @@ p {
 	text-align: left;
 	font-size: 1.75em;
 }
-
 .luau-header span {
 	display: block;
 	font-family: "Montserrat";
 	font-size: 0.75em;
 }
-
-.price-1,
-.price-2 {
+.price-1, .price-2 {
 	font-size: 1.5em;
 	font-family: "Montserrat";
 	padding: ;
 }
-
 .price-1 {
 	text-decoration: line-through;
 	color: white;
 }
-
 .price-2 {
 	color: #f8f8f8;
 	text-shadow: 0em 0em 1em black;
 }
-
 #luaus aside {
 	display: table;
 	text-align: center;
 	width: 100%;
 	background: white;
 }
-
 #luaus aside {
 	display: table;
 	text-align: center;
 	width: 100%;
 	background: white;
 }
-
-#luaus aside p,
-#luaus aside a {
+#luaus aside p, #luaus aside a {
 	display: table-cell;
 	text-align: center;
 	width: 50%;
@@ -956,11 +815,9 @@ p {
 	text-transform: capitalize;
 	padding: 1em;
 }
-
 #luaus aside a {
 	background-color: #f7b801;
 }
-
 #why-book-with {
 	background: url("../images/hawaii-bg.jpg");
 	background-size: cover;
@@ -970,18 +827,15 @@ p {
 	padding-bottom: 8em;
 	border-bottom: 0.5em solid #d0a171;
 }
-
 #why-book-with h3 {
 	color: white;
 	text-transform: capitalize;
 	font-size: 3em;
 	margin-bottom: 1em;
 }
-
 #why-book-with h3 br {
 	display: none;
 }
-
 #why-book-with ul {
 	display: table;
 	/*! display: none; */
@@ -989,7 +843,6 @@ p {
 	margin: 0 auto;
 	max-width: 60em;
 }
-
 #why-book-with ul li {
 	display: table-cell;
 	width: 33.3%;
@@ -997,7 +850,6 @@ p {
 	vertical-align: middle;
 	padding: 1em;
 }
-
 .booking-details {
 	width: 100%;
 	border-radius: 2em;
@@ -1006,7 +858,6 @@ p {
 	text-align: center;
 	padding: 2em 1em 1em 1em;
 }
-
 .booking-details img {
 	position: absolute;
 	border-radius: 50%;
@@ -1019,14 +870,12 @@ p {
 	width: 5em;
 	padding: 0.5em;
 }
-
 .booking-details header {
 	text-align: center;
 	font-size: 1.33em;
 	text-transform: capitalize;
 	color: #011627;
 }
-
 #book-with-cta {
 	background: #f7b801;
 	width: 92%;
@@ -1042,7 +891,6 @@ p {
 	color: #9a031e;
 	text-transform: capitalize;
 }
-
 #reading h3 {
 	padding: 8em 4em;
 	text-align: left;
@@ -1051,7 +899,6 @@ p {
 	background-position: right;
 	display: none;
 }
-
 #reading h3 span {
 	color: white;
 	text-transform: capitalize;
@@ -1059,20 +906,17 @@ p {
 	font-family: 'Oleo Script', sans-serif;
 	font-size: 3em;
 }
-
 #reading section {
 	width: 100%;
 	background-size: cover;
 	background-position: center;
 }
-
 #reading section article {
 	background-color: rgba(0, 0, 0, 0.6);
 	padding: 5em;
 	text-align: center;
 	border-top: 0.5em solid #d0a171;
 }
-
 #reading section article header {
 	color: #f7b801;
 	text-transform: capitalize;
@@ -1082,7 +926,6 @@ p {
 	padding: 1em;
 	text-shadow: 0em 0em 1em black;
 }
-
 #reading section article p {
 	color: white;
 	text-transform: capitalize;
@@ -1093,7 +936,6 @@ p {
 	text-shadow: 0em 0em 2em black;
 	text-align: justify;
 }
-
 .reading-cta {
 	background: #f7b801;
 	width: 92%;
@@ -1109,12 +951,10 @@ p {
 	color: #9a031e;
 	text-transform: capitalize;
 }
-
 footer {
 	background-color: blue;
 	border-top: 0.5em solid #f7b801;
 }
-
 footer ul {
 	background: rgba(1, 22, 39, 0.9);
 	padding: 2em;
@@ -1124,7 +964,6 @@ footer ul {
 	background-image: url("../images/tapasWhite.jpg");
 	background-size: 8em;
 }
-
 footer ul li {
 	display: table-cell;
 	width: 33.3%;
@@ -1132,19 +971,16 @@ footer ul li {
 	padding: 2em;
 	text-align: center;
 }
-
 footer a {
 	color: white;
 	text-transform: capitalize;
 	line-height: 2em;
 }
-
 footer a img {
 	width: 5em;
 	display: block;
 	margin: 0 auto;
 }
-
 footer aside {
 	color: white;
 	background: black;
@@ -1152,19 +988,16 @@ footer aside {
 	text-align: center;
 	color: slategrey;
 }
-
 footer h4 {
 	color: gold;
 	font-size: 1.5em;
 }
-
 .social {
 	text-align: center;
 	display: table;
 	margin: 0 auto;
 	width: 8em;
 }
-
 .social a {
 	display: table-cell;
 	width: 25%;
@@ -1175,43 +1008,34 @@ footer h4 {
 	padding: 1em;
 	border: 0.25em solid #172936;
 }
-
 .social a img {
 	position: absolute;
 	left: 0;
 	width: 100%;
 }
-
 #social-fb {
 	top: 0;
 }
-
 #social-tw {
 	top: -2em;
 }
-
 #social-yt {
 	top: -4em;
 }
-
 #social-ig {
 	bottom: 0;
 }
-
 @media(max-width:1243px) {
 	#banner {
 		background-position: left;
 	}
-
 	.luau-card {
 		margin: 0.5em;
 	}
-
 	#suggested {
 		padding: 2.5em 0.5em;
 	}
 }
-
 @media(max-width:1100px) {
 	.luau {
 		display: inline-block;
@@ -1220,7 +1044,6 @@ footer h4 {
 		margin: 0 auto;
 	}
 }
-
 @media(max-width:1000px) {
 	#banner {
 		background-attachment: local;
@@ -1230,36 +1053,29 @@ footer h4 {
 		background-image: url("../images/bannertopmobile.jpg");
 	}
 }
-
 @media(max-width:900px) {
 	body {
 		background-size: 8em;
 	}
-
 	#banner {
 		margin-top: 6em;
 		background-size: 120%;
 	}
-
 	#banner-content {
 		padding-bottom: 0em;
 		padding: 16em 0em 0em 0em;
 	}
-
 	#compare-chart-cta {
 		width: 100%;
 		margin-top: 9em;
 		background-position: left;
 	}
-
 	#compare-chart-cta header span {
 		font-size: 3em
 	}
-
 	#compare-chart-cta section {
 		background: rgba(0, 0, 0, 0.4);
 	}
-
 	#why-book-with ul li {
 		display: inline-block;
 		margin: 0 auto;
@@ -1267,7 +1083,6 @@ footer h4 {
 		max-width: 20em;
 		margin-bottom: 2em;
 	}
-
 	.luau {
 		display: block;
 		width: 95%;
@@ -1275,60 +1090,49 @@ footer h4 {
 		margin-bottom: 3em;
 		max-width: 30em;
 	}
-
 	footer ul li {
 		display: block;
 		width: 100%;
 		text-align: center
 	}
 }
-
 @media(max-width:550px) {
 	#banner-content h3 {
 		width: 95%;
 		margin: 0 auto;
 	}
-
 	#banner-content h2 {
 		width: 95%;
 		margin: 0 auto;
 		padding-bottom: 6em;
 	}
-
 	.dropdown {
 		max-width: 100%;
 		font-size: 1.5em;
 	}
-
 	#banner-cta {
 		margin: 0;
 		border-radius: 0;
 		font-size: 2em;
 		max-width: 100%;
 	}
-
 	#compare-chart-cta {
 		background-image: url("../images/compare-chart-bg-mobile.jpg");
 		background-position: top;
 		margin-top: 0;
 	}
-
 	#compare-chart-cta:hover {
 		transform: scale(1);
 	}
-
 	#compare-chart-cta section {
 		display: block;
 		width: 100%;
 	}
-
-	#compare-chart-cta header,
-	#compare-chart-cta ul {
+	#compare-chart-cta header, #compare-chart-cta ul {
 		display: block;
 		width: 100%;
 		text-align: center;
 	}
-
 	#compare-chart-cta header span {
 		position: relative;
 		top: auto;
@@ -1340,61 +1144,48 @@ footer h4 {
 		display: block;
 		width: 100%;
 	}
-
 	#compare-chart-cta ul {
 		font-size: 1.25em;
 	}
-
 	.luau {
 		display: block;
 		width: 100%;
 		margin: 2em auto;
 	}
-
 	#why-book-with h3 br {
 		display: block;
 	}
 }
-
 @media(max-width:450px) {
 	#reading h3 {
 		padding: 4em 4em;
 		text-align: center;
 		background-position: right;
 	}
-
 	#reading section article {
 		padding: 2em;
 	}
-
 	#suggested h3 {
 		font-size: 3.5em;
 	}
-
 	#banner-content h2 {
 		padding-bottom: 7em;
 	}
-
 	#banner {
 		background-size: 130%;
 	}
-
-	#luaus aside p,
-	#luaus aside a {
+	#luaus aside p, #luaus aside a {
 		font-size: 1.5em;
 	}
-
 	footer a {
 		font-size: 1.25em;
 	}
 }
-
 @media(max-width:400px) {
 	#reading section article p {
 		font-size: 1.25em
 	}
 }
-
 /*================================================*/
 
 .page-header {
@@ -1402,7 +1193,6 @@ footer h4 {
 	padding: 12em 1em 3em 1em;
 	margin-top: 6.5em;
 }
-
 .page-header h1 {
 	color: white;
 	font-size: 5em;
@@ -1411,7 +1201,6 @@ footer h4 {
 	text-transform: capitalize;
 	text-shadow: 0em 0em 1em black;
 }
-
 .page-header h3 {
 	text-align: center;
 	font-size: 2em;
@@ -1420,7 +1209,6 @@ footer h4 {
 	text-shadow: 0em 0em 1em black;
 	font-weight: normal;
 }
-
 /*================ luaus page ====================*/
 
 .content-column {
@@ -1431,16 +1219,13 @@ footer h4 {
 	background-position: top;
 	box-shadow: 0em 0.15em 1em rgba(0, 0, 0, 0.6);
 }
-
 .accordion {
 	width: 100%;
 	background-color: #ffffffb0;
 }
-
 .accordion .tab {
 	width: 100%;
 }
-
 .accordion .tab header {
 	padding: 0.75em;
 	text-align: center;
@@ -1454,42 +1239,34 @@ footer h4 {
 	font-family: 'Oleo Script', sans-serif;
 	font-size: 2em;
 }
-
 .accordion .tab.active header {
 	color: #1A535C;
 	background: gold;
 }
-
 .accordion .tab .content {
 	width: 100%;
 	text-align: center;
 	transform-origin: top;
 }
-
 .accordion .tab .content {
 	display: none;
 }
-
 @-webkit-keyframes fadeIn {
 	0% {
 		transform: scaleY(0)
 	}
-
 	100% {
 		transform: scaleY(1)
 	}
 }
-
 @-moz-keyframes fadeIn {
 	0% {
 		transform: scaleY(0)
 	}
-
 	100% {
 		transform: scaleY(1)
 	}
 }
-
 .accordion .tab.active .content {
 	display: block;
 	height: auto;
@@ -1497,12 +1274,10 @@ footer h4 {
 	-moz-animation: fadeIn 0.3s ease-out;
 	background: transparent;
 }
-
 #oahu-luaus {
 	max-width: 1200px;
 	margin: 0 auto;
 }
-
 .luau-preview {
 	color: #333;
 	display: table;
@@ -1514,7 +1289,6 @@ footer h4 {
 	width: 95%;
 	max-width: 60em;
 }
-
 .luau-gallery {
 	display: table-cell;
 	width: 40%;
@@ -1522,7 +1296,6 @@ footer h4 {
 	position: relative;
 	/*! height: 20em; */
 }
-
 .luau-gallery img {
 	display: block;
 	position: absolute;
@@ -1531,13 +1304,11 @@ footer h4 {
 	height: 100%;
 	transform: translateX(-50%);
 }
-
 .luau-detail {
 	display: table-cell;
 	width: 60%;
 	vertical-align: top;
 }
-
 .luau-detail h2 {
 	font-size: 2em;
 	text-align: left;
@@ -1546,7 +1317,6 @@ footer h4 {
 	line-height: 1em;
 	color: #073e53;
 }
-
 .luau-subtitle {
 	font-size: 1.25em;
 	font-family: "Montserrat", sans-serif;
@@ -1555,27 +1325,21 @@ footer h4 {
 	display: block;
 	padding-left: 1.5em;
 }
-
 .luau-detail ul {
 	display: table;
 	width: 100%;
 	margin-top: 1em;
 }
-
-.book-luau,
-.before-price,
-.after-price {
+.book-luau, .before-price, .after-price {
 	display: table-cell;
 	width: 33%;
 	text-align: center;
 	vertical-align: middle;
 }
-
 .luau-detail article p {
 	line-height: 2em;
 	padding: 1em 2em;
 }
-
 .luau-detail .luau-duration {
 	text-align: right;
 	width: 95%;
@@ -1584,32 +1348,26 @@ footer h4 {
 	font-family: "Montserrat";
 	text-transform: capitalize;
 }
-
 .before-price {
 	font-family: "Montserrat";
 	font-size: 1.75em;
 }
-
 .after-price {
 	font-family: 'Oleo Script', sans-serif;
 	font-size: 1.75em;
 	color: #073e53;
 }
-
 .slash {
 	/*! text-decoration: line-through; */
 	color: #073f5657;
 }
-
-.before-price span,
-.after-price span {
+.before-price span, .after-price span {
 	display: block;
 	font-size: 0.75em;
 	line-height: 1em;
 	text-transform: capitalize;
 	text-decoration: none !important;
 }
-
 .luau-detail ul li a {
 	background: #f7b801;
 	display: block;
@@ -1623,14 +1381,12 @@ footer h4 {
 	text-transform: capitalize;
 	text-align: center;
 }
-
 #book-with-us-banner {
 	width: 100%;
 	display: block;
 	background: #457083;
 	text-align: center;
 }
-
 #book-with-us-banner a {
 	display: block;
 	width: 100%;
@@ -1642,13 +1398,11 @@ footer h4 {
 	background-position: left;
 	padding: 2em 5em;
 }
-
 #book-with-us-banner article {
 	width: 50%;
 	display: inline-block;
 	text-align: center;
 }
-
 #book-with-us-banner h3 {
 	color: white;
 	text-transform: capitalize;
@@ -1658,7 +1412,6 @@ footer h4 {
 	font-weight: normal;
 	text-shadow: 0em 0em 1em #457083;
 }
-
 #book-with-us-banner h3 span {
 	color: white;
 	text-transform: capitalize;
@@ -1667,12 +1420,10 @@ footer h4 {
 	color: #fff;
 	font-weight: normal;
 }
-
 #book-with-us-banner hr {
 	border: 0.05em solid white;
 	margin: 0.5em 1em;
 }
-
 #book-with-us-banner button {
 	background: #fff;
 	display: block;
@@ -1687,25 +1438,21 @@ footer h4 {
 	border: 0;
 	margin: 0 auto;
 }
-
 .page-banner {
 	margin-top: 6.5em;
 	background-size: cover;
 	background-position: center;
 }
-
 .page-banner div {
 	padding: 7em;
 	background-color: rgba(0, 35, 66, 0.5);
 }
-
 .page-banner div h2 {
 	text-align: center;
 	font-size: 2.75em;
 	text-transform: capitalize;
 	font-weight: normal;
 }
-
 #book-here {
 	position: relative;
 	width: 100%;
@@ -1713,7 +1460,6 @@ footer h4 {
 	background-size: 12em;
 	background-position: center;
 }
-
 #book-here article {
 	width: 100%;
 	max-width: 40em;
@@ -1721,31 +1467,26 @@ footer h4 {
 	padding: 1em;
 	margin: 0 auto;
 }
-
 #book-here article header {
 	color: white;
 	font-size: 2em;
 	text-transform: capitalize;
 	font-family: "Lobster";
 }
-
 #book-here article p {
 	font-size: 1.15em;
 	line-height: 2em;
 	text-align: center;
 	padding: 1em;
 }
-
 .compare-chart table {
 	width: 100%;
 	border-spacing: 0px;
 	border-collapse: collapse;
 }
-
 .compare-chart thead {
 	background: #053d52;
 }
-
 .first-row td {
 	font-family: "Montserrat";
 	color: #053d52;
@@ -1756,7 +1497,6 @@ footer h4 {
 	border-bottom: 0.25em solid gold;
 	background-color: #f5b600;
 }
-
 .compare-chart th {
 	width: 12.5%;
 	height: 6.5em;
@@ -1765,7 +1505,6 @@ footer h4 {
 	background-size: 800%;
 	background-repeat: no-repeat;
 }
-
 .nth-row td {
 	font-family: "Montserrat";
 	color: #053d52;
@@ -1776,7 +1515,6 @@ footer h4 {
 	background: beige;
 	border-bottom: 0.15em solid #e1e1cc;
 }
-
 .nth-row td:first-child {
 	background: #1b6a99;
 	color: #f5b600;
@@ -1784,11 +1522,9 @@ footer h4 {
 	line-height: 1em;
 	font-family: 'Oleo Script', sans-serif;
 }
-
 .total-row {
 	border-bottom: 3px solid black;
 }
-
 .total-row td:first-child {
 	background: gold;
 	color: darkred;
@@ -1797,7 +1533,6 @@ footer h4 {
 	text-transform: capitalize;
 	border-top: 3px solid gold;
 }
-
 .total-row td {
 	font-family: "Montserrat";
 	color: white;
@@ -1810,46 +1545,35 @@ footer h4 {
 	background: #b1040e;
 	border-top: 3px solid darkred;
 }
-
 #luau-0 {
 	background-position: 10em 0em;
 }
-
 #luau-1 {
 	background-position: 100% -0.25em;
 }
-
 #luau-2 {
 	background-position: 14.5% 0;
 }
-
 #luau-3 {}
-
 #luau-4 {
 	background-position: 86% -0;
 }
-
 #luau-5 {
 	background-position: 71.3% 0em;
 }
-
 #luau-6 {
 	background-position: 28.75% 0%;
 }
-
 #luau-7 {
 	background-position: 57.25% 0%;
 }
-
 .compare-map img {
 	width: 100%;
 }
-
 .compare-map {
 	padding: 2em;
 	background: #1b6a99;
 }
-
 /*=======================================*/
 
 .map-content {
@@ -1858,7 +1582,6 @@ footer h4 {
 	overflow: hidden;
 	border-bottom: 0.33em solid beige;
 }
-
 .map-content section {
 	max-width: 1200px;
 	height: 40em;
@@ -1873,53 +1596,43 @@ footer h4 {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8caf94', endColorstr='#837a74', GradientType=1);
 	width: 100%;
 }
-
 @media(max-width:1450px) {
 	.map-content section {
 		width: 100%;
 	}
 }
-
 .compass-img {
 	position: absolute;
 	right: 1em;
 	top: 1em;
 	width: 8em;
 }
-
 .island-a {
 	display: inline-block;
 	position: relative;
 	height: 100%;
 	width: 10em;
 }
-
 .island-a a {
 	position: absolute;
 	left: 0;
 	z-index: 2;
 }
-
 .maui-a a {
 	top: 3em;
 }
-
 .oahu-a a {
 	top: 8em;
 }
-
 .kauai-a a {
 	top: 16em;
 }
-
 .big-island-a a {
 	top: 20em;
 }
-
 .island-a img {
 	width: 100%;
 }
-
 .island-a h3 {
 	font-size: 2em;
 	color: gold;
@@ -1935,31 +1648,25 @@ footer h4 {
 	text-shadow: 0px 1px 0px darkred, 0px 2px 0px darkred, 0px 3px 0px darkred, 0px 4px 0px darkred, 0px 5px 0px darkred, 0px 8px 5px rgba(0, 0, 0, 0.5);
 	transition: 0.3s;
 }
-
 .island-a:hover h3 {
 	transform: scale(1.25, 1.25);
 }
-
 .maui-a h3 {
 	top: 30%;
 	transform: translateY(-30%);
 }
-
 .oahu-a h3 {
 	top: 35%;
 	transform: translateY(-35%);
 }
-
 .kauai-a h3 {
 	bottom: 40%;
 	transform: translateY(-40%);
 }
-
 .big-island-a h3 {
 	bottom: 30%;
 	transform: translateY(-30%);
 }
-
 .map-content header {
 	position: absolute;
 	bottom: 0;
@@ -1967,7 +1674,6 @@ footer h4 {
 	padding: 1em;
 	z-index: 2;
 }
-
 .map-content header h3 {
 	display: inline-block;
 	text-transform: capitalize;
@@ -1978,35 +1684,29 @@ footer h4 {
 	text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 	text-align: left;
 }
-
 .map-content header span {
 	font-size: 1.4em;
 	color: gold;
 }
-
 .map-content header img {
 	display: inline-block;
 	vertical-align: bottom;
 	width: 8em;
 }
-
 .palm {
 	position: absolute;
 	width: 20%;
 	z-index: 1;
 }
-
 .palm-left {
 	top: 0;
 	left: 0;
 }
-
 .palm-right {
 	bottom: 0;
 	right: 0;
 	transform: scale(-1);
 }
-
 .row-icon {
 	height: 4em;
 	width: 4em;
@@ -2014,106 +1714,83 @@ footer h4 {
 	background-image: url("../images/compare-icons.png");
 	background-size: 600%;
 }
-
 #price-icon {
 	background-position: 25% 100%;
 }
-
 #price-icon {
 	background-position: 20% 100%;
 }
-
 #audience-icon {
 	background-position: 40% 100%;
 }
-
 #imu-icon {
 	background-position: 40% 0%;
 }
-
 #food-icon {
 	background-position: 60% 100%;
 }
-
 #location-icon {
 	background-position: 75% 0%;
 }
-
 #to-icon {
 	background-position: 100% 0%;
 }
-
 #mc-icon {
 	background-position: 80% 100%;
 }
-
 #staff-icon {
 	background-position: 0% 100%;
 }
-
 #value-icon {
 	background-position: 80% 0%;
 }
-
 #location-icon {
 	background-position: 100% 0%;
 }
-
 #arts-icon {
 	background-position: 20% 0%;
 }
-
 /*======================================================================================================*/
 
 @media(max-width:1260px) {
 	luau-gallery {
 		width: 50%;
 	}
-
 	.luau-detail {
 		width: 50%;
 	}
-
 	.compare-chart th {
 		height: 5em;
 	}
 }
-
 @media(max-width:1050px) {
 	#book-with-us-banner h3 {
 		font-size: 1.5em;
 	}
-
 	.content-column {
 		padding: 2em;
 	}
 }
-
 @media(max-width:950px) {
 	.content-column {
 		padding: 1em;
 	}
-
 	.page-header {
 		margin-top: 8em;
 	}
-
 	.accordion .tab .content {
 		width: 100%;
 		text-align: center;
 	}
-
 	.luau-preview {
 		color: #333;
 		display: block;
 	}
-
 	.luau-gallery {
 		display: block;
 		width: 100%;
 		height: 18em;
 	}
-
 	.luau-gallery img {
 		width: auto;
 		height: 100%;
@@ -2122,40 +1799,32 @@ footer h4 {
 		/*! top: auto; */
 		/*! left: auto; */
 	}
-
 	.luau-detail {
 		display: block;
 		width: 100%;
 		vertical-align: top;
 	}
-
 	.luau-detail h2 {
 		text-align: center;
 		margin-top: 1em;
 	}
-
 	.luau-subtitle {
 		text-align: center;
 	}
-
 	#book-with-us-banner a {
 		padding: 0;
 	}
-
 	#book-with-us-banner article {
 		width: 100%;
 		background: #00000073;
 		padding: 4em;
 	}
-
 	.compare-chart {
 		overflow-x: scroll;
 	}
-
 	.compare-chart table {
 		width: 125%;
 	}
-
 	.island-a {
 		display: inline-block;
 		position: relative;
@@ -2163,70 +1832,56 @@ footer h4 {
 		width: 24%;
 	}
 }
-
 @media(max-width:800px) {
 	#book-here {
 		padding: 3em 0em;
 	}
-
 	.compare-chart th {
 		height: 4em;
 		vertical-align: middle;
 	}
 }
-
 @media(max-width: 600px) {
 	.luau-preview {
 		padding: 1em;
 	}
-
 	.luau-detail ul li {
 		display: inline-block;
 		text-align: center;
 		padding: 1em 0em;
 	}
-
-	.after-price,
-	.before-price {
+	.after-price, .before-price {
 		width: 49%;
 		font-size: 2em;
 	}
-
 	.book-luau {
 		width: 100%;
 		font-size: 1.5em;
 	}
-
 	.luau-detail ul li a {
 		display: block;
 		max-width: 100%;
 		width: 100%;
 		margin: 0;
 	}
-
 	.detail-rating {
 		font-size: 1.25em;
 	}
-
 	.page-header {
 		font-size: 0.75em;
 	}
-
 	.compare-chart table {
 		width: 170%;
 	}
-
 	.palm {
 		display: none;
 	}
 }
-
 @media(max-width:400px) {
 	.luau-detail article p {
 		font-size: 1.25em !important;
 		padding: 0;
 	}
-
 	.luau-preview {
 		display: table;
 		margin: 0 auto;
@@ -2235,10 +1890,12 @@ footer h4 {
 		width: 100%;
 	}
 }
+/*=============*/
+
+/*=====luaus===*/
 
 /*=============*/
-/*=====luaus===*/
-/*=============*/
+
 #book-now-mobile {
 	position: fixed;
 	bottom: 0.5em;
@@ -2252,18 +1909,15 @@ footer h4 {
 	cursor: pointer;
 	border: none;
 }
-
 #book-now-mobile p {
 	display: inline-block;
 	vertical-align: middle;
 }
-
 #book-now-mobile .material-symbols-outlined {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 1.5em;
 }
-
 #luau-hero {
 	text-align: center;
 	padding: 10em 0 5em 0;
@@ -2271,7 +1925,6 @@ footer h4 {
 	background-size: cover;
 	background-position: center;
 }
-
 #luau-hero h1 {
 	text-transform: capitalize;
 	font-size: 4em;
@@ -2287,9 +1940,8 @@ footer h4 {
 	color: white;
 }
 #luau-hero h3 {
-  display: none;
+	display: none;
 }
-
 #luau-details {
 	display: table;
 	width: 100%;
@@ -2297,7 +1949,6 @@ footer h4 {
 	margin: 0 auto;
 	background: #DDE1E2;
 }
-
 #playerWrapper {
 	display: table-cell;
 	width: 50%;
@@ -2305,7 +1956,6 @@ footer h4 {
 	text-align: center;
 	padding: 4em 0em 2em 0em;
 }
-
 #luau-article {
 	display: table-cell;
 	width: 50%;
@@ -2313,13 +1963,11 @@ footer h4 {
 	padding: 2em 4em 2em 0em;
 	color: #333;
 }
-
 #luau-reading {
 	text-align: justify;
 	line-height: 2.5em;
 	color: #333;
 }
-
 #luau-sub-desc {
 	text-transform: capitalize;
 	font-size: 2.5em;
@@ -2329,14 +1977,12 @@ footer h4 {
 	margin-bottom: 1em;
 	color: #073e53;
 }
-
 #player iframe {
 	border: 0;
 	width: 4em;
 	height: 3em;
 	font-size: 6em;
 }
-
 #luau-pricing {
 	display: table;
 	max-width: 1200px;
@@ -2345,21 +1991,18 @@ footer h4 {
 	padding-bottom: 2em;
 	background: #dde1e2;
 }
-
 #luau-pricing section {
 	display: table-cell;
 	text-align: center;
 	width: 50%;
 	vertical-align: middle;
 }
-
 #luau-pricing ul {
 	width: 50%;
 	display: table-cell;
 	vertical-align: middle;
 	text-align: left;
 }
-
 #luau-precheckout {
 	background: #f7b801;
 	width: 100%;
@@ -2375,9 +2018,7 @@ footer h4 {
 	cursor: poMontserrat;
 	border: 0;
 }
-
-#luau-before-price,
-#luau-after-price {
+#luau-before-price, #luau-after-price {
 	display: inline-block;
 	vertical-align: middle;
 	width: 33%;
@@ -2387,24 +2028,18 @@ footer h4 {
 	text-align: left;
 	color: #063e52;
 }
-
-#luau-before-price span,
-#luau-after-price span {
+#luau-before-price span, #luau-after-price span {
 	display: block;
 	font-size: 0.75em;
 }
-
 #luau-before-price {
 	opacity: 0.5;
 }
-
 ;
-
 #luau-before-price b {
 	text-decoration: line-through;
 	font-weight: lighter;
 }
-
 #luau-info {
 	display: table;
 	max-width: 1200px;
@@ -2414,7 +2049,6 @@ footer h4 {
 	padding-top: 2em;
 	background: #dde1e2;
 }
-
 #luau-highlights {
 	display: table-cell;
 	text-align: center;
@@ -2422,18 +2056,15 @@ footer h4 {
 	vertical-align: middle;
 	color: #333;
 }
-
 #seating-chart {
 	display: table-cell;
 	text-align: center;
 	width: 50%;
 	vertical-align: middle;
 }
-
 #seating-chart img {
 	max-width: 20em;
 }
-
 #luau-highlights li:not(#highlights-header) {
 	text-align: left;
 	line-height: 3em;
@@ -2442,7 +2073,6 @@ footer h4 {
 	list-style-position: inside;
 	padding-left: 3em;
 }
-
 #highlights-header {
 	list-style-type: none;
 	text-transform: capitalize;
@@ -2454,14 +2084,12 @@ footer h4 {
 	color: #073e53;
 	font-family: 'Oleo Script', sans-serif;
 }
-
 #luau-ratings div {
 	height: 2em;
 	width: 2em;
 	background-size: 600%;
 	margin: 0 auto;
 }
-
 #luau-ratings li {
 	font-family: "Montserrat";
 	text-align: center;
@@ -2471,7 +2099,6 @@ footer h4 {
 	color: #06425a;
 	vertical-align: middle;
 }
-
 #luau-ratings span {
 	display: block;
 	font-size: 0.5em;
@@ -2481,7 +2108,6 @@ footer h4 {
 	font-family: "Oleo Script";
 	font-weight: bold;
 }
-
 #luau-ratings {
 	background: url("../images/tapasbeige.jpg");
 	margin-top: 3em;
@@ -2489,67 +2115,54 @@ footer h4 {
 	padding: 1em 8em;
 	background-size: 10em;
 }
-
 #rating-1 div {
 	background-position: 20% 100%;
 	background-repeat: no-repeat;
 }
-
 #rating-2 div {
 	background-position: 0% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-3 div {
 	background-position: 20% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-4 div {
 	background-position: 40% 100%;
 	background-repeat: no-repeat;
 }
-
 #rating-5 div {
 	background-position: 40% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-6 div {
 	background-position: 60% 100%;
 	background-repeat: no-repeat;
 }
-
 #rating-7 div {
 	background-position: 100% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-8 div {
 	background-position: 0% 100%;
 	background-repeat: no-repeat;
 }
-
 #rating-9 div {
 	background-position: 60% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-10 div {
 	background-position: 80% 0%;
 	background-repeat: no-repeat;
 }
-
 #rating-11 div {
 	background-position: 80% 100%;
 	background-repeat: no-repeat;
 }
-
 #rating-12 div {
 	background-position: 20% 100%;
 	background-repeat: no-repeat;
 }
-
 #luau-gallery {
 	width: 100%;
 	display: flex;
@@ -2561,7 +2174,6 @@ footer h4 {
 	background: #dde1e2;
 	padding: 1em;
 }
-
 .gallery-image {
 	width: 3em;
 	height: 3em;
@@ -2572,7 +2184,6 @@ footer h4 {
 	margin: 0.05em;
 	flex-grow: 2;
 }
-
 #additional-info {
 	background: #dde1e2;
 	max-width: 1200px;
@@ -2581,14 +2192,12 @@ footer h4 {
 	padding: 2em;
 	column-count: 2;
 }
-
 #additional-info p {
 	color: #073e53;
 	font-size: 1.5em;
 	font-family: "Lobster";
 	width: 100%;
 }
-
 .bulletpointstyles {
 	color: #333;
 	font-family: "Montserrat";
@@ -2596,79 +2205,57 @@ footer h4 {
 	padding-left: 2em;
 	width: 100%;
 }
-
 @media(max-width:950px) {
-
-	#luau-details,
-	#playerWrapper,
-	#luau-article {
+	#luau-details, #playerWrapper, #luau-article {
 		display: block;
 		text-align: center;
 		width: 100%;
 	}
-
 	#luau-sub-desc {
 		text-align: center;
 		width: 100%;
 	}
-
 	.gallery-image {
 		width: 3em;
 	}
-
 	#luau-article {
 		max-width: 90%;
 		margin: 0 auto;
 	}
-
 	#luau-article {
 		padding: 2em;
 	}
-
 	#luau-article p {
 		text-align: center;
 	}
-
-	#luau-before-price,
-	#luau-after-price {
+	#luau-before-price, #luau-after-price {
 		width: 48%;
 		text-align: center;
 	}
-
-	#luau-info,
-	#luau-highlights,
-	#seating-chart {
+	#luau-info, #luau-highlights, #seating-chart {
 		width: 100%;
 		text-align: center;
 		display: block;
 	}
-
 	#highlights-header {
 		width: 100%;
 		text-align: center;
 	}
-
 	#luau-ratings {
 		padding: 1em 1em;
 	}
 }
-
 @media(max-width:500px) {
-
-	#luau-pricing,
-	#luau-pricing section,
-	#luau-pricing ul {
+	#luau-pricing, #luau-pricing section, #luau-pricing ul {
 		display: block;
 		width: 100%;
 	}
 }
-
 @media(max-width:400px) {
 	#luau-article p {
 		font-size: 1.25em !important;
 	}
 }
-
 #contact {
 	display: table;
 	margin: 0 auto;
@@ -2676,48 +2263,36 @@ footer h4 {
 	padding: 2em;
 	width: 95%;
 }
-
-#contact-left,
-#contact-right {
+#contact-left, #contact-right {
 	display: table-cell;
 	padding: 2em;
 }
-
 #contact-left {
 	width: 50%;
 }
-
 #contact-right {
 	width: 50%;
 }
-
-#contact-right input,
-#contact-right label,
-#contact-right textarea {
+#contact-right input, #contact-right label, #contact-right textarea {
 	display: block;
 	width: 100%;
 	padding: 0.5em;
 	font-size: 1em;
 }
-
 #contact-right label {
 	font-family: "Montserrat", sans-serif;
 	text-transform: capitalize;
 	font-weight: normal;
 }
-
-#contact-right input,
-#contact-right textarea {
+#contact-right input, #contact-right textarea {
 	border: 0.15em solid aquamarine;
 }
-
 #contact-left a {
 	color: white;
 	text-align: center;
 	display: block;
 	margin: 1em auto;
 }
-
 #contact-right #submit {
 	display: block;
 	padding: 0.5em;
@@ -2731,38 +2306,29 @@ footer h4 {
 	width: 10em;
 	margin: 1em;
 }
-
 #contact-left span {
 	font-size: 1.5em;
 }
-
 @media(max-width: 900px) {
 	#contact {
 		display: block;
 	}
-
-	#contact-left,
-	#contact-right {
+	#contact-left, #contact-right {
 		display: block;
 		text-align: center;
 	}
-
 	#contact-left {
 		width: 100%;
 	}
-
 	#contact-right {
 		width: 100%;
 	}
 }
-
-.page-header.imu-ceremony,
-.page-header.fire-dance {
+.page-header.imu-ceremony, .page-header.fire-dance {
 	background-position: center !important;
 	padding: 14em 0em;
 	background-attachment: fixed !important;
 }
-
 #detail-gallery {
 	column-count: 3;
 	padding: 2em;
@@ -2770,31 +2336,27 @@ footer h4 {
 	overflow: hidden;
 	background: #000000ab;
 }
-
 #detail-gallery img {
 	width: 100%;
 	margin-bottom: 0.5em;
 }
-
 #details-content-first p {
 	line-height: 2.5em;
 }
-
 #details-content-first {
 	padding: 6em;
 	max-width: 1200px;
 	margin: 0 auto;
 	background: ;
 }
-
 #details-content-first header {
 	color: white;
 	font-family: Oleo Script;
 	font-size: 2em;
 	text-transform: capitalize;
 }
-
 /*============*/
+
 #checkout-window {
 	position: fixed;
 	z-index: 999;
@@ -2804,15 +2366,12 @@ footer h4 {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 }
-
 #checkout-window {
 	display: none;
 }
-
 #checkout-window.active {
 	display: block;
 }
-
 #checkout-content {
 	position: absolute;
 	left: 50%;
@@ -2825,113 +2384,89 @@ footer h4 {
 	overflow-y: scroll;
 	height: 90%;
 }
-
 #checkout-content header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1em 0em 1em 2em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1em 0em 1em 2em;
 }
 #checkout-header {
-  color: #031e29;
-  font-size: 2em;
+	color: #031e29;
+	font-size: 2em;
 }
 .linethru {
-  text-decoration: line-through;
-  color: #ccbca7;
+	text-decoration: line-through;
+	color: #ccbca7;
 }
 .price-prices span {
-  display: block;
-  font-size: 1.15em;
+	display: block;
+	font-size: 1.15em;
 }
 .price-prices p {
-  display: inline-block;
-  margin: 0em 1em;
-  text-transform: capitalize;
+	display: inline-block;
+	margin: 0em 1em;
+	text-transform: capitalize;
 }
 .price-prices span:not(.linethru) {
-  color: #333;
-  font-weight: bolder;
+	color: #333;
+	font-weight: bolder;
 }
 #checkout-content header button {
-  color: #0c6b9e;
-  text-transform: capitalize;
-  font-weight: bold;
-  cursor: poMontserrat;
-  border: 0;
-  background: none;
+	color: #0c6b9e;
+	text-transform: capitalize;
+	font-weight: bold;
+	cursor: poMontserrat;
+	border: 0;
+	background: none;
 }
 #checkout-content header button .material-symbols-outlined {
-  font-size: 3em;
-  font-weight: bold;
-  border: 0.05em solid;
-  border-radius: 2em;
+	font-size: 3em;
+	font-weight: bold;
+	border: 0.05em solid;
+	border-radius: 2em;
 }
 .addToCartPage {
 	display: none;
 }
-
 .addToCartPage.active {
 	display: block;
 }
 /* datepicker custom styling */
+
 .ui-widget {
 	font-family: system-ui;
 }
-
 .ui-datepicker {
 	width: auto;
 	max-width: 40em;
 }
-
 .ui-datepicker .ui-datepicker-title {
 	padding: 0.75em;
 }
-
 .ui-datepicker-calendar th span {
 	font-weight: normal;
 }
-
 .ui-widget.ui-widget-content {
 	margin: 0 auto;
 	border: none;
 }
-
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-button,
-.ui-button {
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-button, .ui-button {
 	border: none;
 	background: #0c6b9e;
 	color: white;
 	padding: 2em 0.25em 0.25em 2em;
 }
-
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus,
-.ui-button:hover,
-.ui-button:focus {
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-button:hover, .ui-button:focus {
 	border: none;
 	background: white;
 	font-weight: normal;
 	color: #212121;
 }
-
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active,
-a.ui-button:active,
-.ui-button:active,
-.ui-button.ui-state-active:hover {
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
 	background: gold !important;
 	color: #0c6b9e !important;
 	font-weight: bold;
 }
-
 .ui-widget-header {
 	border: none;
 	color: #0c6b9e;
@@ -2942,29 +2477,26 @@ a.ui-button:active,
 	height: 3.82em;
 }
 input#dateInput {
- position: absolute;
+	position: absolute;
 	z-index: -1;
 	height: 0;
 	width: 0;
 	overflow: hidden;
 	opacity: 0;
-} 
+}
 .numberSpinner {
-	margin: 0.5em;
 	text-align: left;
-	border: 0.15em solid #085c8e;
 	display: inline-block;
-	border-radius: 2em;
 	overflow: hidden;
 }
 #datepicker {
 	padding-top: 0em;
 }
-@media(max-width:1200px){
+@media(max-width:1200px) {
 	#datepicker {
-  margin: 3em 0em;
+		margin: 3em 0em;
 		padding-top: 0 !important;
-  }
+	}
 }
 #checkout-window .numberSpinner section {
 	position: relative;
@@ -2972,26 +2504,24 @@ input#dateInput {
 	vertical-align: middle;
 	background: #ece8e3;
 	font-size: 1em;
+	max-width: 2em;
+	white-space: nowrap;
 }
-
-.numberSpinner input {
+.numberSpinner input:not[type="number"] {
 	border: 0;
 	color: #085c8e;
 	margin: 0;
 	vertical-align: middle;
 	display: inline-block;
 	background: #ece8e3;
-	poMontserrat-events: none;
 	font-size: 1em;
-	padding-left: 0.5em;
-	width: 1.75em;
+	max-width: 1em;
 }
-
-.numberSpinner input {
+.numberSpinner input:not[type="number"] {
 	-moz-appearance: textfield;
 }
 #checkout-window .numberSpinner .material-symbols-outlined {
-  font-size: 2.5em;
+	font-size: 2.5em;
 }
 .numberSpinner button {
 	display: inline-block;
@@ -3004,191 +2534,174 @@ input#dateInput {
 	padding: 0;
 	border-radius: 0;
 	background: none;
-	cursor: poMontserrat;
+	cursor: pointer;
 }
-
 .numberSpinner button:hover {
 	opacity: 0.7;
 }
-
 .numberSpinner button:active {
 	background-color: gold;
 }
-
 .price-option {
 	display: table;
 	width: 90%;
 	margin: 0em auto;
 	padding-bottom: 0.25em;
 }
-
 .price-spinner-cont {
 	width: 25%;
 }
-
 .price-prices {
 	width: 25%;
 	text-align: right;
 }
-
 .price-description {
 	text-align: center;
 }
-
 .numberMinus {
 	border-top-left-radius: 1em;
 	border-bottom-left-radius: 1em;
 }
-
 .numberPlus {
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
 }
-
 .price-option {
 	display: table;
 	width: 90%;
 	margin: 0em auto;
 	padding-bottom: 1em;
 	border-bottom: 2px solid #c1b3a136;
-	padding-top: 1em;
 }
-
 .price-option li {
 	display: table-cell;
 	vertical-align: middle;
 }
-
 .price-spinner-cont {
 	width: 25%;
 	text-align: center;
 }
-
 .price-prices {
 	width: 25%;
 	text-align: center;
 }
-
 .price-description {
 	text-align: center;
 }
-
 .numberMinus {
 	border-top-left-radius: 1em;
 	border-bottom-left-radius: 1em;
 }
-
 .numberPlus {
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
 }
-
 .prev-btn {
-  background: #0c6b9e;
-  border: 0;
-  color: white;
-  text-transform: capitalize;
-  padding: 0.75em 3em;
-  border-radius: 2em;
-  cursor: poMontserrat;
-  font-size: 1em;
+	background: #0c6b9e;
+	border: 0;
+	color: white;
+	text-transform: capitalize;
+	padding: 0.75em 3em;
+	border-radius: 2em;
+	cursor: pointer;
+	font-size: 1em;
 }
 .next-btn {
-  background: #0c6b9e;
-  border: 0;
-  color: white;
-  text-transform: capitalize;
-  padding: 0.75em 3em;
-  border-radius: 2em;
-  cursor: poMontserrat;
-  font-size: 1em;
+	background: #0c6b9e;
+	border: 0;
+	color: white;
+	text-transform: capitalize;
+	padding: 0.75em 3em;
+	border-radius: 2em;
+	cursor: pointer;
+	font-size: 1em;
+}
+.prev-btn:hover,
+.next-btn:hover{
+	background-color: #0988cc;
+}
+.prev-btn:active,
+.next-btn:active{
+	background-color:#00a6ff;
 }
 .checkout-footer {
-  text-align: center;
+	text-align: center;
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
-
 #addToCartSubmit {
-  background: #f9d365;
-  border: 0;
-  color: #0c6b9e;
-  text-transform: capitalize;
-  padding: 0.75em 3em;
-  border-radius: 2em;
-  cursor: poMontserrat;
-  font-size: 1em;
+	background: #f9d365;
+	border: 0;
+	color: #0c6b9e;
+	text-transform: capitalize;
+	padding: 0.75em 3em;
+	border-radius: 2em;
+	cursor: poMontserrat;
+	font-size: 1em;
 }
 .collector {
-  font-family: "Montserrat",sans-serif;
-  padding: 1em;
-  display: block;
-  width: 100%;
-  text-align: center;
+	font-family: "Montserrat", sans-serif;
+	padding: 1em;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 .collector input[type=text] {
-  display: block;
-  margin: 0 auto;
-  padding: 1em;
-  width: 90%;
-  max-width: 24em;
-  font-size: 0.9em;
-  border-radius: 0em;
-  border: 0;
-  margin-top: 1em;
+	display: block;
+	margin: 0 auto;
+	padding: 1em;
+	width: 90%;
+	max-width: 24em;
+	font-size: 0.9em;
+	border-radius: 0em;
+	border: 0;
+	margin-top: 1em;
 }
 .collector label {
-  color: #0c6b9e;
+	color: #0c6b9e;
 }
-.collector,
-#email-collector,
-#phone-collector{
-  font-family: "Montserrat",sans-serif;
-  padding: 1em;
-  display: block;
-  width: 100%;
-  text-align: center;
+.collector, #email-collector, #phone-collector {
+	font-family: "Montserrat", sans-serif;
+	padding: 1em;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
-.collector input[type=text],
-#email,
-#phone{
-  display: block;
-  margin: 0 auto;
-  padding: 1em;
-  width: 90%;
-  max-width: 24em;
-  font-size: 0.9em;
-  border: 0.15em solid #e6d4bf;
-  margin-top: 1em;
-  border-radius: 1em;
-  background: #fdf8f2;
+.collector input[type=text], #email, #phone {
+	display: block;
+	margin: 0 auto;
+	padding: 1em;
+	width: 90%;
+	max-width: 24em;
+	font-size: 0.9em;
+	border: 0.15em solid #e6d4bf;
+	margin-top: 1em;
+	border-radius: 1em;
+	background: #fdf8f2;
 }
 .collector select {
-  display: block;
-  margin: 0 auto;
-  margin-top: 0px;
-  padding: 1em;
-  width: 90%;
-  max-width: 24em;
-  font-size: 0.9em;
-  border: 0.15em solid #e6d4bf;
-  margin-top: 1em;
-  border-radius: 1em;
-  background: #fdf8f2;
-  cursor: poMontserrat;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0px;
+	padding: 1em;
+	width: 90%;
+	max-width: 24em;
+	font-size: 0.9em;
+	border: 0.15em solid #e6d4bf;
+	margin-top: 1em;
+	border-radius: 1em;
+	background: #fdf8f2;
+	cursor: poMontserrat;
 }
 .collector input[type="checkbox"] {
-  transform: scale(1.3) translateY(-0.05em);
-  margin-left: 0.5em;
-  cursor: poMontserrat;
+	transform: scale(1.3) translateY(-0.05em);
+	margin-left: 0.5em;
+	cursor: poMontserrat;
 }
-.collector label,
-#email-collector label,
-#phone-collector label{
-  color: #0c6b9e;
+.collector label, #email-collector label, #phone-collector label {
+	color: #0c6b9e;
 }
-#date-error,
-#price-error{
+#date-error, #price-error {
 	color: #970000;
 	text-transform: capitalize;
 	font-family: "Montserrat";
@@ -3198,77 +2711,73 @@ input#dateInput {
 	height: 1em;
 	line-height: 1em;
 }
-.date-error,
-.price-error{
+.date-error, .price-error {
 	width: 0;
 	overflow: hidden;
 }
-.date-error.active,
-.price-error.active{
+.date-error.active, .price-error.active {
 	width: auto;
 }
-
-@media(max-width:600px){
-	#checkout-window .numberSpinner {
-  transform: rotate(-90deg);
-	width: 7em;
-  transform-origin: center;
-  }
-	#checkout-window .numberSpinner section{
-		  transform: rotate(90deg);
-		  transform-origin: center;
+@media(max-width:600px) {
+	#checkout-window .numberSpinner:not[type="number"] {
+		transform: rotate(-90deg);
+		/*! width: 7em; */
+		transform-origin: center;
+	}
+	#checkout-window .numberSpinner section {
+		transform: rotate(-90deg);
+		transform-origin: center;
 	}
 }
-@media(max-width:450px){
-	#checkout-window{
-		background(0,0,0,0);
+@media(max-width:450px) {
+	#checkout-window {
+		background(0, 0, 0, 0);
 	}
 	.price-prices {
-	font-size: 0.8em;
-  }
+		font-size: 0.8em;
+	}
 	.numberSpinner {
-		width: 6.8em;
 	}
 	.price-description {
-  font-size: 0.8em;
-  }
-	#checkout-content{
+		font-size: 0.8em;
+	}
+	#checkout-content {
 		width: 100%;
 		height: 100%;
 	}
 }
 .group {
-  border: 0.25em solid #ccbca7;
-  margin: 1em;
-  padding: 0em;
+	border: 0.25em solid #ccbca7;
+	margin: 1em;
+	padding: 0em;
 }
 .group-header {
-  width: 100%;
-  text-align: center;
-  padding: 1em;
-  font-size: 1em;
-  cursor: poMontserrat;
-  border-radius: 0;
-  border: 0;
-  background: #0c6b9e;
-  position: relative;
+	width: 100%;
+	text-align: center;
+	padding: 1em;
+	font-size: 1em;
+	cursor: poMontserrat;
+	border-radius: 0;
+	border: 0;
+	background: #0c6b9e;
+	position: relative;
 }
 .group-title {
-  color: white;
+	color: white;
 }
 .group-header-btn {
-  color: white;
-  position: absolute;
-  right: 1em;
-  top: 50%;
-  transform: translateY(-50%);
-  text-transform: capitalize;
-  font-size: 1em;
+	color: white;
+	position: absolute;
+	right: 1em;
+	top: 50%;
+	transform: translateY(-50%);
+	text-transform: capitalize;
+	font-size: 1em;
 }
 .group .group-section {
-  height: 0;
-  overflow: hidden;
+	height: 0;
+	overflow: hidden;
 }
-.group.active .group-section{
-  height: auto;
+.group.active .group-section {
+	height: auto;
 }

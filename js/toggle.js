@@ -7,8 +7,6 @@
 //* ==== this toggle ===*//
 function toggleThis(element, activeClass) {
 
-  // console.log(element)
-
   var classArray = element.className.split(" ");
 
   var elementIndex = classArray.indexOf(activeClass);
@@ -37,13 +35,13 @@ function parentToggle(thisElement,activeClass){
 /*=== next sibling toggle ====*/
 function nextSiblingToggle(element,activeClass){
   var thisElement = element.nextElementSibling;
-  // console.log(nextElement.nextElementSibling)
+
   toggleThis(thisElement, activeClass);
 }
 /*=== previous sibling toggle ====*/
 function prevSiblingToggle(prevElement,activeClass){
   var thisElement = prevElement.previousElementSibling;
-  // console.log(nextElement.nextElementSibling)
+
   toggleThis(thisElement, activeClass);
 }
 
@@ -56,13 +54,7 @@ function idToggle(elementId,activeClass){
 
 }
 /*=== tagname toggle ===*/
-/*///////////////*/
-/* toggle.js v.1.0
-/*///////////////*/
-console.log("toggle.js ready")
-/*///////////////*/
-//toggle events//
-/*///////////////*/
+
 //* ==== this toggle ===*//
 function toggleThis(element, activeClass) {
   var classArray = element.className.split(" ");

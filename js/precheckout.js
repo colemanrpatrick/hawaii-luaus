@@ -34,27 +34,27 @@ const getTodaysDate = function() {
 /*=================|   numberIncremet  |=================*/
 /*======================================================*/
 
-function numIncrement(numberInput, increase) {
-    var myInputObject = document.getElementById(numberInput);
-	myInputObject.setAttribute("placeholder","0");
-    if (increase) {
-        if (myInputObject.Value == " "){
-            myInputObject.value = 1;
-        }else{
-           myInputObject.value++;
-        }
-        localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-    } else {
-        myInputObject.value--;
-        localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-    };
-    if (myInputObject.value > 999) {
-        myInputObject.value = 999;
-    };
-    if (myInputObject.value < 1) {
-        myInputObject.value = " ";
-    };
-};
+// function numIncrement(numberInput, increase) {
+//     var myInputObject = document.getElementById(numberInput);
+// 	myInputObject.setAttribute("placeholder","0");
+//     if (increase) {
+//         if (myInputObject.Value == " "){
+//             myInputObject.value = 1;
+//         }else{
+//            myInputObject.value++;
+//         }
+//         localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
+//     } else {
+//         myInputObject.value--;
+//         localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
+//     };
+//     if (myInputObject.value > 999) {
+//         myInputObject.value = 999;
+//     };
+//     if (myInputObject.value < 1) {
+//         myInputObject.value = " ";
+//     };
+// };
 
 /*========================================================*/
 /*==================|   Date Picker   |==================*/
@@ -167,7 +167,8 @@ let createSpinners = function(landing,$name,priceValue){
         let spinnerSection = document.createElement("SECTION");
 
 		let spinnerInput = document.createElement('INPUT');
-		spinnerInput.setAttribute("type","text");
+		//spinnerInput.setAttribute("type","text");
+		spinnerInput.setAttribute("type","number");
 		spinnerInput.setAttribute("name",$name);
 		spinnerInput.setAttribute("id",$name);
 		spinnerInput.setAttribute('class','price');
@@ -177,19 +178,20 @@ let createSpinners = function(landing,$name,priceValue){
 			spinnerInput.value = priceValue;
 		}
 		
-		let spinnerPlus = document.createElement("BUTTON");
-        let spinnerMinus = document.createElement("BUTTON");
-        spinnerPlus.setAttribute("type","button");
-        spinnerMinus.setAttribute("type","button");
-        spinnerPlus.setAttribute("class","numberPlus");
-        spinnerMinus.setAttribute("class","numberMinus");
-        spinnerPlus.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
-        spinnerMinus.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
+		// let spinnerPlus = document.createElement("BUTTON");
+        // let spinnerMinus = document.createElement("BUTTON");
+        // spinnerPlus.setAttribute("type","button");
+        // spinnerMinus.setAttribute("type","button");
+        // spinnerPlus.setAttribute("class","numberPlus");
+        // spinnerMinus.setAttribute("class","numberMinus");
+        // spinnerPlus.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+        // spinnerMinus.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
 
-		numberSpinner.appendChild(spinnerMinus);
+		// numberSpinner.appendChild(spinnerMinus);
 		spinnerSection.appendChild(spinnerInput);
-		numberSpinner.appendChild(spinnerSection);
-		numberSpinner.appendChild(spinnerPlus);
+		numberSpinner.appendChild(spinnerInput);
+		// numberSpinner.appendChild(spinnerSection);
+		// numberSpinner.appendChild(spinnerPlus);
         
 		landing.appendChild(numberSpinner);
 
@@ -334,18 +336,23 @@ let createAdditionalCollectors = (landing) => {
 
 			// create collectors Select
 			collectorInput = document.createElement("SELECT");
+			collectorInput.setAttribute("ID","hotel-select");
 			let dropDownItems = item.ListMember.ListMembers;
 
 			Array.prototype.forEach.call(dropDownItems, function(element,elementIndex){
 				let _option = document.createElement("option");
 				_option.innerHTML = element.Shortcode;
 				_option.setAttribute("id","" + element.ID + "");
-				_option.setAttribute("value","" + element.Shortcode + "");
+				_option.setAttribute("value","" + element.ID + "");
+				_option.setAttribute("class","hotel-select-option");
 				collectorInput.appendChild(_option);
+
+				if(element.Selected == true){
+					_option.selected = true;
+					item.value = element.ID;
+				};
 			});
 
-			collectorInput.value = item.Value;
-		
 		}else if(item.ApplicationDataType == 1){
 
 			// create collectors checkbox
@@ -383,7 +390,6 @@ let createAdditionalCollectors = (landing) => {
 
 	});
 };
-
 /*=========================================================*/
 /*==================|  email - phone   |==================*/
 /*=======================================================*/
@@ -441,15 +447,15 @@ let createEmailPhoneCollectors = (landing) => {
 
    //=========== populate email ===========//
    try{
-	if(cartConfig.Customer[0].Email.length > 0 && cartConfig.Customer[1].MobilePhone.length > 0){
+	if(cartConfig.Customer.Email.length > 0 && cartConfig.Customer.MobilePhone.length > 0){
 		// do nothing
-	}else if(cartConfig.Customer[0].Email.length > 0){
-		cartConfig.Customer[1].MobilePhone;
+	}else if(cartConfig.Customer.Email.length > 0){
+		cartConfig.Customer.MobilePhone;
 	}else{
 		landing.appendChild(emailCollector);
 	}
    }catch(error){
-	console.log(error);
+	console.log("error email/phone" , error);
    }
 };
 /*========================================================*/
@@ -462,7 +468,6 @@ let createCheckoutHeader = () => {
 	checkOutHeader.innerHTML = cartConfig.ProductTitle;
 	
 }
-
 
 /*========================================================*/
 /*==================|  Create page 1  |==================*/
@@ -584,6 +589,28 @@ let showPage3 = function(){
 	};
 
 };
+/*====================| Set and Change Select Value |====================*/
+
+let hotelSelect = document.getElementById("hotel-select");
+let hotelOption = document.getElementsByClassName("hotel-select-option");
+
+let setSelectValue = function(){
+
+	for (let i = 0; i < hotelOption.length; i++) {
+		
+		if(hotelOption[i].selected == true){
+			hotelSelect.setAttribute("value","" + hotelOption[i].value + "");
+			console.log(hotelSelect.value,hotelOption[i].value);
+		};
+	};
+
+};
+
+setSelectValue();
+
+hotelSelect.onchange = function(){
+	setSelectValue();
+};
 
 /*======================================================*/
 
@@ -657,3 +684,6 @@ activityTitle = activityTitle.replace("-", "<span>");
 activityTitle = activityTitle.concat("</span>");
 document.querySelector("#luau-hero h1").innerHTML = activityTitle; 
 console.log(activityTitle);
+
+
+

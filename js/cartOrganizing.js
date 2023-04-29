@@ -90,81 +90,80 @@ for (var i = 0; i < $_inputs.length; i++) {
 /*==================|  number spinner |==================*/
 /*======================================================*/
 
-let spinnerInput = document.querySelectorAll("input[type='number']");
+// let spinnerInput = document.querySelectorAll("input[type='number']");
 
-Array.prototype.forEach.call(spinnerInput, function(item, index) {
+// Array.prototype.forEach.call(spinnerInput, function(item, index) {
 
-  item.setAttribute('ID',item.getAttribute('name'));
-  
-  let numberSpinnerParent = item.parentNode;
+//   item.setAttribute('ID',item.getAttribute('name'));
+//   let numberSpinnerParent = item.parentNode;
 
-  let spinnerDiv = document.createElement("DIV");
-  spinnerDiv.setAttribute("class","numberSpinner");
+//   let spinnerDiv = document.createElement("DIV");
+//   spinnerDiv.setAttribute("class","numberSpinner");
 
-  let spinnerSection = document.createElement("SECTION");
+//   let spinnerSection = document.createElement("SECTION");
 
-  let spinnerPlus = document.createElement("BUTTON");
-  let spinnerMinus = document.createElement("BUTTON");
-  spinnerPlus.setAttribute("type","button");
-  spinnerMinus.setAttribute("type","button");
-  spinnerPlus.setAttribute("class","numberPlus");
-  spinnerMinus.setAttribute("class","numberMinus");
-  spinnerPlus.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
-  spinnerMinus.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
+//   let spinnerPlus = document.createElement("BUTTON");
+//   let spinnerMinus = document.createElement("BUTTON");
+//   spinnerPlus.setAttribute("type","button");
+//   spinnerMinus.setAttribute("type","button");
+//   spinnerPlus.setAttribute("class","numberPlus");
+//   spinnerMinus.setAttribute("class","numberMinus");
+//   spinnerPlus.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+//   spinnerMinus.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
 
-  numberSpinnerParent.appendChild(spinnerDiv);
+//   numberSpinnerParent.appendChild(spinnerDiv);
 
-  spinnerDiv.appendChild(spinnerMinus)
-  spinnerDiv.appendChild(spinnerSection);
-  spinnerSection.appendChild(item);
-  spinnerDiv.appendChild(spinnerPlus);
+//   spinnerDiv.appendChild(spinnerMinus)
+//   spinnerDiv.appendChild(spinnerSection);
+//   spinnerSection.appendChild(item);
+//   spinnerDiv.appendChild(spinnerPlus);
 
-});
+// });
 
 /*========================================================*/
 /*=================|   numberIncremet  |=================*/
 /*======================================================*/
 
-function numIncrement(numberInput, increase) {
-  var myInputObject = document.getElementById(numberInput);
-  if (increase) {
-      if (myInputObject.Value == " "){
-          myInputObject.value = 1;
-      }else{
-         myInputObject.value++;
-      }
+// function numIncrement(numberInput, increase) {
+//   var myInputObject = document.getElementById(numberInput);
+//   if (increase) {
+//       if (myInputObject.Value == " "){
+//           myInputObject.value = 1;
+//       }else{
+//          myInputObject.value++;
+//       }
       
-      localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-  } else {
-      myInputObject.value--;
-      localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
-  };
-  if (myInputObject.value > 999) {
-      myInputObject.value = 999;
-  };
-  if (myInputObject.value < 1) {
-      myInputObject.value = " ";
-  };
-};
+//       localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
+//   } else {
+//       myInputObject.value--;
+//       localStorage.setItem("" + myInputObject.getAttribute("name") + "", myInputObject.value);
+//   };
+//   if (myInputObject.value > 999) {
+//       myInputObject.value = 999;
+//   };
+//   if (myInputObject.value < 1) {
+//       myInputObject.value = " ";
+//   };
+// };
 
 /*========================================================*/
 /*=================|   number  Events  |=================*/
 /*======================================================*/
 
-let numberSpinnerPlus = document.getElementsByClassName("numberPlus");
-let numberSpinnerMinus = document.getElementsByClassName("numberMinus");
+// let numberSpinnerPlus = document.getElementsByClassName("numberPlus");
+// let numberSpinnerMinus = document.getElementsByClassName("numberMinus");
 
-for (var i = 0; i <  numberSpinnerPlus.length; i++) {
-    numberSpinnerPlus[i].addEventListener( "click" ,function(){
-        numIncrement("" + this.previousElementSibling.firstChild.id + "",true)
-    });
-};
+// for (var i = 0; i <  numberSpinnerPlus.length; i++) {
+//     numberSpinnerPlus[i].addEventListener( "click" ,function(){
+//         numIncrement("" + this.previousElementSibling.firstChild.id + "",true)
+//     });
+// };
 
-for (var i = 0; i < numberSpinnerMinus.length; i++) {
-    numberSpinnerMinus[i].addEventListener( "click" ,function(){
-        numIncrement("" + this.nextElementSibling.firstChild.id + "",false)
-    });
-};
+// for (var i = 0; i < numberSpinnerMinus.length; i++) {
+//     numberSpinnerMinus[i].addEventListener( "click" ,function(){
+//         numIncrement("" + this.nextElementSibling.firstChild.id + "",false)
+//     });
+// };
 
 /*========================================================*/
 /*=================|   cart - bottom   |=================*/

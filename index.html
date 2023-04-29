@@ -17,25 +17,39 @@
 <body>
 	<main>
 		<header id="masthead">
-			<ul>
-				<li id="logo">
-					<a href="/"><img alt="" src="images/hawaiiluauslogo.png">
-					<h1>hawaii luaus</h1></a>
-				</li>
-				<li>
-					<a href="tel:+18664829775" id="phone-desktop"><span>(toll free)</span><span class="material-symbols-outlined">call</span> 1-866-482-9775</a>
-					<nav id="main-nav">
-						<a href="luaus.html">luaus</a> <a href="compare.html">compare</a> <a href="contact.html">contact</a> <a href="#"><span class="material-symbols-outlined">shopping_cart</span>cart</a>
-					</nav>
-					<a href="tel:+1866-482-9775" id="phone-mobile"><span class="material-symbols-outlined">call</span></a>
-					<button class="menu-btn" id="menu-btn" name="button" onclick="idToggle('menu-btn','active');idToggle('main-nav','active')" type="button">
-						<hr class="menu-btn-hr-1">
-						<hr class="menu-btn-hr-2">
-						<hr class="menu-btn-hr-3">
-					</button>
-				</li>
-			</ul>
-		</header>
+            <ul>
+                <li id="logo">
+                    <a href="#">
+                        <img alt="" src="images/hawaiiluauslogo.png">
+                        <h1>hawaii luaus</h1>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+18664829775" id="phone-desktop"><span>(toll free)</span><span class="material-symbols-outlined">call</span> 1-866-482-9775</a>
+                    <nav id="main-nav">
+                        <div id="nested-menu">
+                            <a href="/luaus.htm" id="nested-first-item">luaus</a>
+                            <ul id="nested-list">
+                                <li><a href="/oahu.htm">oahu</a></li>
+                                <li><a href="/kauai.htm">kauai</a></li>
+                                <li><a href="/maui.htm">maui</a></li>
+                                <li><a href="/big-island.htm">big island</a></li>
+                            </ul>
+                        </div>
+                        <a href="/about.htm">about</a> 
+                        <a href="/contact.htm">contact</a> 
+                        <a href="/cart/edit#viewitems"><span class="material-symbols-outlined">shopping_cart</span>cart</a>
+                    </nav>
+
+                    <a href="tel:+18664829775" id="phone-mobile"><span class="material-symbols-outlined">call</span></a>
+                    <button class="menu-btn" id="menu-btn" name="button" onclick="idToggle('menu-btn','active');idToggle('main-nav','active')" type="button">
+                        <hr class="menu-btn-hr-1">
+                        <hr class="menu-btn-hr-2">
+                        <hr class="menu-btn-hr-3">
+                    </button>
+                </li>
+            </ul>
+        </header>
 		<div id="return-top">
 			<span class="material-symbols-outlined">arrow_circle_up</span>
 			<p>top</p>
