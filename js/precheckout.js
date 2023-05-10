@@ -1,4 +1,4 @@
-console.log("precheckout.js");
+//console.log("precheckout.js");
 
 let page1 = document.getElementById("page-1");
 let page2 = document.getElementById("page-2");
@@ -253,10 +253,17 @@ let createPrices = (landing) => {
 
 		let description = item.Description;
 		let grouping = item.Grouping;
+		console.log(item.Grouping)
 
 		priceOption = document.createElement('UL');
 		priceOption.setAttribute("class", "price-option");
-		priceOption.setAttribute('data-group', grouping.replace(/\s/g, ''));
+		
+		try {
+			priceOption.setAttribute('data-group', grouping.replace(/\s/g, ''));
+		} catch (error) {
+			console.log(error);
+		}
+
 
 		let priceSpinnerCont = document.createElement("LI");
 		priceSpinnerCont.setAttribute("class", "price-spinner-cont");
@@ -285,15 +292,16 @@ let createPrices = (landing) => {
 	priceOption = document.getElementsByClassName("price-option");
 
 	Array.prototype.forEach.call(priceOption, function(item, index){
-
-		itemGrouping = item.getAttribute('data-group');
-
-		let groupId = document.getElementById(itemGrouping);
-		let groupCollection = groupId.firstElementChild.nextElementSibling;
-		if( groupId.getAttribute("id") === itemGrouping ){
-			groupCollection.appendChild(item);
+		try {
+			itemGrouping = item.getAttribute('data-group');
+			let groupId = document.getElementById(itemGrouping);
+			let groupCollection = groupId.firstElementChild.nextElementSibling;
+			if( groupId.getAttribute("id") === itemGrouping ){
+				groupCollection.appendChild(item);
+			};
+		} catch (error) {
+			console.log(error);
 		};
-
 	});
 
 	// remove empty groups and groups with single items
@@ -412,7 +420,7 @@ let createEmailPhoneCollectors = (landing) => {
 	try{
 		email.setAttribute("name",emailName);
 	} catch(error){
-		console.log(error);
+		////console.log(error);
 	};
 
 
@@ -434,7 +442,7 @@ let createEmailPhoneCollectors = (landing) => {
 	try{
 		email.setAttribute("name",mailPhone);
 	} catch(error){
-		console.log(error);
+		////console.log(error);
 	};
 
     //=========== show email/phone ===========// 
@@ -455,7 +463,7 @@ let createEmailPhoneCollectors = (landing) => {
 		landing.appendChild(emailCollector);
 	}
    }catch(error){
-	console.log("error email/phone" , error);
+	//console.log("error email/phone" , error);
    }
 };
 /*========================================================*/
@@ -600,7 +608,7 @@ let setSelectValue = function(){
 		
 		if(hotelOption[i].selected == true){
 			hotelSelect.setAttribute("value","" + hotelOption[i].value + "");
-			console.log(hotelSelect.value,hotelOption[i].value);
+			//console.log(hotelSelect.value,hotelOption[i].value);
 		};
 	};
 
@@ -651,13 +659,18 @@ Array.prototype.forEach.call(groupHeader, function(item, index) {
 let lastCheckbox = document.querySelectorAll(".checkbox")
 let $checkout = document.getElementById("addToCartSubmit");
 
-lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
-	if (this.checked) {
-		$checkout.disabled = false;
-	} else {
-		$checkout.disabled = true;
-	};
-});
+try {
+	lastCheckbox[lastCheckbox.length -1].addEventListener("change", function () {
+		if (this.checked) {
+			$checkout.disabled = false;
+		} else {
+			$checkout.disabled = true;
+		};
+	});
+} catch (error) {
+	console.log(error);
+}
+
 
 /*========================================================*/
 /*==================|  misc re-style  |==================*/
@@ -683,7 +696,4 @@ let activityTitle = document.querySelector("#luau-hero h1").innerHTML;
 activityTitle = activityTitle.replace("-", "<span>");
 activityTitle = activityTitle.concat("</span>");
 document.querySelector("#luau-hero h1").innerHTML = activityTitle; 
-console.log(activityTitle);
-
-
-
+//console.log(activityTitle);
